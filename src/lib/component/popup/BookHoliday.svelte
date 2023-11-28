@@ -22,7 +22,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
     }
      :global(.dialog__close) {
         position: absolute;
