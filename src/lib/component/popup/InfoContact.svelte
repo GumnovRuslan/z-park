@@ -24,13 +24,19 @@
             Телефон:
             <span> +375 XX XXX XX XX</span>
         </a>
+        <span class="network__container">Социальные сети:<Network /></span>
     </div>
-    <Network text='Социальные сети:'></Network>
+
 </dialog>
 
 <style>
     .content {
         display: flex;
         flex-direction: column;
+    }
+    .network__container {
+        display: flex;
+        gap: 10px;
+        /* align-items: center; */
     }
 </style>
