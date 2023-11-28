@@ -3,7 +3,7 @@
         <div class="dialog__close" onclick="window.bookTiket.close()">
             <span class='dialog__inner'></span>
         </div>
-        <p class="dialog__subtitle">заказ праздника</p>
+        <p class="dialog__subtitle">Купить билет</p>
         <p class="dialog__description">
             Оставьте заявку на проведение дня рождения и наши менеджеры свяжутся с вами и помогут с организацией.
         </p>
