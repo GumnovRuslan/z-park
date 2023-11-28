@@ -111,7 +111,7 @@
         display: block;
         width: 200px;
         height: 80px;
-        background-image: url(img/logo.jpg);
+        background-image: url(/img/logo.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
