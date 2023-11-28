@@ -24,6 +24,6 @@
         margin: 0;
     }
     .content {
-        height: 100vh;
+        min-height: 100vh;
     }
 </style>
