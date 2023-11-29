@@ -1,11 +1,8 @@
-<script>
-</script>
-
 <svelte:head>
     <title>Альбомы Z-park</title>
 </svelte:head>
 
-<h2 class="title">Альбомы из Z-park</h2>
+<h2 class="section__title">Альбомы из Z-park</h2>
 <div class='content'>
     <a class='album' href="/photo/birthday">
         <div class='album__border'>
@@ -76,23 +73,21 @@
 </div>
 
 <style>
-    .title {
+    :global(.section__title) {
         text-transform: uppercase;
         background: #d8ff4b;
-        margin: 0 0 20px 0;
+        margin: 0;
         text-align: center;
         text-shadow: 1px 1px 2px #000;
         color: #f5f5f5;
     }
 
     .content {
-        width: 95vw;
-        margin: 0 auto;
         display: grid;
         justify-content: center;
         grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
         gap: 30px;
-        padding: 50px 0;
+        padding: 50px 15px;
     }
     .album {
         text-decoration: none;
@@ -160,12 +155,12 @@
         color: #6d6d6d;
     }
     @media screen and (min-width: 460px) {
-        .title {
+        :global(.section__title) {
             font-size: 35px;
         }
     }
     @media screen and (max-width: 460px) {
-        .title {
+        :global(.section__title) {
             font-size: 25px;
         }
     }

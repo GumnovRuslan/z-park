@@ -1,12 +1,14 @@
 <script>
     import Header from "$lib/component/Header.svelte";
     import Footer from "$lib/component/Footer.svelte";
+    import BtnUp from "../lib/component/BtnUp.svelte";
 </script>
 
 <Header />
 <div class='content'>
     <slot />
 </div>
+<BtnUp />
 <Footer />
 
 <style>
