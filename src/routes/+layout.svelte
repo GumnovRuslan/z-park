@@ -10,13 +10,16 @@
   ];
 </script>
 
-<Header />
-<BreadCrumbs {breadcrumbs} />
-<div class='content'>
-    <slot />
+<div class='wrapper'>
+    <Header />
+    <main class='main'>
+        <BreadCrumbs {breadcrumbs} />
+        <slot />
+        <BtnUp />
+    </main>
+    <Footer />
 </div>
-<BtnUp />
-<Footer />
+
 
 <style>
     :global(button) {
@@ -25,14 +28,21 @@
     :global(html,body) {
         padding: 0;
         margin: 0;
+        height: 100%;
     }
     :global(*) {
         box-sizing: border-box;
     }
     :global(p) {
         margin: 0;
+        padding: 0;
     }
-    .content {
-        min-height: 100vh;
+    .wrapper {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .main {
+        flex: 1 1 auto;
     }
 </style>
