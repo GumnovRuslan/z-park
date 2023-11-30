@@ -2,6 +2,16 @@
     import BookHoliday  from "$lib/component/popup/BookHoliday.svelte";
     import BuyTicket from "$lib/component/popup/BuyTicket.svelte";
     import InfoContact from "$lib/component/popup/InfoContact.svelte"
+    import { onMount } from "svelte";
+
+    onMount(() => {
+        let links = document.querySelectorAll('.link')
+        closeMenu(links)
+    })
+
+    function closeMenu(links) {
+        links.forEach(link => link.addEventListener('click', ()=> window.falseCheckbox.checked = false))
+    }
 </script>
 
 <header class="header">
@@ -11,7 +21,7 @@
         <span class="burger__line burger__line-center"></span>
         <span class="burger__line burger__line-bottom"></span>
     </label>
-    <a class="logo-link logo-top" href='/'></a>
+    <a class="logo-link logo-top link" href='/'></a>
     <nav class='header__menu'>
         <div class="header__info">
             <button class="btn" type="button" on:click={()=> window.bookHoliday.showModal()}>
@@ -25,12 +35,12 @@
             <InfoContact />
         </div>
         <nav class="header__nav">
-            <a class="header__top-link" href='/about' on:click={() => window.falseCheckbox.checked = false}>О нас</a>
-            <a class="header__top-link" href='/photo' on:click={() => window.falseCheckbox.checked = false}>Фото</a>
-            <a class="header__top-link" href='/holidays' on:click={() => window.falseCheckbox.checked = false}>Праздники</a>
-            <a class="logo-link logo-bottom" href='/'></a>
-            <a class="header__top-link" href='/cafe' on:click={() => window.falseCheckbox.checked = false}>Кафе</a>
-            <a class="header__top-link" href='/prices' on:click={() => window.falseCheckbox.checked = false}>Цены</a>
+            <a class="header__top-link link" href='/about'>О нас</a>
+            <a class="header__top-link link" href='/photo'>Фото</a>
+            <a class="header__top-link link" href='/holidays'>Праздники</a>
+            <a class="logo-link logo-bottom link" href='/'></a>
+            <a class="header__top-link link" href='/cafe'>Кафе</a>
+            <a class="header__top-link link" href='/prices'>Цены</a>
             <button class="header__top-link" type="button" on:click={() => window.infoContact.showModal()}>
                 Контакты
             </button>
@@ -42,6 +52,7 @@
     .header {
         position: sticky;
         top: 0;
+        z-index: 10;
         box-shadow: 0 0 10px 1px #858585;
         background: #24b3ff;
     }
