@@ -2,9 +2,16 @@
     import Header from "$lib/component/Header.svelte";
     import Footer from "$lib/component/Footer.svelte";
     import BtnUp from "../lib/component/BtnUp.svelte";
+    import BreadCrumbs from "../lib/component/BreadCrumbs.svelte";
+
+  let breadcrumbs = [
+    { label: 'Главная', url: '/' },
+    { label: 'Текущая страница', url: null }
+  ];
 </script>
 
 <Header />
+<BreadCrumbs {breadcrumbs} />
 <div class='content'>
     <slot />
 </div>

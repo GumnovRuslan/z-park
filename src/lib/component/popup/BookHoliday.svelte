@@ -62,9 +62,11 @@
         font-weight: 700;
         font-size: 24px;
         text-align: center;
+        line-height: 1.2;
     }
     :global(.dialog__description) {
-        width: 500px;
+        max-width: 500px;
+        width: 100%;
         text-transform: uppercase;
         font-weight: 700;
         font-size: 14px;
