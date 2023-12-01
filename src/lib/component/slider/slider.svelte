@@ -61,7 +61,7 @@
 	.slider {
 		position: relative;
 		width: 100%;
-		height: clamp(400px, 40vw, 700px);
+		height: clamp(400px, 40vw, 50vw);
 		background-color: #222;
 	}
 	.slide {

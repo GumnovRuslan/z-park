@@ -36,19 +36,20 @@
         </div>
         <nav class="header__nav">
             <a class="header__top-link link" href='/about'>О нас</a>
-            <a class="header__top-link link" href='/photo'>Фото</a>
             <a class="header__top-link link" href='/holidays'>Праздники</a>
+            <a class="header__top-link link" href='/photo'>Фото</a>
             <a class="logo-link logo-bottom link" href='/'></a>
             <a class="header__top-link link" href='/cafe'>Кафе</a>
             <a class="header__top-link link" href='/prices'>Цены</a>
-            <button class="header__top-link" type="button" on:click={() => window.infoContact.showModal()}>
-                Контакты
-            </button>
+            <a class="header__top-link link" href='/contacts'>Контакты</a>
         </nav>
     </nav>
 </header>
 
 <style>
+    button {
+        padding: 0;
+    }
     .header {
         position: sticky;
         top: 0;
@@ -112,7 +113,7 @@
     }
     .header__nav {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
         box-shadow: 0 0 10px #878787;
         background: #fff;
@@ -120,38 +121,44 @@
     }
     .logo-link {
         display: block;
-        width: 200px;
+        width: 150px;
         height: 80px;
-        background-image: url(/img/logo.jpg);
+        background-image: url(/img/logo-removebg-cut.png);
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size:contain;
         background-position: center;
     }
     .logo-top {
         display: none;
     }
     .header__top-link {
-        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc((100vw - 144px - 30px) / 6);
+        height: 80px;
+        text-transform: uppercase;
         font-family: Rubik;
-        font-size: 18px;
+        font-size: clamp(14px, 1.7vw, 20px);
         color: #000;
         font-weight: 700;
         border: none;
         background: transparent;
         text-decoration: none;
         transition: all 0.2s;
-        border-bottom: 5px solid transparent;
     }
     .header__top-link:hover {
-        border-bottom: 5px solid #ff3e24;
+        background: #5a5a5a;
+        color: #f5f5f5;
+        text-shadow: 1px 1px 2px #000;
     }
 
 
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 800px) {
         .header {
             display: flex;
             align-items: center;
-            padding: 5px;
+            padding: 0 10px;
         }
         .burger {
             display: flex;
@@ -172,11 +179,9 @@
         }
         .logo-link {
             display: block;
-            width: 150px;
-            height: 50px;
+            height: clamp(50px, 11vw, 70px);
             margin: 0 auto;
-            padding-right: 40px;
-            justify-self: center;
+            transform: translateX(-15px);
         }
         .logo-bottom {
             display: none;
@@ -198,8 +203,10 @@
             box-shadow: none;
         }
         .header__top-link  {
+            height: auto;
             text-align: center;
             width: 100%;
+            font-size: 20px;
         }
     }
 
