@@ -13,7 +13,7 @@
 <div class='wrapper'>
     <Header />
     <main class='main'>
-        <BreadCrumbs {breadcrumbs} />
+        <!-- <BreadCrumbs {breadcrumbs} /> -->
         <slot />
         <BtnUp />
     </main>
