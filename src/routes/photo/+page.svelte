@@ -1,8 +1,12 @@
+<script>
+    import SectionTitle from '$lib/component/SectionTitle.svelte'
+</script>
+
 <svelte:head>
     <title>Альбомы Z-park</title>
 </svelte:head>
 
-<h2 class="section__title">Альбомы из Z-park</h2>
+<SectionTitle value='Альбомы из Z-park'/>
 <div class='content'>
     <a class='album' href="/photo/birthday">
         <div class='album__border'>

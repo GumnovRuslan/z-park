@@ -1,10 +1,13 @@
+<script>
+    import SectionTitle from '$lib/component/SectionTitle.svelte'
+</script>
+
+
 <svelte:head>
     <title>Стоимость посищения Z-park</title>
 </svelte:head>
 
-
-<h2  class="section__title">Стоимость посищения</h2>
-
+<SectionTitle value='Стоимость посищения'/>
 <div class='content'>
     <div class='prices'>
         <h3 class='prices__title'>Посещение парка</h3>
@@ -68,23 +71,11 @@
     </div>
 </div>
 <style>
-    :global(.section__title) {
-        text-transform: uppercase;
-        background: #d8ff4b;
-        margin: 0;
-        text-align: center;
-        text-shadow: 1px 1px 2px #000;
-        color: #f5f5f5;
-    }
     .content {
         display: flex;
         flex-direction: column;
         gap: 20px;
         padding: 50px 0;
-        /* height: 100vh; */
-        /* background-image: url(/photo/bg.jpg); */
-    }
-    .prices {
     }
     .prices__title {
         margin: 0 0 10px 0;
@@ -105,7 +96,6 @@
         padding: 15px;
         border: 3px solid #000;
         border-radius: 10px;
-
     }
     .card__title {
         font-size: 20px;
@@ -120,16 +110,5 @@
     .card__price {
         text-transform: uppercase;
         font-weight: 700;
-    }
-
-    @media screen and (min-width: 460px) {
-        :global(.section__title) {
-            font-size: 35px;
-        }
-    }
-    @media screen and (max-width: 460px) {
-        :global(.section__title) {
-            font-size: 25px;
-        }
     }
 </style>

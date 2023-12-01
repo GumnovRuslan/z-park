@@ -1,4 +1,5 @@
 <script>
+    import SectionTitle from '$lib/component/SectionTitle.svelte'
     import { onMount } from "svelte";
 
     let anchors
@@ -28,7 +29,7 @@
     </title>
 </svelte:head>
 
-<h2 class="section__title">Кафе в Z-park</h2>
+<SectionTitle value='Кафе в Z-park'/>
 <div class='news'>
     <div class='news__content'>
         <p class="news__title">Наши пончиковые новинки</p>
