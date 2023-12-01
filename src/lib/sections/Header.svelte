@@ -127,6 +127,10 @@
         background-repeat: no-repeat;
         background-size:contain;
         background-position: center;
+        transition: all 0.5s;
+    }
+    .logo-link:hover {
+        transform: scale(115%);
     }
     .logo-top {
         display: none;

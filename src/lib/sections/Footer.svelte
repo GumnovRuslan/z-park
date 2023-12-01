@@ -1,5 +1,5 @@
 <script>
-    import Network from "./Network.svelte";
+    import Network from "../component/Network.svelte"
 </script>
 
 <footer class="footer">

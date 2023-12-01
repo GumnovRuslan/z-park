@@ -1,6 +1,6 @@
 <script>
-    import Header from "$lib/component/Header.svelte";
-    import Footer from "$lib/component/Footer.svelte";
+    import Header from "$lib/sections/Header.svelte";
+    import Footer from "$lib/sections/Footer.svelte";
     import BtnUp from "../lib/component/BtnUp.svelte";
     import BreadCrumbs from "../lib/component/BreadCrumbs.svelte";
 
