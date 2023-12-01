@@ -149,6 +149,9 @@
     }
 
     @media screen and (min-width: 800px) {
+        .header {
+            overflow: hidden;
+        }
         .burger {
             display: none;
         }
@@ -178,6 +181,7 @@
 
     @media screen and (max-width: 800px) {
         .header {
+            overflow: visible;
             display: flex;
             align-items: center;
             padding: 0 10px;
