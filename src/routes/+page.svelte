@@ -1,5 +1,6 @@
 <script>
     import Slider from "../lib/component/slider/slider.svelte";
+    import Contacts from "$lib/sections/Contacts.svelte";
 </script>
 
 <svelte:head>
@@ -42,37 +43,10 @@ slides={[
         </div>
     </div>
 </section>
-<section class='section'>
-    <p class='title'>Контакты</p>
-    <div class='contacts'>
-        <div class='contacts__map'>Здесь должна быть карта</div>
-        <div class='contacts__info'>
-            <div class='contact'>
-                <p class='contact__title'>Наш адрес</p>
-                <p class='contact__text'>проспект Фрунзе, 81к33, Витебск</p>
-            </div>
-            <div class='contact'>
-                <p class='contact__title'>Наши телефоны</p>
-                <p class='contact__text'>+ 375 ХХ ХХХ ХХ ХХ</p>
-            </div>
-            <div class='contact'>
-                <p class='contact__title'>Время работы</p>
-                <p class='contact__text'>11:00 - 20:00 каждый день</p>
-            </div>
-            <div class='contact'>
-                <p class='contact__title'>Наша почта</p>
-                <p class='contact__text'>z_park_vitebsk</p>
-            </div>
-            <div class='contact'>
-                <p class='contact__title'>Мы в соц. сетях</p>
-                <p class='contact__text'>Вконтакте</p>
-                <p class='contact__text'>Youtube</p>
-                <p class='contact__text'>Instagram</p>
-                <p class='contact__text'>TikTok</p>
-            </div>
-        </div>
+    <div class='wrapper'>
+        <p class='title'>Контакты</p>
+        <Contacts />
     </div>
-</section>
 
 <style>
     .section {
@@ -80,7 +54,7 @@ slides={[
     }
     .title {
         text-transform: uppercase;
-        font-size: 20px;
+        font-size: 36px;
         font-weight: 700;
         text-align: center;
         padding: 20px;
@@ -126,34 +100,16 @@ slides={[
         border-radius: 50%;
         background: grey;
     }
-    .contacts {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        align-items: center;
-        justify-content: space-evenly;
+    @media screen and (min-width: 600px) {
+        .wrapper {
+            max-width: 2000px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
     }
-    .contacts__map {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: clamp(300px, 40vw, 70vh);
-        height: clamp(300px, 40vw, 70vh);
-        background: gray;
-    }
-    .contacts__info {
-    }
-    .contact:not(:last-child) {
-        margin-bottom: 20px;
-    }
-    .contact__title {
-        text-transform: uppercase;
-        font-weight: 700;
-        font-size: clamp(18px, 2vw, 20px);
-        line-height: 1.3;
-    }
-    .contact__text {
-        font-size: clamp(16px, 2vw, 18px);
-        line-height: 1.3;
+    @media screen and (max-width: 600px) {
+        .wrapper {
+            padding: 20px 10px;
+        }
     }
 </style>
