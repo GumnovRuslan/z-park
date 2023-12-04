@@ -24,7 +24,7 @@ slides={[
         <div class='card'>
             <p class='card__title'>День рождения</p>
             <div class='p card__price'>от 130 BYN</div>
-            <div class='card__img'></div>
+            <div class='card__img'>Картинка</div>
         </div>
         <div class='card'>
             <p class='card__title'>Свободные прыжки</p>
@@ -58,6 +58,7 @@ slides={[
         font-weight: 700;
         text-align: center;
         padding: 20px;
+        line-height: 1.3;
     }
     .content {
         max-width: 900px;
@@ -78,6 +79,9 @@ slides={[
         box-shadow: 2px 2px 5px grey;
         overflow: hidden;
     }
+    .card:hover .card__img {
+        transform: scale(110%);
+    }
     .card__title {
         flex: auto;
         text-transform: uppercase;
@@ -93,12 +97,20 @@ slides={[
     }
     .card__img {
         position: absolute;
+        z-index: -1;
         right: -25%;
         bottom: -30%;
         width: 250px;
         height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 18px;
         border-radius: 50%;
         background: grey;
+        transition: all 0.5s;
     }
     @media screen and (min-width: 600px) {
         .wrapper {
