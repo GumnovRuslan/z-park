@@ -1,5 +1,6 @@
 <script>
     import SectionTitle from '$lib/component/SectionTitle.svelte'
+    import Price from '../../lib/component/Price.svelte';
 </script>
 
 
@@ -8,107 +9,56 @@
 </svelte:head>
 
 <SectionTitle value='Стоимость посищения'/>
+
 <div class='content'>
-    <div class='prices'>
-        <h3 class='prices__title'>Посещение парка</h3>
-        <div class='prices__cards'>
-            <div class='card'>
-                <h4 class="card__title">ПН-ЧТ</h4>
-                <p class='card__text'>1 час: <span class="card__price">11</span> byn</p>
-                <p class='card__text'>весь день: <span class="card__price">16</span> byn</p>
-            </div>
-            <div class='card'>
-                <h4 class="card__title">ПН-ЧТ</h4>
-                <p class='card__text'>1 час: <span class="card__price">11</span> byn</p>
-                <p class='card__text'>весь день: <span class="card__price">16</span> byn</p>
-            </div>
-            <div class='card'>
-                <h4 class="card__title">ПН-ЧТ</h4>
-                <p class='card__text'>1 час: <span class="card__price">11</span> byn</p>
-                <p class='card__text'>весь день: <span class="card__price">16</span> byn</p>
-            </div>
-        </div>
-    </div>
-    <div class='prices'>
-        <h3 class='prices__title'>Посещение парка</h3>
-        <div class='prices__cards'>
-            <div class='card'>
-                <h4 class="card__title">ПН-ЧТ</h4>
-                <p class='card__text'>1 час: <span class="card__price">11</span> byn</p>
-                <p class='card__text'>весь день: <span class="card__price">16</span> byn</p>
-            </div>
-            <div class='card'>
-                <h4 class="card__title">ПН-ЧТ</h4>
-                <p class='card__text'>1 час: <span class="card__price">11</span> byn</p>
-                <p class='card__text'>весь день: <span class="card__price">16</span> byn</p>
-            </div>
-            <div class='card'>
-                <h4 class="card__title">ПН-ЧТ</h4>
-                <p class='card__text'>1 час: <span class="card__price">11</span> byn</p>
-                <p class='card__text'>весь день: <span class="card__price">16</span> byn</p>
-            </div>
-        </div>
-    </div>
-    <div class='prices'>
-        <h3 class='prices__title'>Посещение парка</h3>
-        <div class='prices__cards'>
-            <div class='card'>
-                <h4 class="card__title">ПН-ЧТ</h4>
-                <p class='card__text'>1 час: <span class="card__price">11</span> byn</p>
-                <p class='card__text'>весь день: <span class="card__price">16</span> byn</p>
-            </div>
-            <div class='card'>
-                <h4 class="card__title">ПН-ЧТ</h4>
-                <p class='card__text'>1 час: <span class="card__price">11</span> byn</p>
-                <p class='card__text'>весь день: <span class="card__price">16</span> byn</p>
-            </div>
-            <div class='card'>
-                <h4 class="card__title">ПН-ЧТ</h4>
-                <p class='card__text'>1 час: <span class="card__price">11</span> byn</p>
-                <p class='card__text'>весь день: <span class="card__price">16</span> byn</p>
-            </div>
-        </div>
-    </div>
+    <Price
+    title='Посещение парка до 18 лет'
+    line={[
+        ['Понедельник-четверг', '(1ч, 11р) (весь день, 16р)'],
+        ['Пятница', '(1ч, 13р) (весь день, 19р)'],
+        ['Субота-воскресение, каникулы, праздничные дни', '(1ч, 11р) (весь день, 16р)'],
+    ]}
+    />
+    <Price
+    title='бронирование комнат'
+    line={[
+        ['При заказе на баре от 60р', 'Бесплатно на 2 часа'],
+    ]}
+    />
+    <Price
+    title='продлени комнаты на 2,5 часа'
+    line={[
+        ['Будний день', '40р'],
+        ['Выходные, Праздники, каникулы', '50р'],
+    ]}
+    />
+    <Price
+    title='Бронирование столов'
+    line={[
+        ['Призаказе на баре от 50р стол до 10 человек', ' Беспланто'],
+        ['Призаказе на баре от 60р стол до 14 человек', ' Беспланто'],
+    ]}
+    />
+    <Price
+    title='Анимации'
+    line={[
+        ['Вынос торта(1 герой)', ' 20р'],
+        ['Флешмоб', ' 35р', 'Это особенный танец, который провобится с героем, во время этого танца дети могут веселиться и развленаться всмете с героем, а в конце имениннику вынесут торт и он задует свечки'],
+        ['Флешмоб + вынос торта(1 герой)', '35р'],
+        ['Программа', '65р', 'Программа это то, чем можно поздравить именнинника и оставить массу положительных эмоций об этом дне'],
+        ['Блестящая дискотека', '80р'],
+        ['Дополнительный герой', '20р'],
+    ]}
+    />
 </div>
+
+
 <style>
     .content {
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        padding: 50px 0;
-    }
-    .prices__title {
-        margin: 0 0 10px 0;
-        font-size: 22px;
-        text-transform: uppercase;
-        text-align: center;
-        background: rgb(255, 85, 85);
-    }
-    .prices__cards {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: space-around;
-        padding: 0 10px;
-    }
-    .card {
-        width: 250px;
-        padding: 15px;
-        border: 3px solid #000;
-        border-radius: 10px;
-    }
-    .card__title {
-        font-size: 20px;
-        text-align: center;
-        margin: 0;
-    }
-    .card__text {
-        text-transform: uppercase;
-        font-size: 18px;
-        margin: 0;
-    }
-    .card__price {
-        text-transform: uppercase;
-        font-weight: 700;
+        max-width: 2000px;
+        margin: 0 auto;
+        margin-bottom: 50px;
     }
 </style>
