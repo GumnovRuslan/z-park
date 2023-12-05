@@ -1,7 +1,11 @@
 <script>
     import BookHoliday  from "$lib/component/popup/BookHoliday.svelte";
-    import BuyTicket from "$lib/component/popup/BuyTicket.svelte";
     import { onMount } from "svelte";
+    import CustomBtn from "../component/CustomBtn.svelte";
+
+    function handleClick() {
+        window.bookHoliday.showModal()
+    }
 
     onMount(() => {
         let links = document.querySelectorAll('.link')
@@ -25,14 +29,8 @@
     </a>
     <nav class='header__menu' id="menu">
         <div class="header__info">
-            <button class="btn" type="button" on:click={()=> window.bookHoliday.showModal()}>
-            заказать праздник
-            </button>
-            <button class="btn" type="button" on:click={()=> window.bookTiket.showModal()}>
-            купить билет
-            </button>
+            <CustomBtn text='заказать' {handleClick}/>
             <BookHoliday />
-            <BuyTicket />
         </div>
         <nav class="header__nav">
             <a class="header__link link" href='/about'>О нас</a>
