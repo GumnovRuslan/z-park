@@ -1,28 +1,53 @@
+<script>
+    import { onMount } from "svelte";
+
+    let dialog
+
+    onMount(() => {
+        dialog = document.getElementById('bookHoliday')
+
+        dialog.addEventListener('click', (e) => {
+            const dialogSize = dialog.getBoundingClientRect()
+            if(
+                e.clientX < dialogSize.left ||
+                e.clientX > dialogSize.right ||
+                e.clientY < dialogSize.top ||
+                e.clientY > dialogSize.bottom
+            ) {
+                dialog.close()
+            }
+        })
+    });
+</script>
+
 <dialog class="dialog" id="bookHoliday">
     <div class='dialog__header'>
-        <div class="dialog__close" onclick="window.bookHoliday.close()">
+        <button class="dialog__close" on:click={()=>dialog.close()}>
             <span class='dialog__inner'></span>
-        </div>
+        </button>
         <p class="dialog__subtitle">заказ праздника</p>
         <p class="dialog__description">
             Оставьте заявку на проведение дня рождения и наши менеджеры свяжутся с вами и помогут с организацией.
         </p>
     </div>
-    <form class="dialog__form" method="dialog">
-        <input class="dialog__input" type="text" placeholder="Имя" required>
-        <input class="dialog__input" type='tel' placeholder="Телефон" required>
-        <input class="dialog__input" type="date" placeholder="Дата праздника" required>
+    <form class="dialog__form" method="post">
+        <input class="dialog__input" type="text" placeholder="Имя" >
+        <input class="dialog__input" type='tel' placeholder="Телефон" >
+        <input class="dialog__input" type="date" placeholder="Дата праздника" >
         <button class="dialog__btn" type='submit'>Отправить</button>
+        <button class='dialog__btn' formmethod="dialog" type="submit" >Закрыть</button>
     </form>
 </dialog>
 
 <style>
+    dialog::backdrop {
+        background: #00000071;
+    }
     :global(.dialog__header) {
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* margin-bottom: 20px; */
     }
      :global(.dialog__close) {
         position: absolute;

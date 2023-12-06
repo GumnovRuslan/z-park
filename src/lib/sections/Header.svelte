@@ -29,7 +29,7 @@
     </a>
     <nav class='header__menu' id="menu">
         <div class="header__info">
-            <CustomBtn text='заказать' {handleClick}/>
+            <CustomBtn text='Заказать' {handleClick}/>
             <BookHoliday />
         </div>
         <nav class="header__nav">
