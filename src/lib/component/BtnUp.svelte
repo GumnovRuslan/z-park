@@ -1,11 +1,13 @@
 <script>
   import { onMount } from 'svelte';
 
+  export let height = 0
+
   let btnUp;
 
   function handleScroll() {
     const scrollY = window.scrollY || document.documentElement.scrollTop;
-    scrollY > 100
+    scrollY > height
     ? btnUp.classList.remove('btn-up__hide')
     : btnUp.classList.add('btn-up__hide');
   }

@@ -22,7 +22,9 @@
         font-weight: 700;
         letter-spacing: 0.5px;
         border: none;
-        border-radius: 50px;
+        /* border-radius: 50px; */
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
         color: #f5f5f5;
         background: #ffa600;
         padding: 10px 20px;
@@ -38,9 +40,11 @@
         top: 0;
         width: 100%;
         height: 100%;
-        border-radius: 50px;
+        /* border-radius: 50px; */
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
         transition: all 0.3s;
-        box-shadow: 2px 2px 4px #757575;
+        /* box-shadow: 2px 2px 4px #757575; */
     }
 
     .btn:hover {
