@@ -1,19 +1,32 @@
 <script>
     import { onMount } from "svelte";
 
+    let isChecked
+
     onMount(() => {
         let links = document.querySelectorAll('.link')
         closeMenu(links)
     })
 
     function closeMenu(links) {
-        links.forEach(link => link.addEventListener('click',
-        () => window.falseCheckbox.checked = false))
+        links.forEach(link => link.addEventListener('click', () => {
+            if(window.innerWidth < 800) {
+                isChecked = false
+                stopScroll()
+            } else {
+                document.body.style.overflow = 'visible'
+            }
+        }))
+    }
+
+    function stopScroll() {
+        if(!isChecked) document.body.style.overflow = 'visible'
+        else document.body.style.overflow = 'hidden'
     }
 </script>
 
 <header class="header">
-    <input class="burger-checkbox" type='checkbox' id="falseCheckbox">
+    <input class="burger-checkbox" type='checkbox' id="falseCheckbox" bind:checked={isChecked} on:change={stopScroll}>
 
     <label class='burger' for="falseCheckbox">
         <span class="burger__line burger__line-top"></span>
@@ -79,12 +92,12 @@
         background: #24b3ff;
     }
     .header__menu {
+        overflow: auto;
         transition: all 0.5s;
     }
     .header__nav {
         display: flex;
         align-items: center;
-        height: 80px;
     }
     .header__link {
         display: flex;
@@ -127,6 +140,7 @@
         }
 
         .header__menu {
+            overflow: hidden;
             padding: 10px;
         }
         .logo-top {
@@ -135,12 +149,12 @@
         .header__nav {
             box-shadow: 0 0 10px #878787;
             background: #fff;
+            height: clamp(55px, 6.5vw, 80px);
         }
         .header__link  {
             font-size: clamp(14px, 1.7vw, 20px);
         }
     }
-
 
     @media screen and (max-width: 800px) {
         .header {
@@ -163,8 +177,8 @@
             top: 100%;
             left: -100%;
             width: 100%;
-            height: calc(100vh - 50px);
-            padding: 10px;
+            min-height: calc(100vh - 100%);
+            padding: 10px 10px 50px 10px;
             background: #f5f5f5;
         }
         .logo-link {
