@@ -1,6 +1,7 @@
 <script>
     import Slider from "../lib/component/slider/slider.svelte";
     import Contacts from "$lib/sections/Contacts.svelte";
+    import Attractions from "../lib/sections/Attractions.svelte";
 </script>
 
 <svelte:head>
@@ -43,10 +44,14 @@ slides={[
         </div>
     </div>
 </section>
-    <div class='wrapper'>
-        <p class='title'>Контакты</p>
-        <Contacts />
-    </div>
+<section class='section'>
+    <h2 class='title'>Развлечения</h2>
+    <Attractions />
+</section>
+<section class='wrapper'>
+    <p class='title'>Контакты</p>
+    <Contacts />
+</section>
 
 <style>
     .section {

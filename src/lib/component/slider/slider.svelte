@@ -3,7 +3,9 @@
 
 	export let duration = 2000
 	export let slides
+
 	let currentSlide = 0
+
 	const nextSlide = () => {
 		currentSlide++
 		if (currentSlide >= slides.length) {
@@ -44,9 +46,7 @@
 		{#each slides as slider, i}
 			<button
 				class="bubble"
-				on:click={() => {
-					goToSlide(i)
-				}}
+				on:click={() => goToSlide(i)}
 				class:current={i === currentSlide}
 				class:onedown={i === currentSlide - 1}
 				class:twodown={i === currentSlide - 2}

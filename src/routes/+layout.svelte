@@ -38,7 +38,7 @@
         <Header />
     </div>
     <main class='main'>
-        <BreadCrumbs {breadcrumbs} />
+        <!-- <BreadCrumbs {breadcrumbs} /> -->
         <slot />
             <BtnUp height='100'/>
         <div class='btn' id='btn-holiday'>
