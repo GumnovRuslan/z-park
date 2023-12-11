@@ -1,9 +1,8 @@
-    <div class='contacts'>
+    <div class='section'>
         <div class='map-container'>
-            <img src='img/map.png' alt='' class='map'>
+            <img src='img/map.png' alt='' class='map__img'>
         </div>
-        <div class='info-container'>
-            <div class='contacts__info'>
+        <div class='contacts'>
                 <div class='contact'>
                     <img src='img/svg/geo-alt-fill.svg' alt='' class='contact__img'>
                     <div class='contact__content'>
@@ -36,63 +35,88 @@
                     <img src='img/svg/star-fill.svg' alt='' class='contact__img'>
                     <div class='contact__content'>
                         <p class='contact__title'>Мы в соц. сетях</p>
-                        <p class='contact__text'>Вконтакте</p>
-                        <p class='contact__text'>Youtube</p>
-                        <p class='contact__text'>Instagram</p>
-                        <p class='contact__text'>TikTok</p>
+                        <a href="https://vk.com/z_park_vitebsk" target="_blank" class='contact__text'>
+                            <img src='/img/svg/vk.svg' alt='' class='contact__img-network'>
+                            Вконтакте
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCRRIZbUwBzzHOlL6ezvpHrg" target="_blank" class='contact__text'>
+                            <img src='/img/svg/youtube.svg' alt='' class='contact__img-network'>
+                            Youtube
+                        </a>
+                        <a href="https://www.instagram.com/zpark_vitebsk/" target="_blank" class='contact__text'>
+                            <img src='/img/svg/instagram.svg' alt='' class='contact__img-network'>
+                            Instagram
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 
 <style>
-    .contacts {
+    .section {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        gap: clamp(30px, 4vw, 100px);
     }
     .map-container {
+        align-self: center;
         display: flex;
         justify-content: center;
         overflow: hidden;
         border: 1px solid #9d9d9d;
         box-shadow: 2px 2px 10px #9d9d9d;
     }
-    .map {
+    .map__img {
         object-position: center;
         object-fit: cover;
         width: 100%;
     }
-    .info-container {
-        flex: auto;
-        display: flex;
-        justify-content: center;
-    }
-    .contacts__info {
+    .contacts {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-        gap: 20px;
+        gap: 15px;
     }
     .contact {
         display: flex;
         gap: 10px;
         border: 1px solid #dadada;
-        padding: 20px;
+        padding: clamp(10px, 1.5vw, 20px);
         box-shadow: 1px 1px 4px #c3c3c3;
         border-radius: 10px;
+        background: #fff;
     }
+
     .contact__img {
         width: 30px;
         height: 30px;
     }
+    .contact__content {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
     .contact__title {
         text-transform: uppercase;
         font-weight: 700;
+        font-size: clamp(16px, 2vw, 18px);
         line-height: 1.3;
     }
     .contact__text {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: clamp(16px, 2vw, 18px);
+        font-weight: 500;
         line-height: 1.3;
+        text-decoration: none;
+        color: #606060;
+    }
+    a.contact__text:hover {
+        color: red;
+    }
+    .contact__img-network {
+        width: 20px;
+        height: 20px;
     }
     @media screen and (min-width: 700px) {
         .map-container {
@@ -101,33 +125,19 @@
             height: 60vw;
             max-height: 700px;
         }
-        .contact__title {
-            font-size: clamp(16px, 2vw, 24px);
-        }
-        .contact__text {
-            font-size: clamp(14px, 2vw, 22px);
-        }
-        .contacts {
-            gap: 30px;
-        }
     }
 
     @media screen and (max-width: 700px) {
-        .contacts {
+        .section {
             flex-direction: column;
         }
         .map-container {
             width: 100%;
             height: 70vh;
         }
-        .contact__title {
-            font-size: 20px;
-        }
-        .contact__text {
-            font-size: 18px;
-        }
         .contacts {
-            gap: 50px;
+            max-width: 500px;
+            margin: 0 auto
         }
     }
 </style>
