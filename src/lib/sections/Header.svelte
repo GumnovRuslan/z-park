@@ -9,7 +9,7 @@
     })
 
     function closeMenu(links) {
-        links.forEach(link => link.addEventListener('click', () => {
+        links.forEach(link => link.addEventListener('click', (e) => {
             if(window.innerWidth < 800) {
                 isChecked = false
                 stopScroll()
@@ -57,14 +57,6 @@
     /* BURGER */
     .burger-checkbox {
         display: none;
-    }
-    .burger {
-        /* width: 30px;
-        height: 30px;
-        padding: 0;
-        border: none;
-        cursor: pointer;
-        background: transparent; */
     }
     .burger__line {
         width: 30px;
