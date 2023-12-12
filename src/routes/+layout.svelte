@@ -6,6 +6,7 @@
     import CustomBtn from "../lib/component/CustomBtn.svelte";
     import BookHoliday  from "$lib/component/popup/BookHoliday.svelte";
     import BreadCrumbs from "../lib/component/BreadCrumbs.svelte";
+    import Subscribe from "../lib/sections/Subscribe.svelte";
 
     let btnBook
 
@@ -44,6 +45,7 @@
         <div class='btn' id='btn-holiday'>
             <CustomBtn text='Заказать праздник' {handleClick}/>
         </div>
+        <Subscribe />
     </main>
     <footer class="footer">
         <Footer />
