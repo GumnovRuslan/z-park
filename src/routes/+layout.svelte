@@ -45,7 +45,9 @@
             <CustomBtn text='Заказать праздник' {handleClick}/>
         </div>
     </main>
-    <Footer />
+    <footer class="footer">
+        <Footer />
+    </footer>
 </div>
 
 <style>
