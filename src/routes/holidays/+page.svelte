@@ -87,6 +87,7 @@
         padding: 20px;
         border: 2px solid #bebebe;
         box-shadow: 2px 2px 5px #bebebe;
+        background: #f5f5f5;
     }
     .card__title {
         font-size: 26px;
