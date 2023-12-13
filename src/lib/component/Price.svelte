@@ -1,111 +1,95 @@
 <script>
     export let title = 'title';
-    export let line = [['text', 'price']];
-
-    function showHelp(e) {
-        const target = e.target
-        const help = target.nextElementSibling
-        if(help.style.display == 'block') help.style.display = 'none'
-        else help.style.display = 'block'
-    }
+    export let line = [['service', '00.00byn', 'description']];
 </script>
 
-<div class='content'>
-    <p class='title'>{title}</p>
-    {#each line as text }
-        <div class='line'>
-            <p class='line__text'>{text[0]}
-                {#if text[2]}
-                    <div class='helper'>
-                        <button class='helper__btn' type="button">?</button>
-                        <p class='helper__help'>{text[2]} </p>
-                    </div>
-                {/if}
-            </p>
-            <span class="line__price">{text[1]}</span>
+<div class='prise-list'>
+    <h3 class='prise-list__title'>{title}</h3>
+    {#each line as service, i}
+        <div class='prise-list__inner'>
+            <div class='prise-list__service'>
+                <p class='prise-list__service-title'>{service[0]}</p>
+                <p class='prise-list__service-description'>{service[2] ?? ''}</p>
+            </div>
+            <span class="prise-list__service-prise">{service[1]}</span>
         </div>
     {/each}
 </div>
 
 <style>
-    .title {
-        text-align: center;
-        font-weight: 700;
-        font-size: 20px;
-        text-transform: uppercase;
-        background: #d8d8d8;
-    }
-    .line {
-        display: flex;
-        gap: 20px;
-        justify-content: space-between;
-        align-items: center;
-        padding: 5px 20px;
-        line-height: 1.3;
-        transition: all 0.2s;
-        font-size: 18px;
-    }
-    .line:hover {
-        background: #c3c3ff;
-    }
-    .line:not(:last-child) {
-        border-bottom: 1px solid #000;
-    }
-    .line__text {
-        font-weight: 500;
-    }
-    .line__price {
-        font-weight: 700;
-    }
-    .helper {
-        display: inline;
+    .prise-list {
         position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        margin-top: 15px;
+        padding: 30px 80px;
+        outline: 2px solid #000;
+        box-shadow: 0 5px 10px #8c8c8c;
+        background: #fff;
     }
-    .helper__btn {
-        border: 1px solid #000;
-        border-radius: 50%;
-        padding: 0;
-        width: 20px;
-        height: 20px;
-        font-weight: 700;
+    .prise-list:not(:last-child) {
+        margin-bottom: 30px;
     }
-
-    .helper__help {
-        z-index: 2;
-        left: 100%;
-        top: 100%;
-        background: #ebebeb;
-        border: 1px solid #000;
+    .prise-list__title {
+        position: absolute;
+        top: 0;
+        transform: translateY(-50%);
+        left: 50px;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 0 30px;
+        margin: 0;
+        font-size: clamp(14px, 2vw, 20px);
         line-height: 1.3;
-        padding: 10px;
-        font-size: 14px;
-        font-weight: 400;
-        opacity: 0;
-        transition: all 0.3s;
-        visibility: hidden;
+        letter-spacing: 2px;
     }
-    .helper:hover .helper__help {
-        opacity: 1;
-        visibility: visible;
+    .prise-list__title::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: calc(50% - 2px);
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #fff;
     }
-
-    @media screen and (min-width: 501px) {
-        .helper__help {
-            position: absolute;
-            width: 200px;
-        }
+    .prise-list__inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        line-height: 1.3;
     }
-    @media screen and (max-width: 500px) {
-        .helper__help {
-            display: none;
-            width: auto;
+    .prise-list__inner:not(:last-child) {
+        margin-bottom: 20px;
+    }
+    .prise-list__service-title,
+    .prise-list__service-prise {
+        font-size: clamp(12px, 2.5vw, 18px);
+        text-transform: uppercase;
+    }
+    .prise-list__service-prise {
+        text-wrap: nowrap;
+    }
+    .prise-list__service-description {
+        color: #505050;
+        font-size: clamp(12px, 2vw, 16px);
+    }
+    @media screen and (max-width: 650px) {
+        .prise-list {
+            padding-top: 25px;
+            padding-right: clamp(10px, 3vw, 30px);
+            padding-bottom: 15px;
+            padding-left: clamp(10px, 3vw, 30px);;
         }
-        .helper:hover .helper__help {
-            display: block;
-            margin-top: 10px;
+        .prise-list__title {
+            width: 95%;
+            padding: 0 5px;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            background: #fff;
         }
-        .line__price {
-            align-self: flex-start;
+        .prise-list__inner:not(:last-child) {
+            margin-bottom: clamp(10px, 2vw, 15px);
         }
     }
 </style>
