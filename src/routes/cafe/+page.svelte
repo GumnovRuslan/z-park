@@ -1,5 +1,6 @@
 <script>
     import SectionTitle from '$lib/component/SectionTitle.svelte'
+    import MenuItem from '$lib/component/MenuItem.svelte';
     import { onMount } from "svelte";
 
     let anchors
@@ -16,7 +17,7 @@
             .substr(1))
             .scrollIntoView({
                 behavior: 'smooth',
-                block: 'center'
+                block: 'start'
             })
         }))
     }
@@ -30,7 +31,7 @@
 </svelte:head>
 
 <SectionTitle value='Кафе в Z-park'/>
-<div class='news'>
+<!-- <div class='news'>
     <div class='news__content'>
         <p class="news__title">Наши пончиковые новинки</p>
         <ul class="news__description">
@@ -41,185 +42,51 @@
             <li class='news__text'>банан</li>
         </ul>
     </div>
+</div> -->
+<div class="menu-nav">
+    <a class="menu-nav-item" href='#drinks'>напитки</a>
+    <a class="menu-nav-item" href='#beverages'>закуски</a>
+    <a class="menu-nav-item" href='#sets'>сеты</a>
+    <a class="menu-nav-item" href='#pizza'>пиццы</a>
+    <a class="menu-nav-item" href='#donuts'>пончики</a>
+    <a class='menu-nav-item' href='#'>Бар в Z-park</a>
 </div>
-<div class="cafe__menu">
-    <a class="cafe__menu-item" href='#drinks'>напитки</a>
-    <a class="cafe__menu-item" href='#beverages'>закуски</a>
-    <a class="cafe__menu-item" href='#sets'>сеты</a>
-    <a class="cafe__menu-item" href='#pizza'>пиццы</a>
-    <a class="cafe__menu-item" href='#donuts'>пончики</a>
+<div class='content'>
+    <MenuItem
+    title='Напитки'
+    id='drinks'
+    menu={[
+        ['Салат сельдь под шубой', '100 BYN', '100 гр', 'https://www.tastingtable.com/img/gallery/17-celebrity-chefs-and-their-favorite-fast-food-restaurants/l-intro-1674674335.jpg'],
+        ['Салат сельдь под шубой', '100 BYN', '100 гр'],
+        ['Салат сельдь под шубой', '100 BYN', '100 гр'],
+        ['Салат сельдь под шубой', '100 BYN', '100 гр']
+    ]}
+    />
+    <MenuItem
+    title='Пончики'
+    id='donuts'
+    menu={[
+        ['Суп сырный с брокколи', '100 BYN', '100 гр'],
+        ['Салат сельдь под шубой', '100 BYN', '100 гр'],
+        ['Салат сельдь под шубой', '100 BYN', '100 гр'],
+        ['Салат сельдь под шубой', '100 BYN', '100 гр'],
+        ['Суп сырный с брокколи', '100 BYN', '100 гр'],
+        ['Салат сельдь под шубой', '100 BYN', '100 гр'],
+        ['Салат сельдь под шубой', '100 BYN', '100 гр'],
+        ['Салат сельдь под шубой', '100 BYN', '100 гр']
+    ]}
+    />
 </div>
-<div class='menu' id="drinks">
-    <p class='menu__title'>Горячие напитки</p>
-    <div class='menu__items'>
-        <div class='item'>
-            <img class="item__img" src='/img/coffee.webp' alt='продукт'>
-            <div class='item__item-content'>
-                <p class='item__name'>Название продукта</p>
-                <p class='item__description'>Описание продукта</p>
-            </div>
-        </div>
-        <div class='item'>
-            <img class="item__img" src='/img/coffee.webp' alt='продукт'>
-            <div class='item__item-content'>
-                <p class='item__name'>Название продукта</p>
-                <p class='item__description'>Описание продукта</p>
-            </div>
-        </div>
-        <div class='item'>
-            <img class="item__img" src='/img/coffee.webp' alt='продукт'>
-            <div class='item__item-content'>
-                <p class='item__name'>Название продукта</p>
-                <p class='item__description'>Описание продукта</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class='menu' id="beverages">
-    <p class='menu__title'>Закуски</p>
-    <div class='menu__items'>
-        <div class='item'>
-            <img class="item__img" src='/img/coffee.webp' alt='продукт'>
-            <div class='item__item-content'>
-                <p class='item__name'>Название продукта</p>
-                <p class='item__description'>Описание продукта</p>
-            </div>
-        </div>
-        <div class='item'>
-            <img class="item__img" src='/img/coffee.webp' alt='продукт'>
-            <div class='item__item-content'>
-                <p class='item__name'>Название продукта</p>
-                <p class='item__description'>Описание продукта</p>
-            </div>
-        </div>
-        <div class='item'>
-            <img class="item__img" src='/img/coffee.webp' alt='продукт'>
-            <div class='item__item-content'>
-                <p class='item__name'>Название продукта</p>
-                <p class='item__description'>Описание продукта</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class='menu' id="sets">
-    <p class='menu__title'>Сеты</p>
-    <div class='menu__items'>
-        <div class='item'>
-            <img class="item__img" src='/img/coffee.webp' alt='продукт'>
-            <div class='item__item-content'>
-                <p class='item__name'>Название продукта</p>
-                <p class='item__description'>Описание продукта</p>
-            </div>
-        </div>
-        <div class='item'>
-            <img class="item__img" src='/img/coffee.webp' alt='продукт'>
-            <div class='item__item-content'>
-                <p class='item__name'>Название продукта</p>
-                <p class='item__description'>Описание продукта</p>
-            </div>
-        </div>
-        <div class='item'>
-            <img class="item__img" src='/img/coffee.webp' alt='продукт'>
-            <div class='item__item-content'>
-                <p class='item__name'>Название продукта</p>
-                <p class='item__description'>Описание продукта</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class='menu' id="pizza">
-    <p class='menu__title'>Пиццы</p>
-    <div class='menu__items'>
-        <div class='item'>
-            <img class="item__img" src='/img/coffee.webp' alt='продукт'>
-            <div class='item__item-content'>
-                <p class='item__name'>Название продукта</p>
-                <p class='item__description'>Описание продукта</p>
-            </div>
-        </div>
-        <div class='item'>
-            <img class="item__img" src='/img/coffee.webp' alt='продукт'>
-            <div class='item__item-content'>
-                <p class='item__name'>Название продукта</p>
-                <p class='item__description'>Описание продукта</p>
-            </div>
-        </div>
-        <div class='item'>
-            <img class="item__img" src='/img/coffee.webp' alt='продукт'>
-            <div class='item__item-content'>
-                <p class='item__name'>Название продукта</p>
-                <p class='item__description'>Описание продукта</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class='menu' id="donuts">
-    <p class='menu__title'>Пончки</p>
-    <div class='menu__items'>
-        <div class='item'>
-            <img class="item__img" src='/img/coffee.webp' alt='продукт'>
-            <div class='item__item-content'>
-                <p class='item__name'>Название продукта</p>
-                <p class='item__description'>Описание продукта</p>
-            </div>
-        </div>
-        <div class='item'>
-            <img class="item__img" src='/img/coffee.webp' alt='продукт'>
-            <div class='item__item-content'>
-                <p class='item__name'>Название продукта</p>
-                <p class='item__description'>Описание продукта</p>
-            </div>
-        </div>
-        <div class='item'>
-            <img class="item__img" src='/img/coffee.webp' alt='продукт'>
-            <div class='item__item-content'>
-                <p class='item__name'>Название продукта</p>
-                <p class='item__description'>Описание продукта</p>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <style>
-    /* :root {
-        scroll-behavior: smooth;
-    } */
-    .menu__title {
-        font-weight: 700;
-        font-size: 24px;
-        padding: 0 5vw;
-        box-shadow: 1px 1px 5px #000;
-        text-shadow: 1px 1px 2px #000;
-        background: #ffa200;
-        color: #f5f5f5;
-    }
-    .item__content {
-
-    }
-    .menu__items {
+    .content {
         display: flex;
         flex-direction: column;
+        gap: 30px;
+        padding: 50px;
     }
-    .item {
-        display: flex;
-        gap: 20px;
-        min-height: 100px;
-        padding: 10px;
-        border-bottom: 3px solid #ffa200;
-        background: #232323;
-    }
-    .item__img {
-        object-fit: cover;
-        width: 100px;
-    }
-    .item__name {
-        font-weight: 700;
-        font-size: 18px;
-        color: #f5f5f5;
-    }
-    .item__description {
-        color: #f5f5f5;
-    }
+
     :global(.section__title) {
         text-transform: uppercase;
         background: #d8ff4b;
@@ -261,14 +128,15 @@
         color: #d3d2d2;
         letter-spacing: 2px;
     }
-    .cafe__menu {
+    .menu-nav {
         display: flex;
         justify-content: space-around;
+        align-items: center;
         background: #232323;
     }
-    .cafe__menu-item {
+    .menu-nav-item {
         width: calc(100vw / 5);
-        padding: 20px;
+        padding: 10px;
         text-transform: uppercase;
         text-decoration: none;
         text-align: center;
@@ -276,21 +144,20 @@
         color: #f5f5f5;
         border-right: 1px solid #f5f5f5;
         transition: all 0.2s;
+        line-height: 1.3;
     }
-    .cafe__menu-item:hover {
+    .menu-nav-item:hover {
         background: #e1e1e1;
         color: #232323;
     }
     @media screen and (min-width: 640px) {
-        .cafe__menu-item {
-            width: calc(100vw / 5);
+        .menu-nav-item {
+            width: calc(100vw / 6);
         }
     }
     @media screen and (min-width: 460px) and (max-width: 640px) {
-        .cafe__menu-item {
-            width: calc(100vw / 5);
-        }
-        .cafe__menu-item {
+        .menu-nav-item {
+             width: calc(100vw / 6);
             text-align: center;
             font-size: 12px;
             padding: 10px;
@@ -300,10 +167,10 @@
         .news__title {
             font-size: 20px;
         }
-        .cafe__menu {
+        .menu-nav {
             flex-direction: column;
         }
-        .cafe__menu-item {
+        .menu-nav-item  {
             text-align: center;
             width: auto;
             font-size: 12px;
