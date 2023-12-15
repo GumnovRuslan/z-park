@@ -58,8 +58,12 @@
 
 <style>
     .content {
-        padding: 50px;
         background: #eaeaea;
+    }
+    @media screen and (min-width: 600px) {
+        .content {
+            padding: 50px;
+        }
     }
     @media screen and (max-width: 600px) {
         .content {

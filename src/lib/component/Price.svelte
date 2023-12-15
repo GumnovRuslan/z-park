@@ -22,7 +22,6 @@
         max-width: 1200px;
         margin: 0 auto;
         margin-top: 15px;
-        padding: 30px 80px;
         outline: 2px solid #000;
         box-shadow: 0 5px 10px #8c8c8c;
         background: #fff;
@@ -33,13 +32,10 @@
     .prise-list__title {
         position: absolute;
         top: 0;
-        transform: translateY(-50%);
-        left: 50px;
         text-transform: uppercase;
         text-align: center;
-        padding: 0 30px;
         margin: 0;
-        font-size: clamp(14px, 2vw, 20px);
+        font-size: clamp(14px, 3vw, 20px);
         line-height: 1.3;
         letter-spacing: 2px;
     }
@@ -74,12 +70,26 @@
         color: #505050;
         font-size: clamp(12px, 2vw, 16px);
     }
+    @media screen and (min-width: 650px) {
+        .prise-list {
+            padding: 30px 80px;
+        }
+        .prise-list__title {
+            padding: 0 30px;
+            left: 50px;
+            transform: translateY(-50%);
+            background: #fff;
+        }
+        .prise-list__inner:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
     @media screen and (max-width: 650px) {
         .prise-list {
             padding-top: 25px;
             padding-right: clamp(10px, 3vw, 30px);
             padding-bottom: 15px;
-            padding-left: clamp(10px, 3vw, 30px);;
+            padding-left: clamp(10px, 3vw, 30px);
         }
         .prise-list__title {
             width: 95%;
