@@ -13,7 +13,7 @@
                     {#if card[3]}
                         <img class='card-picture' src={card[3]} alt="img"/>
                     {:else}
-                        <div class='card__img-inner'></div>
+                        <img class='card-picture-default' src='img/favicon.png' alt="img"/>
                     {/if}
 
                 </div>
@@ -52,7 +52,7 @@
 
     .card {
         display: inline-block;
-        max-width: 350px;
+        /* max-width: 400px; */
         width: 100%;
         padding: 20px;
         border-radius: 5px;
@@ -60,19 +60,26 @@
         background: #fff;
     }
     .card__img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         height: 200px;
         margin-bottom: 10px;
-        background: #747474;
         overflow: hidden;
+        background: #fff;
     }
-    .card__img:hover .card-picture{
+    .card__img:hover .card-picture,
+    .card__img:hover .card-picture-default {
         transform: scale(110%);
     }
     .card-picture {
         object-fit: cover;
         width: 100%;
         height: 100%;
+        transition: 0.5s;
+    }
+    .card-picture-default {
         transition: 0.5s;
     }
     .card__inner {
@@ -96,7 +103,7 @@
     .card__grams {
     }
 
-    @media screen and (max-width: 1000px) {
+    /* @media screen and (max-width: 1000px) {
 
-    }
+    } */
 </style>
