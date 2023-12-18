@@ -27,12 +27,13 @@
     function setAnchor() {
         anchors.forEach(anchor => anchor.addEventListener('click', (e) => {
             e.preventDefault()
-            document.getElementById(anchor.getAttribute('href')
-            .substr(1))
-            .scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            })
+            let targetElement = document.getElementById(anchor.getAttribute('href').substr(1))
+            let headerHeight = document.querySelector('header').offsetHeight;
+            let scrollTo = targetElement.offsetTop - headerHeight
+            window.scrollTo({
+                top: scrollTo,
+                behavior: 'smooth'
+            });
         }))
     }
 </script>
