@@ -1,7 +1,7 @@
 <script>
- export let title = 'Title';
- export let menu = '';
- export let id = '';
+    export let title = 'Title';
+    export let menu = '';
+    export let id = '';
 </script>
 
 <div class='menu' {id}>
@@ -34,10 +34,10 @@
     }
     .menu__title {
         text-transform: uppercase;
-        font-size: 30px;
+        font-size: clamp(24px, 3.5vw, 30px);
         line-height: 1.3;
         margin: 0;
-        padding: 20px 0;
+        margin-bottom: clamp(10px, 3vw, 20px);
     }
 
     .menu__cards {
@@ -52,9 +52,8 @@
 
     .card {
         display: inline-block;
-        /* max-width: 400px; */
         width: 100%;
-        padding: 20px;
+        padding: clamp(15px, 3vw, 20px);
         border-radius: 5px;
         box-shadow: 1px 1px 5px #ababab;
         background: #fff;
@@ -85,25 +84,17 @@
     .card__inner {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: clamp(10px, 3vw, 20px);
     }
     .card__name {
-        font-size: 20px;
+        font-size: clamp(16px, 5vw, 18px);
         line-height: 1.3;
     }
     .card__info {
         display: flex;
         gap: 20px;
         justify-content: space-between;
-        font-size: 24px;
+        font-size: clamp(18px, 5vw, 22px);
+        line-height: 1.3;
     }
-    .card__price {
-
-    }
-    .card__grams {
-    }
-
-    /* @media screen and (max-width: 1000px) {
-
-    } */
 </style>
