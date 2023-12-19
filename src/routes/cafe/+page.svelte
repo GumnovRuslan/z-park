@@ -2,6 +2,7 @@
     import SectionTitle from '$lib/component/SectionTitle.svelte'
     import MenuItem from '$lib/component/MenuItem.svelte';
     import { onMount } from "svelte";
+    import menuList from '$lib/db/menuList'
 
     let anchors
     let card
@@ -19,9 +20,9 @@
     })
 
     function titleMargin() {
-        const menuSize = menu.getBoundingClientRect()
-        const cardSize = card.getBoundingClientRect()
-        menuTitles.forEach(title => title.style.padding = `0 ${cardSize.left - menuSize.left}px`)
+        const menuSize = menu ? menu.getBoundingClientRect().left : 0
+        let cardSize = card ? card.getBoundingClientRect().left : 0
+        menuTitles.forEach(title => title.style.padding = `0 ${cardSize - menuSize}px`)
     }
 
     function setAnchor() {
@@ -48,39 +49,21 @@
 <SectionTitle value='Кафе в Z-park'/>
 
 <div class="menu-nav">
-    <a class="menu-nav-item" href='#drinks'>напитки</a>
+    {#each menuList as menu}
+        <a class="menu-nav-item" href='#{menu.id}'>{menu.title}</a>
+    {/each}
+    <!-- <a class="menu-nav-item" href='#drinks'>напитки</a>
     <a class="menu-nav-item" href='#beverages'>закуски</a>
     <a class="menu-nav-item" href='#sets'>сеты</a>
     <a class="menu-nav-item" href='#pizza'>пиццы</a>
     <a class="menu-nav-item" href='#donuts'>пончики</a>
-    <a class='menu-nav-item' href='#bar'>Бар в Z-park</a>
+    <a class='menu-nav-item' href='#bar'>Бар в Z-park</a> -->
 </div>
 
 <div class='menu-content'>
-    <MenuItem
-    title='Напитки'
-    id='drinks'
-    menu={[
-        ['Салат сельдь под шубой', '100 BYN', '100 гр', 'https://www.tastingtable.com/img/gallery/17-celebrity-chefs-and-their-favorite-fast-food-restaurants/l-intro-1674674335.jpg'],
-        ['Салат сельдь под шубой', '100 BYN', '100 гр'],
-        ['Салат сельдь под шубой', '100 BYN', '100 гр'],
-        ['Салат сельдь под шубой', '100 BYN', '100 гр']
-    ]}
-    />
-    <MenuItem
-    title='Пончики'
-    id='donuts'
-    menu={[
-        ['Суп сырный с брокколи', '100 BYN', '100 гр'],
-        ['Салат сельдь под шубой', '100 BYN', '100 гр'],
-        ['Салат сельдь под шубой', '100 BYN', '100 гр'],
-        ['Салат сельдь под шубой', '100 BYN', '100 гр'],
-        ['Суп сырный с брокколи', '100 BYN', '100 гр'],
-        ['Салат сельдь под шубой', '100 BYN', '100 гр'],
-        ['Салат сельдь под шубой', '100 BYN', '100 гр'],
-        ['Салат сельдь под шубой', '100 BYN', '100 гр']
-    ]}
-    />
+    {#each menuList as menu}
+        <MenuItem {...menu}/>
+    {/each}
 </div>
 
 
