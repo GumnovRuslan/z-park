@@ -192,11 +192,14 @@
             flex-direction: column;
             background: transparent;
             box-shadow: none;
+
+            gap: 20px;
         }
         .header__link  {
             text-align: center;
             width: 90%;
             font-size: 20px;
+            line-height: 1.3;
         }
     }
 

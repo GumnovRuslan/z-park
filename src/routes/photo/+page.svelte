@@ -11,7 +11,7 @@
     <a class='album' href="/photo/birthday">
         <div class='album__border'>
             <div class='album__preview-container'>
-                <img class="album__preview" src='photo1.jpg' alt='photo1'>
+                <img class="album__preview" src='img/photo1.jpg' alt='photo1'>
             </div>
         </div>
         <div class='album__bottom'>
@@ -22,7 +22,7 @@
     <a class='album' href="/photo/rooms">
         <div class='album__border'>
             <div class='album__preview-container'>
-                <img class="album__preview" src='photo1.jpg' alt='photo1'>
+                <img class="album__preview" src='img/photo1.jpg' alt='photo1'>
             </div>
         </div>
         <div class='album__bottom'>
@@ -33,7 +33,7 @@
     <a class='album' href="/photo/menu">
         <div class='album__border'>
             <div class='album__preview-container'>
-                <img class="album__preview" src='photo1.jpg' alt='photo1'>
+                <img class="album__preview" src='img/photo1.jpg' alt='photo1'>
             </div>
         </div>
         <div class='album__bottom'>
@@ -44,7 +44,7 @@
     <a class='album' href="/photo/super-hero">
         <div class='album__border'>
             <div class='album__preview-container'>
-                <img class="album__preview" src='photo1.jpg' alt='photo1'>
+                <img class="album__preview" src='img/photo1.jpg' alt='photo1'>
             </div>
         </div>
         <div class='album__bottom'>
@@ -55,7 +55,7 @@
     <div class='album'>
         <div class='album__border'>
             <div class='album__preview-container'>
-                <img class="album__preview" src='photo1.jpg' alt='photo1'>
+                <img class="album__preview" src='img/photo1.jpg' alt='photo1'>
             </div>
         </div>
         <div class='album__bottom'>
@@ -66,7 +66,7 @@
     <div class='album'>
         <div class='album__border'>
             <div class='album__preview-container'>
-                <img class="album__preview" src='photo1.jpg' alt='photo1'>
+                <img class="album__preview" src='img/photo1.jpg' alt='photo1'>
             </div>
         </div>
         <div class='album__bottom'>
@@ -77,15 +77,6 @@
 </div>
 
 <style>
-    :global(.section__title) {
-        text-transform: uppercase;
-        background: #d8ff4b;
-        margin: 0;
-        text-align: center;
-        text-shadow: 1px 1px 2px #000;
-        color: #f5f5f5;
-    }
-
     .content {
         display: grid;
         justify-content: center;
@@ -133,12 +124,10 @@
     .album__preview {
         object-fit: cover;
         max-height: 200px;
-        filter: blur(1px);
         transition: all 0.5s;
     }
     .album:hover .album__preview {
         transform: scale(1.2);
-        filter: blur(0);
     }
     .album__bottom {
         display: flex;

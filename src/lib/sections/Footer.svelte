@@ -6,9 +6,7 @@
     <div class='container'>
         <div class='footer-top'>
             <div class='footer-top__content'>
-                <a href='/' class='footer-top__item'>
-                    <img src='img/logo-removebg-cut.png' alt='' class='logo'>
-                </a>
+                <img src='img/logo-removebg-cut.png' alt='' class='logo'>
                 <a href='#' class='footer-top__item'>Правила посещения</a>
                 <a href='#' class='footer-top__item'>Политика кафиденциальности</a>
             </div>
@@ -49,13 +47,13 @@
     }
     .footer-top {
         display: flex;
-        flex-wrap: wrap;
         justify-content: space-between;
         gap: clamp(5px, 1vw, 40px);
         margin-bottom: 40px;
     }
     .footer-top__content {
-        display: flex;
+        display: inline-flex;
+        flex-wrap: wrap;
         flex-direction: column;
         justify-content: space-evenly;
         gap: 3px;

@@ -40,8 +40,8 @@
 			</div>
 		{/if}
 	{/each}
-	<button class="next" on:click={nextSlide}></button>
-	<button class="prev" on:click={prevSlide}></button>
+	<button class="next" on:click={nextSlide}>&gt;</button>
+	<button class="prev" on:click={prevSlide}>&lt;</button>
 	<div class="nav">
 		{#each slides as slider, i}
 			<button
@@ -96,15 +96,9 @@
 	}
 	.next {
 		right: 20px;
-		background-image: url(img/svg/caret-right-fill.svg);
-		background-repeat: no-repeat;
-		background-size: cover;
 	}
 	.prev {
 		left: 20px;
-		background-image: url(img/svg/caret-left-fill.svg);
-		background-repeat: no-repeat;
-		background-size: cover;
 	}
 	.nav {
 		position: absolute;
