@@ -89,22 +89,29 @@ let menuList = [
 				name: 'Super пицца',
 				price: '18 BYN',
 				grams: '400 гр',
-				description: 'Кукуруза, помидоры, ветчина, кочёная курица'
+				description: 'Кукуруза, помидоры, ветчина, кочёная курица',
+				img: 'img/cafe/pizza-1.jpg'
 			},
 			{
 				name: 'Злодейская пицца',
 				price: '18 BYN',
-				grams: '400 гр'
+				grams: '400 гр',
+				description: 'Ветчина, охотничьи колбаски, пепперони, помидор, сладкий перец',
+				img: 'img/cafe/pizza-2.jpg'
 			},
 			{
 				name: 'Пицца чемпион',
 				price: '18 BYN',
-				grams: '400 гр'
+				grams: '400 гр',
+				description: 'Пепперони, лук, помидоры, копченая курица',
+				img: 'img/cafe/pizza-3.jpg'
 			},
 			{
 				name: 'Пицца 4-героя',
 				price: '18 BYN',
-				grams: '400 гр'
+				grams: '400 гр',
+				description: 'Ветчина, охотничьи колбаски, соленый огурец, лук',
+				img: 'img/cafe/pizza-4.jpg'
 			}
 		]
 	}

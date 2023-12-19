@@ -5,14 +5,14 @@
     import menuList from '$lib/db/menuList'
 
     let anchors
-    let card
+    let cards
     let menuTitles
     let menu
 
     onMount(() => {
         menu = document.querySelector('.menu')
         anchors = document.querySelectorAll('a[href*="#"]')
-        card = document.querySelector('.card')
+        cards = document.querySelectorAll('.card')
         menuTitles = document.querySelectorAll('.menu__title')
         window.addEventListener('resize', titleMargin)
         titleMargin()
@@ -21,7 +21,7 @@
 
     function titleMargin() {
         const menuSize = menu ? menu.getBoundingClientRect().left : 0
-        let cardSize = card ? card.getBoundingClientRect().left : 0
+        let cardSize = cards[0] ? cards[0].getBoundingClientRect().left : 0
         menuTitles.forEach(title => title.style.padding = `0 ${cardSize - menuSize}px`)
     }
 
@@ -52,12 +52,6 @@
     {#each menuList as menu}
         <a class="menu-nav-item" href='#{menu.id}'>{menu.title}</a>
     {/each}
-    <!-- <a class="menu-nav-item" href='#drinks'>напитки</a>
-    <a class="menu-nav-item" href='#beverages'>закуски</a>
-    <a class="menu-nav-item" href='#sets'>сеты</a>
-    <a class="menu-nav-item" href='#pizza'>пиццы</a>
-    <a class="menu-nav-item" href='#donuts'>пончики</a>
-    <a class='menu-nav-item' href='#bar'>Бар в Z-park</a> -->
 </div>
 
 <div class='menu-content'>
