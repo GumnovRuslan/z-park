@@ -1,12 +1,11 @@
 <script>
-    import Network from "../component/Network.svelte"
 </script>
 
 <div class='wrapper'>
     <div class='container'>
         <div class='footer-top'>
             <div class='footer-top__content'>
-                <img src='img/logo-removebg-cut.png' alt='' class='logo'>
+                <img src='/img/logo-removebg-cut.png' alt='' class='logo'>
                 <a href='#' class='footer-top__item'>Правила посещения</a>
                 <a href='#' class='footer-top__item'>Политика кафиденциальности</a>
             </div>

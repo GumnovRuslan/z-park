@@ -33,7 +33,7 @@
     </div>
     <div class='popup__content'>
         <div class='popup__image-container'>
-            <img class="popup__image" src='img/woman.png' alt='manager'>
+            <img class="popup__image" src='/img/woman.png' alt='manager'>
         </div>
         <form class="form" method="post">
             <label class='form__label'>Имя
