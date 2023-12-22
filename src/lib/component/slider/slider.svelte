@@ -36,7 +36,11 @@
 	{#each slides as slider, i}
 		{#if currentSlide === i}
 			<div class='slide' >
-				<img class="slide-img" src={slider}  alt='action' transition:fade={{ duration: 400 }}>
+				<img
+				class="slide-img"
+				src={slider}
+				alt='action'
+				transition:fade={{ duration: 400 }}>
 			</div>
 		{/if}
 	{/each}
