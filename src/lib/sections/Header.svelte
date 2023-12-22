@@ -35,7 +35,7 @@
     </label>
 
     <a class="logo-link logo-top link" href='/'>
-        <img src='img/logo-removebg-cut.png' alt='' class='logo'>
+        <img src='/img/logo-removebg-cut.png' alt='' class='logo'>
     </a>
 
     <div class='header__menu' id="menu">
@@ -44,7 +44,7 @@
             <a class="header__link link" href='/holidays'>Праздники</a>
             <a class="header__link link" href='/photo'>Фото</a>
             <a class="logo-link logo-bottom link" href='/'>
-                <img src='img/logo-removebg-cut.png' alt='' class='logo'>
+                <img src='/img/logo-removebg-cut.png' alt='' class='logo'>
             </a>
             <a class="header__link link" href='/cafe'>Кафе</a>
             <a class="header__link link" href='/prices'>Цены</a>

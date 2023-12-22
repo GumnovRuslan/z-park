@@ -7,6 +7,7 @@
     import BookHoliday  from "$lib/component/popup/BookHoliday.svelte";
     import BreadCrumbs from "../lib/component/BreadCrumbs.svelte";
     import Subscribe from "../lib/sections/Subscribe.svelte";
+    import {fade} from 'svelte/transition'
 
     let btnBook
 

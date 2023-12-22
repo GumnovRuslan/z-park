@@ -4,7 +4,7 @@
 
 <div class='subscribe'>
     <div class='subscribe__img'>
-        <img src='img/spider-man.png' class="subscribe__img-inner" alt=''>
+        <img src='/img/spider-man.png' class="subscribe__img-inner" alt=''>
     </div>
     <div class='subscribe__inner'>
         <div class='subscribe__content'>
