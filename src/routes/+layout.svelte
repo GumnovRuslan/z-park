@@ -43,7 +43,7 @@
         <!-- <BreadCrumbs {breadcrumbs} /> -->
         <slot />
             <BtnUp height='100'/>
-        <div class='btn' id='btn-holiday'>
+        <div class='btn__holiday' id='btn-holiday'>
             <CustomBtn text='Заказать праздник' {handleClick}/>
         </div>
         <Subscribe />
@@ -59,7 +59,7 @@
         top: 0;
         z-index: 10;
     }
-    .btn {
+    .btn__holiday {
         display: none;
         position: fixed;
         z-index: 10;
@@ -88,5 +88,10 @@
     }
     .main {
         flex: 1 1 auto;
+    }
+    @media screen and (max-width: 800px) {
+        .btn__holiday {
+            display: none !important;
+        }
     }
 </style>
