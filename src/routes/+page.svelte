@@ -20,7 +20,7 @@ slides={[
     ]}
 />
 
-<section class='section'>
+<section class='wrapper'>
     <h2 class='title'>Развлечения</h2>
     <Attractions />
 </section>
