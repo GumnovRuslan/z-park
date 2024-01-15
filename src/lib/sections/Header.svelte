@@ -25,7 +25,7 @@
     }
 </script>
 
-<header class="header">
+<header class="header" id="header">
     <input class="burger-checkbox" type='checkbox' id="falseCheckbox" bind:checked={isChecked} on:change={stopScroll}>
 
     <label class='burger' for="falseCheckbox">

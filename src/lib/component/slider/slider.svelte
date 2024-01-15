@@ -1,10 +1,21 @@
 <script>
 	import {fade} from 'svelte/transition'
+	import { onMount } from 'svelte';
 
 	export let duration = 2000
 	export let slides
 
 	let currentSlide = 0
+	let slider
+
+	onMount(() => {
+		slider = document.querySelector('.slider')
+		sliderHeight()
+	})
+
+	function sliderHeight() {
+		slider.style.height = `calc(100vh - ${window.header.clientHeight}px)`
+	}
 
 	const nextSlide = () => {
 		currentSlide++
@@ -72,16 +83,19 @@
 <style>
 	.slider {
 		position: relative;
-		width: 100%;
-		height: clamp(400px, 40vw, 50vw);
-		background-color: #222;
+		/* width: 100%; */
+		/* margin: 0 auto; */
+		/* padding-bottom: 50px; */
+		/* height: clamp(400px, 50vw, 85vh); */
+		/* height: 100vh; */
+		background-color: #000;
 	}
 	.slide {
 		position: absolute;
 		left: 0;
 		top: 0;
 		width: 100%;
-		height: 100%;
+		height: calc(100%);
 		overflow: hidden;
 	}
 	.slide-img {
@@ -114,34 +128,35 @@
 	}
 	.nav {
 		position: absolute;
-		bottom: 20px;
+		bottom: 0;
 		left: 0;
-		right: 0;
+		width: 100%;
 		height: 50px;
 		z-index: 3;
 		display: flex;
 		gap: 20px;
 		justify-content: center;
 		align-items: center;
+		background: #0000008f;
 	}
 	.bubble {
 		padding: 0;
 		border: 0;
-		height: 10px;
-		width: 10px;
-		border-radius: 100px;
+		height: 15px;
+		width: 15px;
+		border-radius: 50%;
 		transition: all 0.4s ease-out;
 		cursor: pointer;
 	}
 	.current {
-		transform: scale(200%);
+		transform: scale(150%);
 	}
 	.onedown,
 	.oneup {
-		transform: scale(150%);
+		/* transform: scale(130%); */
 	}
 	.twodown,
 	.twoup {
-		transform: scale(120%);
+		/* transform: scale(110%); */
 	}
 </style>
