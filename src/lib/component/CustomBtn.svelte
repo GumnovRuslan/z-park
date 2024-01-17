@@ -20,8 +20,8 @@
         font-weight: 700;
         letter-spacing: 0.5px;
         border: none;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+        /* border-top-left-radius: 5px; */
+        /* border-top-right-radius: 5px; */
         color: #f5f5f5;
         background: #ffa600;
         padding: 10px 20px;

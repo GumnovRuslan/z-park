@@ -145,7 +145,7 @@
     }
     .logo-link {
         padding: 0 10px;
-        height: 100%;
+        height: 60px;
     }
     .logo {
         height: 100%;
@@ -175,10 +175,10 @@
         .header__nav {
             box-shadow: 0 0 10px #878787;
             background: #fff;
-            height: clamp(55px, 6.5vw, 80px);
+            /* height: clamp(55px, 6.5vw, 80px); */
         }
         .header__link  {
-            font-size: clamp(14px, 1.7vw, 20px);
+            font-size: clamp(14px, 1.7vw, 18px);
         }
     }
 

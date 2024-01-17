@@ -21,9 +21,9 @@
         { label: 'Текущая страница', url: null }
     ];
 
-    function handleClick() {
-        window.bookHoliday.showModal()
-    };
+    // function handleClick() {
+    //     window.bookHoliday.showModal()
+    // };
 
     function posBtnBook() {
         const size = btnBook.getBoundingClientRect()
@@ -43,9 +43,9 @@
         <!-- <BreadCrumbs {breadcrumbs} /> -->
         <slot />
             <BtnUp height='100'/>
-        <div class='btn__holiday' id='btn-holiday'>
+        <!-- <div class='btn__holiday' id='btn-holiday'>
             <CustomBtn text='Заказать праздник' {handleClick}/>
-        </div>
+        </div> -->
         <Subscribe />
     </main>
     <footer class="footer">
