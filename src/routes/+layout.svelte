@@ -1,5 +1,5 @@
 <script>
-    import { onMount } from "svelte";
+    // import { onMount } from "svelte";
     import Header from "$lib/sections/Header.svelte";
     import Footer from "$lib/sections/Footer.svelte";
     import BtnUp from "../lib/component/BtnUp.svelte";
@@ -9,29 +9,29 @@
     import Subscribe from "../lib/sections/Subscribe.svelte";
     import {fade} from 'svelte/transition'
 
-    let btnBook
+    // let btnBook
 
-    onMount(() => {
-        btnBook = document.getElementById('btn-holiday')
-        posBtnBook()
-    })
+    // onMount(() => {
+    //     btnBook = document.getElementById('btn-holiday')
+    //     posBtnBook()
+    // })
 
-    let breadcrumbs = [
-        { label: 'Главная', url: '/' },
-        { label: 'Текущая страница', url: null }
-    ];
+    // let breadcrumbs = [
+    //     { label: 'Главная', url: '/' },
+    //     { label: 'Текущая страница', url: null }
+    // ];
 
     // function handleClick() {
     //     window.bookHoliday.showModal()
     // };
 
-    function posBtnBook() {
-        const size = btnBook.getBoundingClientRect()
-        btnBook.style.transform = `rotate(-90deg)
-        translateX(-${size.height / 2}px)
-        translateY(${size.width / 2 - size.height / 2}93px)`
-        btnBook.style.display = 'block'
-    }
+    // function posBtnBook() {
+    //     const size = btnBook.getBoundingClientRect()
+    //     btnBook.style.transform = `rotate(-90deg)
+    //     translateX(-${size.height / 2}px)
+    //     translateY(${size.width / 2 - size.height / 2}93px)`
+    //     btnBook.style.display = 'block'
+    // }
 </script>
 
 <div class='wrapper'>
@@ -59,13 +59,13 @@
         top: 0;
         z-index: 10;
     }
-    .btn__holiday {
+    /* .btn__holiday {
         display: none;
         position: fixed;
         z-index: 10;
         bottom: 50%;
         right: 0;
-    }
+    } */
     :global(button) {
         cursor: pointer;
     }
