@@ -106,7 +106,7 @@
         display: flex;
         align-items: center;
         gap: 20px;
-        padding: 30px 20px;
+        padding: 30px 10px;
         max-width: 1200px;
         margin: 0 auto;
     }
@@ -134,7 +134,7 @@
     }
     .place__text {
         font-weight: 500;
-        font-size: 20px;
+        font-size: clamp(16px, 4vw, 20px);
         line-height: 1.3;
         text-align: center;
     }

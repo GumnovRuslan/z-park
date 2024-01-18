@@ -252,10 +252,10 @@
 		transform: scale(110%);
 	}
 	.photo__img {
-		object-fit: contain;
+		object-fit: cover;
 		width: 100%;
 		height: 100%;
-		transition: all 0.3s;
+		transition: all 0.4s;
 	}
 
 </style>

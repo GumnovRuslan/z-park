@@ -19,15 +19,13 @@
         font-size: 16px;
         font-weight: 700;
         letter-spacing: 0.5px;
-        border: none;
-        /* border-top-left-radius: 5px; */
-        /* border-top-right-radius: 5px; */
+        border-radius: 2px;
         color: #f5f5f5;
         background: #ffa600;
         padding: 10px 20px;
         outline: none;
         transition: background .6s, box-shadow .3s;
-        animation: pulse 4s ease-out infinite normal running 0s none;
+        animation: pulse 4.5s ease-out infinite normal running 0s none;
     }
     .btn::after {
         content: '';
@@ -37,8 +35,7 @@
         top: 0;
         width: 100%;
         height: 100%;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+        border-radius: inherit;
         transition: all 0.3s;
     }
 
@@ -62,12 +59,12 @@
         }
         15% {
             outline: 1px solid #ffa60000;
-            outline-offset: 15px;
+            outline-offset: 20px;
             transform: scale(100%);
         }
         100% {
             outline: 1px solid #ffa60000;
-            outline-offset: 15px;
+            outline-offset: 20px;
         }
     }
 
