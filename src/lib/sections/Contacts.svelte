@@ -56,7 +56,7 @@
     .section {
         display: flex;
         justify-content: center;
-        gap: clamp(30px, 4vw, 100px);
+        gap: clamp(30px, 4vw, 50px);
     }
     .map-container {
         align-self: center;

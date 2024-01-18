@@ -34,23 +34,17 @@
         <span class="burger__line burger__line-bottom"></span>
     </label>
 
-    <a class="logo-link logo-top link" href='/'>
-        <img src='/img/logo-removebg-cut.png' alt='' class='logo'>
+    <a class="logo-link logo-mobile link" href='/'>
+        <img src='/img/logo-removebg-cut.png' alt='' class='logo-img'>
     </a>
-
-    <button class="btn__booking" on:click={() => window.bookHoliday.showModal()}>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="btn__booking-img bi-gift-fill" viewBox="0 0 16 16">
-            <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A3 3 0 0 1 3 2.506zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43zM9 3h2.932l.023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0zm6 4v7.5a1.5 1.5 0 0 1-1.5 1.5H9V7zM2.5 16A1.5 1.5 0 0 1 1 14.5V7h6v9z"/>
-        </svg>
-    </button>
 
     <div class='header__menu' id="menu">
         <div class="header__nav">
             <a class="header__link link" href='/about'>О нас</a>
             <a class="header__link link" href='/holidays'>Праздники</a>
             <a class="header__link link" href='/photo'>Фото</a>
-            <a class="logo-link logo-bottom link" href='/'>
-                <img src='/img/logo-removebg-cut.png' alt='' class='logo'>
+            <a class="logo-link logo-desktop link" href='/'>
+                <img src='/img/logo-removebg-cut.png' alt='' class='logo-img'>
             </a>
             <a class="header__link link" href='/cafe'>Кафе</a>
             <a class="header__link link" href='/prices'>Цены</a>
@@ -102,19 +96,6 @@
         box-shadow: 0 0 10px 1px #858585;
         background: #24b3ff;
     }
-    .btn__booking {
-        padding: 5px;
-        width: 40px;
-        height: 40px;
-        border: 2px solid #ffffff;
-        border-radius: 5px;
-        background: transparent;
-        color: #ffffff;
-    }
-    .btn__booking-img {
-        width: 100%;
-        height: 100%;
-    }
     .header__menu {
         overflow: auto;
         transition: all 0.5s;
@@ -143,16 +124,18 @@
         text-shadow: 0px 0px 2px #938c00;
         color: #0062ff;
     }
-    .logo-link {
-        padding: 0 10px;
-        height: 100%;
+    .logo-desktop {
+        height: 60px;
+        width: 100%;
     }
-    .logo {
+    .logo-mobile {
+        height: 50px;
+    }
+    .logo-img {
+        object-fit: contain;
         height: 100%;
+        width: 100%;
         transition: all 0.5s;
-    }
-    .logo-link:hover .logo {
-        transform: scale(115%);
     }
 
     @media screen and (min-width: 800px) {
@@ -162,23 +145,20 @@
         .burger {
             display: none;
         }
-        .btn__booking {
-            display: none;
-        }
         .header__menu {
             overflow: hidden;
             padding: 10px;
         }
-        .logo-top {
+        .logo-mobile{
             display: none;
         }
         .header__nav {
             box-shadow: 0 0 10px #878787;
             background: #fff;
-            height: clamp(55px, 6.5vw, 80px);
+            /* height: clamp(55px, 6.5vw, 80px); */
         }
         .header__link  {
-            font-size: clamp(14px, 1.7vw, 20px);
+            font-size: clamp(14px, 1.7vw, 18px);
         }
     }
 
@@ -189,9 +169,6 @@
             align-items: center;
             padding: 0 10px;
             height: clamp(50px, 11vw, 70px);
-        }
-        .btn__booking {
-            display: block;
         }
         .burger {
             display: flex;
@@ -208,9 +185,9 @@
         .logo-link {
             display: block;
             margin: 0 auto;
-            transform: translateX(-5px);
+            transform: translateX(-25px);
         }
-        .logo-bottom {
+        .logo-desktop{
             display: none;
         }
         .header__nav {

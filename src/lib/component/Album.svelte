@@ -4,8 +4,8 @@
 
 <a class='album' href="/photo/{album.link}">
     <div class='album__border'>
-        <div class='album__preview-container'>
-            <img class="album__preview" src={album.inner[0]} alt='photo1'>
+        <div class='album__preview'>
+            <img class="album__preview-img" src={album.inner[0]} alt='photo1'>
         </div>
     </div>
     <div class='album__bottom'>
@@ -20,6 +20,7 @@
     }
     .album__border {
         position: relative;
+        z-index: 5;
     }
     .album__border::before,
     .album__border::after {
@@ -43,7 +44,7 @@
         left: 7px;
         background: #b9b9b9;
     }
-    .album__preview-container {
+    .album__preview {
         position: relative;
         z-index: -1;
         height: 200px;
@@ -52,13 +53,14 @@
         margin-bottom: 10px;
         border: 1px solid #a9a9a9;
     }
-    .album__preview {
+    .album__preview-img {
         object-fit: cover;
-        max-height: 200px;
-        transition: all 0.5s;
+        width: 100%;
+        height: 100%;
+        transition: all 0.4s;
     }
-    .album:hover .album__preview {
-        transform: scale(1.2);
+    .album:hover .album__preview-img {
+        transform: scale(1.1);
     }
     .album__bottom {
         display: flex;
