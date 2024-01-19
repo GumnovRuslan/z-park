@@ -36,19 +36,25 @@
             <img class="popup__image" src='/img/woman.png' alt='manager'>
         </div>
         <form class="form" method="post">
-            <label class='form__label'>Имя
-                <input class="form__input" type="text" placeholder="Евгения" required>
-            </label>
-            <label class='form__label'>Телефон
-                <input class="form__input" type='tel' placeholder="+375 (XX) XXX XX XX" required>
+            <label class='form__label'>Ваше имя
+                <input class="form__input" type="text" placeholder="Андрей" required>
             </label>
             <label class='form__label'>Дата проведения
                 <input class="form__input" type="date" value={setDateNow()} min={setDateNow()} required>
             </label>
-            <label class='form__label-confirm'>
+            <label class='form__label'>Имя именинника
+                <input class="form__input" type="text" placeholder="Полина" required>
+            </label>
+            <label class='form__label'>Количество детей
+                <input class="form__input" type="number" placeholder="1" min="1" required>
+            </label>
+            <label class='form__label'>Телефон
+                <input class="form__input" type='tel' placeholder="+375 (XX) XXX XX XX" required>
+            </label>
+            <!-- <label class='form__label-confirm'>
                 <input type='checkbox' class='form__input-confirm' required>
                 Нажимая на кнопку, я принимаю условия соглашения.
-            </label>
+            </label> -->
             <button class="form__btn-send" type='submit'>Отправить</button>
             <button class="popup__btn-close" type="button" on:click={dialog.close()}>
                 <span class='popup__close-line'></span>
@@ -190,7 +196,7 @@
         box-shadow: 0 0 6px #3e40d0;
         background: #3e40d017;
     }
-    .form__label-confirm {
+    /* .form__label-confirm {
         display: flex;
         gap: 8px;
         align-items: center;
@@ -204,7 +210,7 @@
         min-width: 15px;
         height: 15px;
         margin: 0;
-    }
+    } */
     .form__btn-send {
         align-self: center;
         text-transform: uppercase;
