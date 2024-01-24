@@ -3,8 +3,6 @@
     import { onMount } from 'svelte';
     import MaskTel from '$lib/component/MaskTel.svelte';
 
-    let customStyle = ''
-
     let place
     let rooms
     let timeRoom
@@ -40,7 +38,7 @@
     <form action='' class='booking__form'>
         <div class='booking__form-first'>
             <label class="booking__label">Выберите место
-                <select class="booking__input" name='' id='placeSelect'>
+                <select class="booking__input" name='place' id='placeSelect'>
                     <option value='table'>Столик</option>
                     <option value='room'>Комната</option>
                 </select>
@@ -48,8 +46,8 @@
 
             <label class="booking__label line-hidden" id="roomsLine">Выберите комнату
                 <select class="booking__input" name='rooms'>
-                    <option value=''>Комната 1</option>
-                    <option value=''>Комнапа 2</option>
+                    <option value='room-1'>Комната 1</option>
+                    <option value='room-2'>Комнапа 2</option>
                 </select>
             </label>
 
@@ -58,10 +56,10 @@
             </label>
 
             <label class="booking__label line-hidden" id="roomTime">Выберите время
-                <select class="booking__input" name='time' id=''>
-                    <option value=''>12:30 - 14:30</option>
-                    <option value=''>15:00 - 17:00</option>
-                    <option value=''>17:30 - 19:30</option>
+                <select class="booking__input" name='time'>
+                    <option value='time-1'>12:30 - 14:30</option>
+                    <option value='time-2'>15:00 - 17:00</option>
+                    <option value='time-3'>17:30 - 19:30</option>
                 </select>
             </label>
 
@@ -104,7 +102,7 @@
             </label>
 
             <label class="booking__label">Выберите анимацию
-                <select class="booking__input" name='animation' id=''>
+                <select class="booking__input" name='animation'>
                     <option value=''>Нет</option>
                     <option value=''>Вынос тортика, 20р</option>
                     <option value=''>Флешмоб, 35р</option>
@@ -117,7 +115,7 @@
             </label>
 
             <label class="booking__label">Выберите героя
-                <select class="booking__input" name='hero' id=''>
+                <select class="booking__input" name='hero'>
                     <option value='not'>Нет</option>
                     <option value='ladybug'>Леди баг</option>
                     <option value='superman'>Супермен</option>
@@ -136,7 +134,7 @@
             </label>
 
             <label class="booking__label">Примечание
-                <textarea class="booking__note" name='' id='' cols='30' rows='10'></textarea>
+                <textarea class="booking__note" name='note' cols='30' rows='10'></textarea>
             </label>
             <button class='booking__btn'>Отправить</button>
         </div>
@@ -144,34 +142,27 @@
 </div>
 
 <style>
-
     .booking {
         padding: 30px 10px;
     }
     .booking__form {
-        width: 900px;
-        /* margin: 0 auto; */
         display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
         gap: 30px;
     }
-    .booking__form-first {
-        flex: auto;
+    .booking__form-first, .booking__form-second {
         display: flex;
         flex-direction: column;
         gap: 8px;
-    }
-    .booking__form-second {
-        flex: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
+        width: 400px;
     }
     .booking__label {
         display: flex;
         flex-direction: column;
         font-weight: 500;
     }
-    .booking__label:hover .booking__input{
+    .booking__input:hover{
         outline: 2px solid #5e3ed0;
     }
     .booking__input:focus {

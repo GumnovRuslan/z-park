@@ -73,4 +73,12 @@
         outline: 1px solid #5e3ed0;
         height: 45px;
     }
+    .booking__input:focus {
+        outline: 2px solid #5e3ed0;
+        box-shadow: 0 0 8px #5e3ed0;
+        background: #e5ddff;
+    }
+    .booking__input:hover{
+        outline: 2px solid #5e3ed0;
+    }
 </style>
