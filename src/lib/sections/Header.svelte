@@ -2,9 +2,19 @@
     import { onMount } from "svelte";
 
     let isChecked
+    let checkbox;
+	let burgerLineTop;
+	let burgerLineCenter;
+	let burgerLineBottom;
+	let time = 200;
 
     onMount(() => {
         let links = document.querySelectorAll('.link')
+        checkbox = document.querySelector('.burger-checkbox');
+		let lines = document.querySelectorAll('.burger__line');
+		burgerLineTop = lines[0];
+		burgerLineCenter = lines[1];
+		burgerLineBottom = lines[2];
         closeMenu(links)
     })
 
@@ -20,19 +30,61 @@
     }
 
     function stopScroll() {
-        if(!isChecked) document.body.style.overflow = 'visible'
+        if(!checkbox.checked) document.body.style.overflow = 'visible'
         else document.body.style.overflow = 'hidden'
     }
+
+    function burgerOpen() {
+		lineTop();
+		lineCenter();
+		lineBottom();
+	}
+
+	function lineTop() {
+		if (!checkbox.checked) {
+			burgerLineTop.style.transform = 'translateY(10px)';
+			setTimeout(() => {
+				burgerLineTop.style.transform = 'translateY(10px) rotate(45deg)';
+			}, time);
+		} else {
+			burgerLineTop.style.transform = 'translateY(10px) rotate(0)';
+			setTimeout(() => {
+				burgerLineTop.style.transform = '';
+			}, time);
+		}
+	}
+	function lineCenter() {
+		if (!checkbox.checked) {
+			burgerLineCenter.style.transform = 'scale(0)';
+		} else {
+			burgerLineCenter.style.transform = 'scale(1)';
+		}
+	}
+	function lineBottom() {
+		if (!checkbox.checked) {
+			burgerLineBottom.style.transform = 'translateY(-10px)';
+			setTimeout(() => {
+				burgerLineBottom.style.transform = 'translateY(-10px) rotate(-45deg)';
+			}, time);
+		} else {
+			burgerLineBottom.style.transform = 'translateY(-10px) rotate(0)';
+			setTimeout(() => {
+				burgerLineBottom.style.transform = '';
+			}, time);
+		}
+	}
 </script>
 
 <header class="header" id="header">
     <input class="burger-checkbox" type='checkbox' id="falseCheckbox" bind:checked={isChecked} on:change={stopScroll}>
 
-    <label class='burger' for="falseCheckbox">
-        <span class="burger__line burger__line-top"></span>
-        <span class="burger__line burger__line-center"></span>
-        <span class="burger__line burger__line-bottom"></span>
-    </label>
+    <button class="burger" on:click={burgerOpen}>
+        <label class="burger__container" for="falseCheckbox">
+            <span class="burger__line burger__line-top"></span>
+            <span class="burger__line burger__line-center"></span>
+            <span class="burger__line burger__line-bottom"></span>
+        </label>
+    </button>
 
     <a class="logo-link logo-mobile link" href='/'>
         <img src='/img/logo-removebg-cut.png' alt='' class='logo-img'>
@@ -55,38 +107,39 @@
 
 <style>
     /* BURGER */
-    .burger-checkbox {
-        display: none;
-    }
-    .burger {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        width: 50px;
-        height: 50px;
-        padding: 0;
-        border: none;
-        cursor: pointer;
-        background: transparent;
-    }
-    .burger__line {
-        width: 30px;
-        height: 4px;
-        border-radius: 5px;
-        background: #000;
-        transition: all 0.5s;
-    }
-    .burger-checkbox:checked ~ .burger .burger__line-top {
-        transform: translateY(10px) rotate(45deg);
-    }
-    .burger-checkbox:checked ~ .burger .burger__line-center {
-        transform: scale(0);
-    }
-    .burger-checkbox:checked ~ .burger .burger__line-bottom {
-        transform: translateY(-10px) rotate(-45deg);
-    }
+	.burger-checkbox {
+		display: none;
+	}
+	.burger {
+		padding: 0;
+		border: none;
+		background: transparent;
+	}
+	.burger__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 6px;
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+	}
+	.burger__line {
+		width: 30px;
+		height: 4px;
+		border-radius: 5px;
+		background: #000;
+	}
+	.burger__line-top {
+		transition: all 0.2s;
+	}
+	.burger__line-center {
+		transition: all 0.5s;
+	}
+	.burger__line-bottom {
+		transition: all 0.2s;
+	}
     .burger-checkbox:checked ~ #menu {
         left: 0;
     }
