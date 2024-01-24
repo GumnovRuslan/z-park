@@ -1,5 +1,12 @@
 <script>
     import SectionTitle from "$lib/component/SectionTitle.svelte";
+    import ReadMore from "$lib/component/ReadMore.svelte";
+
+    let cards = [
+        {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ratione odit, magni exercitationem labore illum possimus harum veritatis, error repudiandae vitae, similique velit culpa maiores cum libero suscipit commodi animi id ullam optio a illo necessitatibus laboriosam? Ratione molestiae non quia ab tenetur, reprehenderit nesciunt. Quaerat voluptates dolor corporis nihil cum quod labore culpa quam blanditiis facilis voluptatum eum et iure soluta quidem, libero laboriosam fugiat ratione autem recusandae dignissimos mollitia saepe! Nemo facilis at tenetur necessitatibus asperiores quas, aut dolorum? Iure accusamus necessitatibus ea ipsam odit tempore vitae! Omnis quia minima quae quam est modi veritatis, facilis autem repudiandae?'},
+        {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ratione odit, magni exercitationem labore illum possimus harum veritatis, error repudiandae vitae, similique velit culpa maiores cum libero suscipit commodi animi id ullam optio a illo necessitatibus laboriosam? Ratione molestiae non quia ab tenetur, reprehenderit nesciunt. Quaerat voluptates dolor corporis nihil cum quod labore culpa quam blanditiis facilis voluptatum eum et iure soluta quidem, libero laboriosam fugiat ratione autem recusandae dignissimos mollitia saepe! Nemo facilis at tenetur necessitatibus asperiores quas, aut dolorum? Iure accusamus necessitatibus ea ipsam odit tempore vitae! Omnis quia minima quae quam est modi veritatis, facilis autem repudiandae?'},
+        {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ratione odit, magni exercitationem labore illum possimus harum veritatis, error repudiandae vitae, similique velit culpa maiores cum libero suscipit commodi animi id ullam optio a illo necessitatibus laboriosam? Ratione molestiae non quia ab tenetur, reprehenderit nesciunt. Quaerat voluptates dolor corporis nihil cum quod labore culpa quam blanditiis facilis voluptatum eum et iure soluta quidem, libero laboriosam fugiat ratione autem recusandae dignissimos mollitia saepe! Nemo facilis at tenetur necessitatibus asperiores quas, aut dolorum? Iure accusamus necessitatibus ea ipsam odit tempore vitae! Omnis quia minima quae quam est modi veritatis, facilis autem repudiandae?'},
+    ];
 </script>
 
 <svelte:head>
@@ -52,8 +59,19 @@
         </div>
     </div>
 </div>
+<div class='info-block'>
+    {#each cards as card, i}
+        <ReadMore id={'card-info-' + i} text={card.text}/>
+    {/each}
+</div>
 
 <style>
+    .info-block {
+        padding: 40px 10px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
     p {
         margin: 0;
         padding: 0;
