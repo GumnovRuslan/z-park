@@ -83,7 +83,7 @@
 <style>
 	.card-info {
 		padding: 25px;
-		width: 350px;
+		max-width: 350px;
 		background: #3943ff;
 	}
 	.card-info__text {
