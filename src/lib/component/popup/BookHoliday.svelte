@@ -8,6 +8,23 @@
         dialog.addEventListener('click', (e) => closeDialog(e));
     })
 
+    function submitForm() {
+        let bookingForm = document.querySelector('.form-booking')
+        let inputs = bookingForm.querySelectorAll('input[required]')
+        let inputCheckbox = inputs[inputs.length - 1]
+        let labelCheckbox = inputCheckbox.closest('.form__label-confirm')
+
+        inputs.forEach(input => {
+            if(!input.value) input.style.outlineColor = 'red'
+            else input.style.outlineColor = '#5e3ed0'
+
+            if(input == inputCheckbox) {
+                if(!input.checked) labelCheckbox.style.outline = '1px solid red'
+                else labelCheckbox.style.outline = '1px solid transparent'
+            }
+        })
+    }
+
     function closeDialog(e) {
         const dialogSize = dialog.getBoundingClientRect()
         if(e.clientX < dialogSize.left ||
@@ -35,27 +52,30 @@
         <div class='popup__image-container'>
             <img class="popup__image" src='/img/woman.png' alt='manager'>
         </div>
-        <form class="form" method="post">
-            <label class='form__label'>Ваше имя
+        <form class="form form-booking" method="post">
+            <label class='form__label'>Ваше имя *
                 <input class="form__input" type="text" placeholder="Андрей" required>
             </label>
-            <label class='form__label'>Дата проведения
+            <label class='form__label'>Дата проведения *
                 <input class="form__input" type="date" value={setDateNow()} min={setDateNow()} required>
             </label>
             <label class='form__label'>Имя именинника
-                <input class="form__input" type="text" placeholder="Полина" required>
+                <input class="form__input" type="text" placeholder="Полина">
             </label>
-            <label class='form__label'>Количество детей
+            <label class='form__label'>Сколько лет исполняется
+                <input class="form__input" type="number">
+            </label>
+            <label class='form__label'>Количество детей *
                 <input class="form__input" type="number" placeholder="1" min="1" required>
             </label>
-            <label class='form__label'>Телефон
+            <label class='form__label'>Телефон *
                 <input class="form__input" type='tel' placeholder="+375 (XX) XXX XX XX" required>
             </label>
-            <!-- <label class='form__label-confirm'>
+            <label class='form__label-confirm'>
                 <input type='checkbox' class='form__input-confirm' required>
-                Нажимая на кнопку, я принимаю условия соглашения.
-            </label> -->
-            <button class="form__btn-send" type='submit'>Отправить</button>
+                Даю согласие на обработку персональных данных, в том числе в маркетинговых целях.
+            </label>
+            <button class="form__btn-send" type='button' on:click={submitForm}>Отправить</button>
             <button class="popup__btn-close" type="button" on:click={dialog.close()}>
                 <span class='popup__close-line'></span>
             </button>
@@ -68,6 +88,7 @@
         background: #00000071;
     }
     .popup {
+        max-width: 900px;
         border: 2px solid #3e40d0;
         border-radius: 20px;
         box-shadow: 0 0 20px 1px #5e3ed0;
@@ -164,6 +185,7 @@
     .form {
         display: flex;
         flex-direction: column;
+        max-width: 450px;
     }
     .form__label {
         width: 100%;
@@ -196,7 +218,7 @@
         box-shadow: 0 0 6px #3e40d0;
         background: #3e40d017;
     }
-    /* .form__label-confirm {
+    .form__label-confirm {
         display: flex;
         gap: 8px;
         align-items: center;
@@ -210,7 +232,7 @@
         min-width: 15px;
         height: 15px;
         margin: 0;
-    } */
+    }
     .form__btn-send {
         align-self: center;
         text-transform: uppercase;
