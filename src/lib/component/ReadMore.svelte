@@ -4,7 +4,7 @@
 	export let text = ''
 	export let id = '0'
 	let card;
-	let textLength = 300;
+	let textLength = 250;
 
 	onMount(() => {
 		card = document.getElementById(id);
@@ -18,6 +18,10 @@
 		let elCardText = card.querySelector('.card-info__text');
 		let fullTextHeight = elCardText.scrollHeight;
 		let elBtnMore = card.querySelector('.card-info__btn-more');
+		if(elCardText.textContent.length <= textLength) {
+			elBtnMore.style.display = 'none'
+			return
+		}
 		createCardMore();
 		elBtnMore.addEventListener('click', clickBtn);
 
