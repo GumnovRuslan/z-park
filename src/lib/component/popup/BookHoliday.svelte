@@ -1,9 +1,12 @@
 <script>
     import { onMount } from "svelte";
+    import {setMaskTel} from "/src/lib/utils/inputMask.js";
 
+    let inputsTelMask
     let dialog
 
     onMount(() => {
+        inputsTelMask = document.querySelectorAll('input[data-mask-tel]').forEach(input => setMaskTel(input))
         dialog = document.getElementById('bookHoliday')
         dialog.addEventListener('click', (e) => closeDialog(e));
     })
@@ -57,7 +60,7 @@
                 <input class="form__input" type="text" placeholder="Андрей" required>
             </label>
             <label class='form__label'>Дата проведения *
-                <input class="form__input" type="date" value={setDateNow()} min={setDateNow()} required>
+                <input class="form__input" type="date" min={setDateNow()} required>
             </label>
             <label class='form__label'>Имя именинника
                 <input class="form__input" type="text" placeholder="Полина">
@@ -69,7 +72,7 @@
                 <input class="form__input" type="number" placeholder="1" min="1" required>
             </label>
             <label class='form__label'>Телефон *
-                <input class="form__input" type='tel' placeholder="+375 (XX) XXX XX XX" required>
+                <input class="form__input" type='tel' data-mask-tel placeholder="+375 (XX) XXX XX XX" required>
             </label>
             <label class='form__label-confirm'>
                 <input type='checkbox' class='form__input-confirm' required>
