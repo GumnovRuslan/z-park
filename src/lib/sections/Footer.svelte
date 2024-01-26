@@ -1,31 +1,36 @@
 <script>
 </script>
 
-<div class='wrapper'>
-    <div class='container'>
-        <div class='footer-top'>
-            <div class='footer-top__content'>
-                <img src='/img/logo-removebg-cut.png' alt='' class='logo'>
-                <a href='#' class='footer-top__item'>Правила посещения</a>
-                <a href='#' class='footer-top__item'>Политика кафиденциальности</a>
+<div class='footer__container'>
+    <div class='footer-top'>
+            <div class='footer-top__logo'>
+                <a href='/' class='footer-top__logo-link'>
+                    <img src='/img/logo-removebg-cut.png' class='footer-top__logo-img' alt='logo'>
+                </a>
+            </div>
+            <div class='footer-top__info'>
+                <p class='footer-top__info-text'>пр. Фрунзе, 81к33, г .Витебск</p>
+                <p class='footer-top__info-text'>Ежедневно 11:00 - 20:00</p>
+                <p class='footer-top__info-text'>+375 (XX) XXX-XX-XX</p>
             </div>
             <div class='footer-top__content'>
-                <a href='#' class='footer-top__item'>Контакты</a>
-                <a href='#' class='footer-top__item'>О нас</a>
-                <a href='#' class='footer-top__item'>О компании</a>
-                <a href='#' class='footer-top__item'>Цены</a>
+                <a href='#' class='footer-top__link'>Правила посещения</a>
+                <a href='#' class='footer-top__link'>Политика кафиденциальности</a>
             </div>
             <div class='footer-top__content'>
-                <a href='#' class='footer-top__item'>Контакты</a>
-                <a href='#' class='footer-top__item'>О нас</a>
-                <a href='#' class='footer-top__item'>О компании</a>
-                <a href='#' class='footer-top__item'>Цены</a>
+                <a href='/contacts' class='footer-top__link'>Контакты</a>
+                <a href='/holidays' class='footer-top__link'>Праздники</a>
+                <a href='/prices' class='footer-top__link'>Цены</a>
+            </div>
+            <div class='footer-top__content'>
+                <a href='/about' class='footer-top__link'>О нас</a>
+                <a href='/photo' class='footer-top__link'>Фото</a>
+                <a href='/cafe' class='footer-top__link'>Кафе</a>
             </div>
         </div>
         <div class='footer-bottom'>
-            <p class='footer-bottom__copy'>@copy 2023г</p>
+            <p class='footer-bottom__copy'>@copy 2024г</p>
         </div>
-    </div>
 </div>
 
 
@@ -33,35 +38,50 @@
     :root {
         --bg: #24b3ff;
         --text: #f5f5f5;
-        --link: #d7d7d7;
+        --link: #9f9f9f;
     }
-    .wrapper {
-        padding: 0 clamp(20px, 4vw, 100px);
-        background: #24b3ff;
+    .footer-top__logo-link {
+        display: block;
+        width: 140px;
+        padding: 0 10px;
     }
-    .container {
-        max-width: 1440px;
-        padding: 50px 0;
-        margin: 0 auto;
+    .footer__container {
+        padding: 30px clamp(10px, 4vw, 100px);
+        background: #0b0678;
     }
     .footer-top {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
-        gap: clamp(5px, 1vw, 40px);
-        margin-bottom: 40px;
+        gap: 10px;
+        max-width: 85%;
+        margin: 0 auto 50px auto;
     }
     .footer-top__content {
-        display: inline-flex;
+        display: flex;
         flex-wrap: wrap;
         flex-direction: column;
-        justify-content: space-evenly;
+    }
+    .footer-top__logo {
+        flex: auto;
+    }
+    .footer-top__logo-img {
+        width: 100%;
+    }
+    .footer-top__info {
+        flex: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         gap: 3px;
     }
-    .logo {
-        width: 120px;
+    .footer-top__info-text {
+        line-height: 1.3;
+        color: #dddddd;
+        padding: 0 10px;
     }
-    .footer-top__item {
-        padding: 3px 0;
+    .footer-top__link {
+        padding: 5px 10px;
         text-decoration: none;
         font-size: 18px;
         font-weight: 500;
@@ -69,13 +89,20 @@
         color: #dddddd;
         transition: all 0.2s;
     }
-    .footer-top__item:hover {
+    .footer-top__link:hover {
         color: #fff;
+    }
+    .footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 30px;
+        border-top: 1px solid #f5f5f5;
     }
     .footer-bottom__copy {
         text-align: center;
         font-size: 14px;
-        color: #505050;
+        color: #b4b4b4;
     }
     @media screen and (max-width: 600px) {
         .footer-top {
