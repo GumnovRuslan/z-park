@@ -45,6 +45,7 @@
     }
     .side-panel {
         position: fixed;
+        z-index: 10;
         bottom: 30px;
         right: 10px;
         display: flex;

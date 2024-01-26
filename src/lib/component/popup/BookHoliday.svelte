@@ -1,12 +1,31 @@
 <script>
     import { onMount } from "svelte";
+    import {setMaskTel, setWheelNumber, setDateNow} from "/src/lib/utils/inputMask.js";
 
     let dialog
 
     onMount(() => {
+        setMaskTel('data-mask-tel')
+        setWheelNumber('data-mask-num')
+        setDateNow('data-mask-date')
         dialog = document.getElementById('bookHoliday')
         dialog.addEventListener('click', (e) => closeDialog(e));
     })
+
+    function submitForm(e) {
+        const form = e.target.closest('form')
+        const inputTel = form.querySelectorAll('input[data-mask-tel][required]')
+        const inputNum = form.querySelectorAll('input[type="number"][required]')
+        const inputDate = form.querySelectorAll('input[data-mask-date][required]')
+        const inputText = form.querySelectorAll('input[type="text"][required]')
+        const inputCheckbox = form.querySelectorAll('input[type="checkbox"][required]')
+
+        inputTel.forEach(input => input.style.outlineColor = input.value.length < 19 ? 'red' : '#5e3ed0')
+        inputNum.forEach(input => input.style.outlineColor = !input.value ? 'red' : '#5e3ed0')
+        inputDate.forEach(input => input.style.outlineColor = !input.value || input.value < input.min ? 'red' : '#5e3ed0')
+        inputCheckbox.forEach(input => input.parentNode.style.outlineColor = input.checked ? 'transparent' : 'red')
+        inputText.forEach(input => input.style.outlineColor = !input.value ? 'red' : '#5e3ed0')
+    }
 
     function closeDialog(e) {
         const dialogSize = dialog.getBoundingClientRect()
@@ -17,11 +36,6 @@
             dialog.close()
     }
 
-    function setDateNow() {
-        const addZero = (n) => n < 10 ? '0' + n : n
-        const date = new Date()
-        return `${date.getFullYear()}-${addZero(date.getMonth() + 1)}-${addZero(date.getDate())}`
-    }
 </script>
 
 <dialog class="popup" id="bookHoliday">
@@ -35,27 +49,30 @@
         <div class='popup__image-container'>
             <img class="popup__image" src='/img/woman.png' alt='manager'>
         </div>
-        <form class="form" method="post">
-            <label class='form__label'>Ваше имя
+        <form class="form form-booking" method="post">
+            <label class='form__label'>Ваше имя *
                 <input class="form__input" type="text" placeholder="Андрей" required>
             </label>
-            <label class='form__label'>Дата проведения
-                <input class="form__input" type="date" value={setDateNow()} min={setDateNow()} required>
+            <label class='form__label'>Дата проведения *
+                <input class="form__input" type="date" data-mask-date required>
             </label>
             <label class='form__label'>Имя именинника
-                <input class="form__input" type="text" placeholder="Полина" required>
+                <input class="form__input" type="text" placeholder="Полина">
             </label>
-            <label class='form__label'>Количество детей
-                <input class="form__input" type="number" placeholder="1" min="1" required>
+            <label class='form__label'>Сколько лет исполняется
+                <input class="form__input" type="number" max='17' placeholder="1" data-mask-num>
             </label>
-            <label class='form__label'>Телефон
-                <input class="form__input" type='tel' placeholder="+375 (XX) XXX XX XX" required>
+            <label class='form__label'>Количество детей *
+                <input class="form__input" type="number" data-mask-num placeholder="1" min="1" required>
             </label>
-            <!-- <label class='form__label-confirm'>
+            <label class='form__label'>Телефон *
+                <input class="form__input" type='tel' data-mask-tel required>
+            </label>
+            <label class='form__label-confirm'>
                 <input type='checkbox' class='form__input-confirm' required>
-                Нажимая на кнопку, я принимаю условия соглашения.
-            </label> -->
-            <button class="form__btn-send" type='submit'>Отправить</button>
+                Даю согласие на обработку персональных данных, в том числе в маркетинговых целях.
+            </label>
+            <button class="form__btn-send" type='button' on:click={(e) => submitForm(e)}>Отправить</button>
             <button class="popup__btn-close" type="button" on:click={dialog.close()}>
                 <span class='popup__close-line'></span>
             </button>
@@ -68,9 +85,11 @@
         background: #00000071;
     }
     .popup {
+        max-width: 900px;
         border: 2px solid #3e40d0;
         border-radius: 20px;
         box-shadow: 0 0 20px 1px #5e3ed0;
+
     }
     .popup__header {
         margin-bottom: 15px;
@@ -164,6 +183,7 @@
     .form {
         display: flex;
         flex-direction: column;
+        max-width: 450px;
     }
     .form__label {
         width: 100%;
@@ -196,7 +216,7 @@
         box-shadow: 0 0 6px #3e40d0;
         background: #3e40d017;
     }
-    /* .form__label-confirm {
+    .form__label-confirm {
         display: flex;
         gap: 8px;
         align-items: center;
@@ -204,13 +224,15 @@
         font-size: clamp(12px, 3vw, 14px);
         font-weight: 500;
         line-height: 1.2;
+        outline: 1px solid transparent;
+        outline-offset: 2px;
         color: #505050;
     }
     .form__input-confirm {
         min-width: 15px;
         height: 15px;
         margin: 0;
-    } */
+    }
     .form__btn-send {
         align-self: center;
         text-transform: uppercase;
