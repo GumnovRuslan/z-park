@@ -1,50 +1,78 @@
-export function setMaskTel(input) {
-	input.addEventListener('input', onPhoneNumber, false);
-	input.addEventListener('keydown', onPhoneKeyDown);
-	input.addEventListener('paste', onPhonePaste, false);
-	input.value = '+375 ';
-	input.maxLength = 19;
+export function setMaskTel(attribute) {
+	const inputs = document.querySelectorAll(`[${attribute}]`);
+	inputs.forEach((input) => {
+		input.addEventListener('input', onPhoneNumber, false);
+		input.addEventListener('keydown', onPhoneKeyDown);
+		input.addEventListener('paste', onPhonePaste, false);
+		input.value = '+375 ';
+		input.maxLength = 19;
 
-	function getInputNumbersValue(input) {
-		return input.value.replace(/\D/g, '');
-	}
-
-	function onPhoneNumber(e) {
-		let inputNumbersValue = getInputNumbersValue(input),
-			formattedInputValue = '+375 ',
-			selectionStart = input.selectionStart;
-
-		if (input.value.length != selectionStart) {
-			if (e.data && /\D/g.test(e.data)) {
-				input.value = inputNumbersValue;
-			}
-			return;
+		function getInputNumbersValue(input) {
+			return input.value.replace(/\D/g, '');
 		}
 
-		if (inputNumbersValue.length > 3) formattedInputValue += '(' + inputNumbersValue.slice(3, 5);
-		if (inputNumbersValue.length > 5) formattedInputValue += ') ' + inputNumbersValue.slice(5, 8);
-		if (inputNumbersValue.length > 8) formattedInputValue += '-' + inputNumbersValue.slice(8, 10);
-		if (inputNumbersValue.length > 10) formattedInputValue += '-' + inputNumbersValue.slice(10, 12);
-		console.log(inputNumbersValue);
-		return (input.value = formattedInputValue);
-	}
+		function onPhoneNumber(e) {
+			let inputNumbersValue = getInputNumbersValue(input),
+				formattedInputValue = '+375 ',
+				selectionStart = input.selectionStart;
 
-	function onPhoneKeyDown(e) {
-		let inputValue = e.target.value.replace(/\D/g, '');
-		if (e.keyCode == 8 && inputValue.length <= 1) e.target.value = '';
-	}
-
-	function onPhonePaste(e) {
-		let input = e.target;
-		let inputNumbersValue = getInputNumbersValue(input);
-		let pasted = e.clipboardData || window.clipboardData;
-		if (pasted) {
-			let pastedText = pasted.getData('Text');
-
-			if (/\D/g.test(pastedText)) {
-				input.value = inputNumbersValue;
+			if (input.value.length != selectionStart) {
+				if (e.data && /\D/g.test(e.data)) input.value = inputNumbersValue;
 				return;
 			}
+
+			if (inputNumbersValue.length > 3) formattedInputValue += '(' + inputNumbersValue.slice(3, 5);
+			if (inputNumbersValue.length > 5) formattedInputValue += ') ' + inputNumbersValue.slice(5, 8);
+			if (inputNumbersValue.length > 8) formattedInputValue += '-' + inputNumbersValue.slice(8, 10);
+			if (inputNumbersValue.length > 10)
+				formattedInputValue += '-' + inputNumbersValue.slice(10, 12);
+			return (input.value = formattedInputValue);
 		}
-	}
+
+		function onPhoneKeyDown(e) {
+			const inputValue = input.value.replace(/\D/g, '');
+			if (e.keyCode == 8 && inputValue.length <= 1) e.target.value = '';
+		}
+
+		function onPhonePaste(e) {
+			const inputNumbersValue = getInputNumbersValue(input);
+			const pasted = e.clipboardData || window.clipboardData;
+			if (pasted) {
+				const pastedText = pasted.getData('Text');
+				if (/\D/g.test(pastedText)) {
+					input.value = inputNumbersValue;
+					return;
+				}
+			}
+		}
+	});
+}
+
+export function setWheelNumber(attribute) {
+	const inputs = document.querySelectorAll(`[${attribute}]`);
+	inputs.forEach((input) =>
+		input.addEventListener('wheel', (e) => {
+			e.preventDefault();
+			const input = e.target;
+			const minNumber = input.min || 0;
+			const maxNumber = input.max || 99;
+			let value = input.value;
+			const step = +input.step || 1;
+			value = e.deltaY > 0 ? +input.value - step : +input.value + step;
+			input.value = value <= minNumber ? minNumber : value >= maxNumber ? maxNumber : value;
+		})
+	);
+}
+
+export function setDateNow(attribute) {
+	const addZero = (n) => (n < 10 ? '0' + n : n);
+	const date = new Date();
+	const formatDate = `${date.getFullYear()}-${addZero(date.getMonth() + 1)}-${addZero(
+		date.getDate()
+	)}`;
+
+	if (attribute) {
+		const inputs = document.querySelectorAll(`[${attribute}]`);
+		inputs.forEach((input) => (input.min = formatDate));
+	} else return formatDate;
 }
