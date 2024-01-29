@@ -8,11 +8,6 @@
                     <img src='/img/logo-removebg-cut.png' class='footer-top__logo-img' alt='logo'>
                 </a>
             </div>
-            <div class='footer-top__info'>
-                <p class='footer-top__info-text'>пр. Фрунзе, 81к33, г .Витебск</p>
-                <p class='footer-top__info-text'>Ежедневно 11:00 - 20:00</p>
-                <p class='footer-top__info-text'>+375 (XX) XXX-XX-XX</p>
-            </div>
             <div class='footer-top__content'>
                 <a href='#' class='footer-top__link'>Правила посещения</a>
                 <a href='#' class='footer-top__link'>Политика кафиденциальности</a>
@@ -63,24 +58,13 @@
         flex-direction: column;
     }
     .footer-top__logo {
-        flex: auto;
+        flex: 100%;
     }
     .footer-top__logo-img {
         width: 100%;
     }
-    .footer-top__info {
-        flex: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 3px;
-    }
-    .footer-top__info-text {
-        line-height: 1.3;
-        color: #dddddd;
-        padding: 0 10px;
-    }
     .footer-top__link {
+        min-width: 150px;
         padding: 5px 10px;
         text-decoration: none;
         font-size: 18px;
@@ -103,10 +87,5 @@
         text-align: center;
         font-size: 14px;
         color: #b4b4b4;
-    }
-    @media screen and (max-width: 600px) {
-        .footer-top {
-            flex-direction: column;
-        }
     }
 </style>
