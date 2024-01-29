@@ -106,7 +106,7 @@
         cursor: pointer;
         background: transparent;
     }
-    .popup__btn-close:focus {
+    .popup__btn-close:target {
         background: #3e40d017;
         outline: 2px solid #5e3ed0
     }
@@ -137,12 +137,12 @@
     }
     .popup__btn-close:hover .popup__close-line:before,
     .popup__btn-close:hover .popup__close-line:after,
-    .popup__btn-close:focus .popup__close-line:before,
-    .popup__btn-close:focus .popup__close-line:after {
+    .popup__btn-close:target .popup__close-line:before,
+    .popup__btn-close:target .popup__close-line:after {
         background: #f85151;
     }
     .popup__btn-close:hover .popup__close-line,
-    .popup__btn-close:focus .popup__close-line {
+    .popup__btn-close:target .popup__close-line {
         transform: scale(120%);
     }
     .popup__title {
