@@ -38,47 +38,46 @@
 		lineTop();
 		lineCenter();
 		lineBottom();
-	}
-
-	function lineTop() {
-		if (!checkbox.checked) {
-			burgerLineTop.style.transform = 'translateY(10px)';
-			setTimeout(() => {
-				burgerLineTop.style.transform = 'translateY(10px) rotate(45deg)';
-			}, time);
-		} else {
-			burgerLineTop.style.transform = 'translateY(10px) rotate(0)';
-			setTimeout(() => {
-				burgerLineTop.style.transform = '';
-			}, time);
-		}
-	}
-	function lineCenter() {
-		if (!checkbox.checked) {
-			burgerLineCenter.style.transform = 'scale(0)';
-		} else {
-			burgerLineCenter.style.transform = 'scale(1)';
-		}
-	}
-	function lineBottom() {
-		if (!checkbox.checked) {
-			burgerLineBottom.style.transform = 'translateY(-10px)';
-			setTimeout(() => {
-				burgerLineBottom.style.transform = 'translateY(-10px) rotate(-45deg)';
-			}, time);
-		} else {
-			burgerLineBottom.style.transform = 'translateY(-10px) rotate(0)';
-			setTimeout(() => {
-				burgerLineBottom.style.transform = '';
-			}, time);
-		}
+        function lineTop() {
+            if (!checkbox.checked) {
+                burgerLineTop.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    burgerLineTop.style.transform = 'translateY(10px) rotate(45deg)';
+                }, time);
+            } else {
+                burgerLineTop.style.transform = 'translateY(10px) rotate(0)';
+                setTimeout(() => {
+                    burgerLineTop.style.transform = '';
+                }, time);
+            }
+        }
+        function lineCenter() {
+            if (!checkbox.checked) {
+                burgerLineCenter.style.transform = 'scale(0)';
+            } else {
+                burgerLineCenter.style.transform = 'scale(1)';
+            }
+        }
+        function lineBottom() {
+            if (!checkbox.checked) {
+                burgerLineBottom.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    burgerLineBottom.style.transform = 'translateY(-10px) rotate(-45deg)';
+                }, time);
+            } else {
+                burgerLineBottom.style.transform = 'translateY(-10px) rotate(0)';
+                setTimeout(() => {
+                    burgerLineBottom.style.transform = '';
+                }, time);
+            }
+        }
 	}
 </script>
 
 <header class="header" id="header">
     <input class="burger-checkbox" type='checkbox' id="falseCheckbox" bind:checked={isChecked} on:change={stopScroll}>
 
-    <button class="burger" on:click={burgerOpen}>
+    <button class="burger" on:click={burgerOpen} aria-label="Меню">
         <label class="burger__container" for="falseCheckbox">
             <span class="burger__line burger__line-top"></span>
             <span class="burger__line burger__line-center"></span>
@@ -86,8 +85,8 @@
         </label>
     </button>
 
-    <a class="logo-link logo-mobile link" href='/'>
-        <img src='/img/logo-removebg-cut.png' alt='' class='logo-img'>
+    <a class="logo-link logo-mobile link" href='/' aria-label="Логотип Z park">
+        <img src='/img/logo-removebg-cut.png' alt='Логотип Z-park' class='logo-img'>
     </a>
 
     <div class='header__menu' id="menu">
@@ -95,8 +94,8 @@
             <a class="header__link link" href='/about'>О нас</a>
             <a class="header__link link" href='/holidays'>Праздники</a>
             <a class="header__link link" href='/photo'>Фото</a>
-            <a class="logo-link logo-desktop link" href='/'>
-                <img src='/img/logo-removebg-cut.png' alt='' class='logo-img'>
+            <a class="logo-link logo-desktop link" href='/' aria-label="Логотип Z park">
+                <img src='/img/logo-removebg-cut.png' alt='Логотип Z-park' class='logo-img'>
             </a>
             <a class="header__link link" href='/cafe'>Кафе</a>
             <a class="header__link link" href='/prices'>Цены</a>

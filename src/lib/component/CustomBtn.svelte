@@ -1,13 +1,9 @@
 <script>
+    import { openPopup } from '$lib/utils/popup.js'
     export let text
-    export let handleClick
-
-    function handleClickInternal() {
-        if (handleClick) handleClick()
-    }
 </script>
 
-<button class="btn" type="button" on:click={handleClickInternal}>{text}</button>
+<button class="btn" type="button" on:click={openPopup}>{text}</button>
 
 <style>
     .btn {
@@ -15,16 +11,15 @@
         min-width: 130px;
         text-decoration: none;
         text-transform: uppercase;
-        text-shadow: 1px 1px 2px #6a6a6a;
         font-size: 16px;
         font-weight: 700;
         letter-spacing: 0.5px;
         border-radius: 2px;
-        color: #f5f5f5;
+        color: #000000;
         background: #ffa600;
         padding: 10px 20px;
         outline: none;
-        transition: background .6s, box-shadow .3s;
+        transition: background .6s, box-shadow .3s, color .3s;
         animation: pulse 4.5s ease-out infinite normal running 0s none;
     }
     .btn::after {
@@ -43,7 +38,7 @@
         animation: fastPulse 0.5s ease-out infinite normal running .2s none;
         box-shadow: inset 0 0 15px red;
         background: rgb(255, 61, 61);
-
+        color: #f5f5f5;
     }
     .btn:hover:after{
         animation: fastPulse 0.5s ease-out infinite normal running .45s none;

@@ -89,15 +89,15 @@
                 <p class='card__title'>{card.title}</p>
                 <p class='card__description'>{card.description}</p>
                 <div class='card__img-container'>
-                    <img src={card.img} alt='' class='card__img'>
+                    <img src={card.img} alt='Картика {card.title}' class='card__img'>
                 </div>
             </div>
         {/each}
 
     </div>
 
-    <button class='btn__more' type="button" data-show="0" on:click={openFullSection}>
-        <span class='btn__more-text'>Показать все</span>
+    <button class='btn__more' type="button" data-show="0" on:click={openFullSection} aria-labelledby="textBtnMore">
+        <span id="textBtnMore" class='btn__more-text'>Показать все</span>
         <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="btn__more-img arrow-down-short" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4"/>
         </svg>
@@ -169,7 +169,7 @@
         width: calc(100% - 130px);
         line-height: 1.3;
         font-size: 16px;
-        color: grey;
+        color: #414141;
     }
     .card__img-container {
         position: absolute;

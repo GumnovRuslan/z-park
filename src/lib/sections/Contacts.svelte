@@ -1,50 +1,50 @@
     <div class='section'>
         <div class='map-container'>
-            <img src='img/map.png' alt='' class='map__img'>
+            <img src='/img/map.png' alt='Карта проеза' class='map__img'>
         </div>
         <div class='contacts'>
                 <div class='contact'>
-                    <img src='img/svg/geo-alt-fill.svg' alt='' class='contact__img'>
+                    <img src='/svg/geo-alt-fill.svg' alt='Картинка адреса' class='contact__img'>
                     <div class='contact__content'>
                         <p class='contact__title'>Наш адрес</p>
                         <p class='contact__text'>проспект Фрунзе, 81к33, Витебск</p>
                     </div>
                 </div>
                 <div class='contact'>
-                    <img src='img/svg/telephone-fill.svg' alt='' class='contact__img'>
+                    <img src='/svg/telephone-fill.svg' alt='Картинка телефон' class='contact__img'>
                     <div class='contact__content'>
                         <p class='contact__title'>Наш телефон</p>
                         <p class='contact__text'>+ 375 ХХ ХХХ ХХ ХХ</p>
                     </div>
                 </div>
                 <div class='contact'>
-                    <img src='img/svg/clock.svg' alt='' class='contact__img'>
+                    <img src='/svg/clock.svg' alt='Картинка время' class='contact__img'>
                     <div class='contact__content'>
                         <p class='contact__title'>Время работы</p>
                         <p class='contact__text'>11:00 - 20:00 каждый день</p>
                     </div>
                 </div>
                 <div class='contact'>
-                    <img src='img/svg/envelope-fill.svg' alt='' class='contact__img'>
+                    <img src='/svg/envelope-fill.svg' alt='Картинка емаил' class='contact__img'>
                     <div class='contact__content'>
                         <p class='contact__title'>Наша почта</p>
                         <p class='contact__text'>z_park_vitebsk</p>
                     </div>
                 </div>
                 <div class='contact'>
-                    <img src='img/svg/star-fill.svg' alt='' class='contact__img'>
+                    <img src='/svg/star-fill.svg' alt='Картинка' class='contact__img'>
                     <div class='contact__content'>
                         <p class='contact__title'>Мы в соц. сетях</p>
                         <a href="https://vk.com/z_park_vitebsk" target="_blank" class='contact__text'>
-                            <img src='/img/svg/vk.svg' alt='' class='contact__img-network'>
+                            <img src='/svg/vk.svg' alt='Картинка вконтакте' class='contact__img-network'>
                             Вконтакте
                         </a>
                         <a href="https://www.youtube.com/channel/UCRRIZbUwBzzHOlL6ezvpHrg" target="_blank" class='contact__text'>
-                            <img src='/img/svg/youtube.svg' alt='' class='contact__img-network'>
+                            <img src='/svg/youtube.svg' alt='Картинка ютуб' class='contact__img-network'>
                             Youtube
                         </a>
                         <a href="https://www.instagram.com/zpark_vitebsk/" target="_blank" class='contact__text'>
-                            <img src='/img/svg/instagram.svg' alt='' class='contact__img-network'>
+                            <img src='/svg/instagram.svg' alt='Картинка инстаграм' class='contact__img-network'>
                             Instagram
                         </a>
                     </div>

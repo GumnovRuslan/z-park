@@ -62,7 +62,7 @@
                 Даю согласие на обработку персональных данных, в том числе в маркетинговых целях.
             </label>
             <button class="form__btn-send" type='submit' on:click={validationForm}>Отправить</button>
-            <button class="popup__btn-close" type="button" on:click={closePopup}>
+            <button class="popup__btn-close" type="button" on:click={closePopup} aria-label="Закрыть форму заказа праздника">
                 <span class='popup__close-line'></span>
             </button>
         </form>

@@ -3,9 +3,6 @@
     import Attractions from "../lib/sections/Attractions.svelte";
     import CustomBtn from "../lib/component/CustomBtn.svelte";
 
-    function handleClick() {
-        window.popupBooking.showModal()
-    };
 </script>
 
 <svelte:head>
@@ -14,11 +11,11 @@
 
 <div class='preview'>
     <div class='preview__container'>
-        <img class='preview__img' src='/img/super-hero.jpg' alt=''>
+        <img class='preview__img' src='/img/super-hero.webp' alt='Задний фон с супер героями'>
         <div class='preview__bg'>
-            <img class='preview__logo' src='/img/logo-removebg-cut.png' alt=''>
+            <img class='preview__logo' src='/img/logo-removebg-cut.png' alt='Логотип Z park'>
             <p class='preview__text'>СОВРЕМЕННЫЙ РАЗВЛЕКАТЕЛЬНЫЙ ЦЕНТР</p>
-            <CustomBtn text='Заказать праздник' {handleClick}/>
+            <CustomBtn text='Заказать праздник'/>
         </div>
     </div>
 </div>
@@ -35,7 +32,7 @@
                     Здесь можно культурно отдыхать, участвовать в играх и преодолении увлекательных препятствий, прохождении сложных лабиринтов. Z-park прекрасно подходит для отдыха всей семьей и дружными компаниями.
                 </p>
             </div>
-            <img src='/img/photo1.jpg' alt='' class='place__img'>
+            <img src='/img/photo1.jpg' alt='Развлекательный центр' class='place__img'>
         </div>
     </div>
 </div>
@@ -51,8 +48,6 @@
 </section>
 
 <style>
-    .preview {
-    }
     .preview__container {
         position: relative;
         height: 100vh;
@@ -86,8 +81,6 @@
         line-height: 1.3;
         letter-spacing: 3px;
         text-align: center;
-    }
-    .place {
     }
 
     .place__content {

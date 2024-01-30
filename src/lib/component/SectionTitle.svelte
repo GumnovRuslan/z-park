@@ -2,7 +2,7 @@
     export let value = 'Заголовок секции';
 </script>
 
-<h2 class='title'>{value}</h2>
+<h1 class='title'>{value}</h1>
 
 <style>
     .title {
