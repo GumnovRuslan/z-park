@@ -8,3 +8,9 @@ export function closeBeyond(e) {
 	)
 		e.target.close();
 }
+export function openPopup() {
+	window.popupBooking.showModal();
+}
+export function closePopup() {
+	window.popupBooking.close();
+}

@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
-    import {setMaskTel, setWheelNumber, setDate} from "/src/lib/utils/inputMask.js";
+    import { setMaskTel, setWheelNumber, setDate } from "$lib/utils/inputMask.js";
+    import { closePopup} from '$lib/utils/popup.js'
 
     let form
 
@@ -26,7 +27,7 @@
     }
 </script>
 
-<dialog class="popup" id="bookHoliday">
+<dialog class="popup" id="popupBooking">
     <div class='popup__header'>
         <p class="popup__title">Заказать праздник</p>
         <p class="popup__description">
@@ -61,7 +62,7 @@
                 Даю согласие на обработку персональных данных, в том числе в маркетинговых целях.
             </label>
             <button class="form__btn-send" type='submit' on:click={validationForm}>Отправить</button>
-            <button class="popup__btn-close" type="button" on:click={window.bookHoliday.close()}>
+            <button class="popup__btn-close" type="button" on:click={closePopup}>
                 <span class='popup__close-line'></span>
             </button>
         </form>

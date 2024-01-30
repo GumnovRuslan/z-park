@@ -1,20 +1,10 @@
 <script>
-    import Slider from "../lib/component/slider/slider.svelte";
     import Contacts from "$lib/sections/Contacts.svelte";
     import Attractions from "../lib/sections/Attractions.svelte";
     import CustomBtn from "../lib/component/CustomBtn.svelte";
 
-    let slides = [
-        'https://www.pizzatempo.by/i/photo/pizza_za_2_rub.jpg',
-        'https://pizzahouse67.ru/wp-content/uploads/2020/05/%D1%86%D0%B5%D0%B7%D0%B0%D1%80%D1%8C_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.png',
-        'https://pivkomarket.kz/wp-content/uploads/2020/06/akcija-31-picca.jpg',
-        'https://www.pizzatempo.by/i/photo/pizza_za_2_rub.jpg',
-        'https://pizzahouse67.ru/wp-content/uploads/2020/05/%D1%86%D0%B5%D0%B7%D0%B0%D1%80%D1%8C_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.png',
-        'https://pivkomarket.kz/wp-content/uploads/2020/06/akcija-31-picca.jpg',
-    ];
-
     function handleClick() {
-        window.bookHoliday.showModal()
+        window.popupBooking.showModal()
     };
 </script>
 
@@ -22,7 +12,6 @@
     <title>Парк развлечений в Витебске</title>
 </svelte:head>
 
-<!-- <Slider duration={5000} slides={slides}/> -->
 <div class='preview'>
     <div class='preview__container'>
         <img class='preview__img' src='/img/super-hero.jpg' alt=''>

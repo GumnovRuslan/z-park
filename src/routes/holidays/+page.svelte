@@ -1,6 +1,7 @@
 <script>
     import SectionTitle from "$lib/component/SectionTitle.svelte";
     import ReadMore from "$lib/component/ReadMore.svelte";
+    import { openPopup } from '$lib/utils/popup.js'
 
     let cards = [
         {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ratione odit, magni exercitationem labore illum possimus harum veritatis, error repudiandae vitae, similique velit culpa maiores cum libero suscipit commodi animi id ullam optio a illo necessitatibus laboriosam? Ratione molestiae non quia ab tenetur, reprehenderit nesciunt. Quaerat voluptates dolor corporis nihil cum quod labore culpa quam blanditiis facilis voluptatum eum et iure soluta quidem, libero laboriosam fugiat ratione autem recusandae dignissimos mollitia saepe! Nemo facilis at tenetur necessitatibus asperiores quas, aut dolorum? Iure accusamus necessitatibus ea ipsam odit tempore vitae! Omnis quia minima quae quam est modi veritatis, facilis autem repudiandae?'},
@@ -54,7 +55,7 @@
                     <p class='info__text'>В нашем кафе самое необычное детское меню</p>
                 </li>
             </ol>
-            <button class='btn' type="button" on:click={() => window.bookHoliday.showModal()}>Заказать</button>
+            <button class='btn' type="button" on:click={openPopup}>Заказать</button>
         </div>
     </div>
 </div>

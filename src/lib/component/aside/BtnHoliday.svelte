@@ -1,8 +1,9 @@
 <script>
+    import { openPopup } from '$lib/utils/popup.js'
     export let size = 30;
 </script>
 
-<button class='btn-holiday' style:width={`${size}px`} style:height={`${size}px`} on:click={() => window.bookHoliday.showModal()}>
+<button class='btn-holiday' style:width={`${size}px`} style:height={`${size}px`} on:click={openPopup}>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="btn-holiday__img">
         <g data-name="Filled outline" fill="#000000" class="color000 svgShape">
             <polygon
