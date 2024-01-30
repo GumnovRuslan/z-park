@@ -2,6 +2,11 @@
     import SectionTitle from "$lib/component/SectionTitle.svelte"
     import Contacts from "$lib/sections/Contacts.svelte";
 </script>
+
+<svelte:head>
+    <title>Контакты Z-park</title>
+</svelte:head>
+
 <SectionTitle value='Наши контакты'/>
 <div class='wrapper'>
     <Contacts />

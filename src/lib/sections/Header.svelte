@@ -86,7 +86,7 @@
     </button>
 
     <a class="logo-link logo-mobile link" href='/' aria-label="Логотип Z park">
-        <img src='/img/logo-removebg-cut.png' alt='Логотип Z-park' class='logo-img'>
+        <img src='/img/logo-removebg-cut.webp' alt='Логотип Z-park' class='logo-img'>
     </a>
 
     <div class='header__menu' id="menu">
@@ -95,7 +95,7 @@
             <a class="header__link link" href='/holidays'>Праздники</a>
             <a class="header__link link" href='/photo'>Фото</a>
             <a class="logo-link logo-desktop link" href='/' aria-label="Логотип Z park">
-                <img src='/img/logo-removebg-cut.png' alt='Логотип Z-park' class='logo-img'>
+                <img src='/img/logo-removebg-cut.webp' alt='Логотип Z-park' class='logo-img'>
             </a>
             <a class="header__link link" href='/cafe'>Кафе</a>
             <a class="header__link link" href='/prices'>Цены</a>
@@ -163,7 +163,7 @@
         width: 100%;
         height: 100%;
         text-transform: uppercase;
-        font-family: Rubik;
+        font-family: Rubik, sans-serif;
         font-weight: 700;
         border: none;
         background: transparent;

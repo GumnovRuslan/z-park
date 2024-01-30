@@ -13,7 +13,7 @@
     <div class='preview__container'>
         <img class='preview__img' src='/img/super-hero.webp' alt='Задний фон с супер героями'>
         <div class='preview__bg'>
-            <img class='preview__logo' src='/img/logo-removebg-cut.png' alt='Логотип Z park'>
+            <img class='preview__logo' src='/img/logo-removebg-cut.webp' alt='Логотип Z park'>
             <p class='preview__text'>СОВРЕМЕННЫЙ РАЗВЛЕКАТЕЛЬНЫЙ ЦЕНТР</p>
             <CustomBtn text='Заказать праздник'/>
         </div>
@@ -32,7 +32,7 @@
                     Здесь можно культурно отдыхать, участвовать в играх и преодолении увлекательных препятствий, прохождении сложных лабиринтов. Z-park прекрасно подходит для отдыха всей семьей и дружными компаниями.
                 </p>
             </div>
-            <img src='/img/photo1.jpg' alt='Развлекательный центр' class='place__img'>
+            <img src='/img/photo1.webp' alt='Развлекательный центр' class='place__img'>
         </div>
     </div>
 </div>
@@ -51,6 +51,7 @@
     .preview__container {
         position: relative;
         height: 100vh;
+        max-height: 900px;
     }
     .preview__img {
         object-fit: cover;
