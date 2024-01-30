@@ -89,8 +89,8 @@
 
 	<div class='photo__content'>
 		{#each images as image, i}
-			<a class="photo__img-link" href='#' on:click={() => openGallery(i)}>
-				<img src={image} alt='' class='photo__img' >
+			<a class="photo__img-link" href={image} on:click={() => openGallery(i)}>
+				<img src={image} alt='Фото из альбома {data.name}' class='photo__img' >
 			</a>
 		{/each}
 	</div>

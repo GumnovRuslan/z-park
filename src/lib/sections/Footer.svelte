@@ -42,7 +42,7 @@
     }
     .footer__container {
         padding: 30px clamp(10px, 4vw, 100px);
-        background: #0b0678;
+        background: #24b3ff;
     }
     .footer-top {
         display: flex;
@@ -70,11 +70,8 @@
         font-size: 18px;
         font-weight: 500;
         line-height: 1.3;
-        color: #dddddd;
+        color: #000;
         transition: all 0.2s;
-    }
-    .footer-top__link:hover {
-        color: #fff;
     }
     .footer-bottom {
         display: flex;
@@ -86,6 +83,6 @@
     .footer-bottom__copy {
         text-align: center;
         font-size: 14px;
-        color: #b4b4b4;
-    }
+        color: #424242
+        }
 </style>

@@ -1,19 +1,18 @@
 <script>
     import { onMount } from "svelte";
-    import {setMaskTel, setWheelNumber, setDateNow} from "/src/lib/utils/inputMask.js";
+    import { setMaskTel, setWheelNumber, setDate } from "$lib/utils/inputMask.js";
+    import { closePopup} from '$lib/utils/popup.js'
 
-    let dialog
+    let form
 
     onMount(() => {
+        form = document.querySelector('.form-booking')
         setMaskTel('data-mask-tel')
         setWheelNumber('data-mask-num')
-        setDateNow('data-mask-date')
-        dialog = document.getElementById('bookHoliday')
-        dialog.addEventListener('click', (e) => closeDialog(e));
+        setDate('data-mask-date')
     })
 
-    function submitForm(e) {
-        const form = e.target.closest('form')
+    function validationForm() {
         const inputTel = form.querySelectorAll('input[data-mask-tel][required]')
         const inputNum = form.querySelectorAll('input[type="number"][required]')
         const inputDate = form.querySelectorAll('input[data-mask-date][required]')
@@ -22,23 +21,13 @@
 
         inputTel.forEach(input => input.style.outlineColor = input.value.length < 19 ? 'red' : '#5e3ed0')
         inputNum.forEach(input => input.style.outlineColor = !input.value ? 'red' : '#5e3ed0')
-        inputDate.forEach(input => input.style.outlineColor = !input.value || input.value < input.min ? 'red' : '#5e3ed0')
+        inputDate.forEach(input => input.style.outlineColor = !input.value || input.value < input.min || input.value > input.max ? 'red' : '#5e3ed0')
         inputCheckbox.forEach(input => input.parentNode.style.outlineColor = input.checked ? 'transparent' : 'red')
         inputText.forEach(input => input.style.outlineColor = !input.value ? 'red' : '#5e3ed0')
     }
-
-    function closeDialog(e) {
-        const dialogSize = dialog.getBoundingClientRect()
-        if(e.clientX < dialogSize.left ||
-            e.clientX > dialogSize.right ||
-            e.clientY < dialogSize.top ||
-            e.clientY > dialogSize.bottom)
-            dialog.close()
-    }
-
 </script>
 
-<dialog class="popup" id="bookHoliday">
+<dialog class="popup" id="popupBooking">
     <div class='popup__header'>
         <p class="popup__title">Заказать праздник</p>
         <p class="popup__description">
@@ -60,10 +49,10 @@
                 <input class="form__input" type="text" placeholder="Полина">
             </label>
             <label class='form__label'>Сколько лет исполняется
-                <input class="form__input" type="number" max='17' placeholder="1" data-mask-num>
+                <input class="form__input" type="number" min='0' max='17' placeholder="0" data-mask-num>
             </label>
             <label class='form__label'>Количество детей *
-                <input class="form__input" type="number" data-mask-num placeholder="1" min="1" required>
+                <input class="form__input" type="number" min="1" max="100" data-mask-num  placeholder="1" required>
             </label>
             <label class='form__label'>Телефон *
                 <input class="form__input" type='tel' data-mask-tel required>
@@ -72,8 +61,8 @@
                 <input type='checkbox' class='form__input-confirm' required>
                 Даю согласие на обработку персональных данных, в том числе в маркетинговых целях.
             </label>
-            <button class="form__btn-send" type='button' on:click={(e) => submitForm(e)}>Отправить</button>
-            <button class="popup__btn-close" type="button" on:click={dialog.close()}>
+            <button class="form__btn-send" type='submit' on:click={validationForm}>Отправить</button>
+            <button class="popup__btn-close" type="button" on:click={closePopup} aria-label="Закрыть форму заказа праздника">
                 <span class='popup__close-line'></span>
             </button>
         </form>
