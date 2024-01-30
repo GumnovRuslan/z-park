@@ -5,52 +5,52 @@
         {
             title: 'Поролоновая яма',
             description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.jpg'
+            img: '/img/photo1.webp'
         },
         {
             title: 'Батуты',
             description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.jpg'
+            img: '/img/photo1.webp'
         },
         {
             title: 'Зона для малышей',
             description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.jpg'
+            img: '/img/photo1.webp'
         },
         {
             title: 'Тарзанка',
             description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.jpg'
+            img: '/img/photo1.webp'
         },
         {
             title: 'Лабиринт',
             description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.jpg'
+            img: '/img/photo1.webp'
         },
         {
             title: 'Песочница',
             description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.jpg'
+            img: '/img/photo1.webp'
         },
         {
             title: 'Бассейн с шариками',
             description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.jpg'
+            img: '/img/photo1.webp'
         },
         {
             title: 'Кульбитные подушки',
             description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.jpg'
+            img: '/img/photo1.webp'
         },
         {
             title: 'Ледяная горка',
             description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.jpg'
+            img: '/img/photo1.webp'
         },
         {
             title: 'Аэрохокей',
             description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.jpg'
+            img: '/img/photo1.webp'
         },
     ];
 

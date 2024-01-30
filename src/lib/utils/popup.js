@@ -10,7 +10,9 @@ export function closeBeyond(e) {
 }
 export function openPopup() {
 	window.popupBooking.showModal();
+	window.body.style.overflow = 'hidden';
 }
 export function closePopup() {
 	window.popupBooking.close();
+	window.body.style.overflow = 'visible';
 }

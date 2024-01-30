@@ -5,7 +5,7 @@
     <div class='footer-top'>
             <div class='footer-top__logo'>
                 <a href='/' class='footer-top__logo-link'>
-                    <img src='/img/logo-removebg-cut.png' class='footer-top__logo-img' alt='logo'>
+                    <img src='/img/logo-removebg-cut.webp' class='footer-top__logo-img' alt='logo'>
                 </a>
             </div>
             <div class='footer-top__content'>
@@ -62,6 +62,7 @@
     }
     .footer-top__logo-img {
         width: 100%;
+        height: 100%;
     }
     .footer-top__link {
         min-width: 150px;
@@ -83,6 +84,6 @@
     .footer-bottom__copy {
         text-align: center;
         font-size: 14px;
-        color: #424242
+        color: #1F1F1F
         }
 </style>

@@ -1,6 +1,6 @@
     <div class='section'>
         <div class='map-container'>
-            <img src='/img/map.png' alt='Карта проеза' class='map__img'>
+            <img src='/img/map.webp' alt='Карта проеза' class='map__img'>
         </div>
         <div class='contacts'>
                 <div class='contact'>
@@ -49,7 +49,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+        </div>
     </div>
 
 <style>
@@ -67,9 +67,9 @@
         box-shadow: 2px 2px 10px #9d9d9d;
     }
     .map__img {
-        object-position: center;
         object-fit: cover;
         width: 100%;
+        height: 100%;
     }
     .contacts {
         display: flex;
@@ -134,6 +134,7 @@
         .map-container {
             width: 100%;
             height: 50vh;
+            max-height: 400px;
         }
         .contacts {
             max-width: 500px;

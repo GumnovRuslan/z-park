@@ -24,19 +24,19 @@ let menuList = [
 				name: 'Сет №1 - 3 бургера и картошка фри',
 				price: '18 BYN',
 				grams: '400 гр',
-				img: 'img/cafe/set-1.jpg'
+				img: 'img/cafe/set-1.webp'
 			},
 			{
 				name: 'Сет №2 - бургер и картошка фри',
 				price: '9 BYN',
 				grams: '150 гр',
-				img: 'img/cafe/set-2.jpg'
+				img: 'img/cafe/set-2.webp'
 			},
 			{
 				name: 'Сет №3 - 3 порции нагетсов, 3 порции картошки фри и 3 колбаски',
 				price: '25 BYN',
 				grams: '500 гр',
-				img: 'img/cafe/set-3.jpg'
+				img: 'img/cafe/set-3.webp'
 			}
 		]
 	},
@@ -90,28 +90,28 @@ let menuList = [
 				price: '18 BYN',
 				grams: '400 гр',
 				description: 'Кукуруза, помидоры, ветчина, кочёная курица',
-				img: 'img/cafe/pizza-1.jpg'
+				img: 'img/cafe/pizza-1.webp'
 			},
 			{
 				name: 'Злодейская пицца',
 				price: '18 BYN',
 				grams: '400 гр',
 				description: 'Ветчина, охотничьи колбаски, пепперони, помидор, сладкий перец',
-				img: 'img/cafe/pizza-2.jpg'
+				img: 'img/cafe/pizza-2.webp'
 			},
 			{
 				name: 'Пицца чемпион',
 				price: '18 BYN',
 				grams: '400 гр',
 				description: 'Пепперони, лук, помидоры, копченая курица',
-				img: 'img/cafe/pizza-3.jpg'
+				img: 'img/cafe/pizza-3.webp'
 			},
 			{
 				name: 'Пицца 4-героя',
 				price: '18 BYN',
 				grams: '400 гр',
 				description: 'Ветчина, охотничьи колбаски, соленый огурец, лук',
-				img: 'img/cafe/pizza-4.jpg'
+				img: 'img/cafe/pizza-4.webp'
 			}
 		]
 	}

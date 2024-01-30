@@ -4,7 +4,7 @@
 
 <div class='subscribe'>
     <div class='subscribe__img'>
-        <img src='/img/spider-man.png' class="subscribe__img-inner" alt='Картинка человека-паука'>
+        <img src='/img/spider-man.webp' class="subscribe__img-inner" alt='Картинка человека-паука'>
     </div>
     <div class='subscribe__inner'>
         <div class='subscribe__content'>
@@ -35,8 +35,7 @@
         display: flex;
         justify-content: center;
         padding: 10px clamp(10px, 3vw, 50px);
-        box-shadow: 0 0 5px #6f6f6f;
-        background: #fff700;
+        background: #FFF93D;
     }
     .subscribe__img {
         height: 150px;
@@ -68,7 +67,7 @@
         font-size: clamp(22px, 5vw, 30px);
         font-weight: 500;
         line-height: 1.3;
-        color: #2487ff;
+        color: #005FDB;
     }
     .subscribe__action-text {
         color: #5e3ed0;
