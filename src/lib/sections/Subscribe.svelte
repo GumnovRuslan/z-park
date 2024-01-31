@@ -23,7 +23,7 @@
             </form>
         </div>
         <label class='subscribe__agreement'>
-            <input class="subscribe__agreement-checkbox" type='checkbox' name='' id=''>
+            <input class="subscribe__agreement-checkbox" type='checkbox'>
             Выражаю свое согласие на обработку моих персональных данных
         </label>
     </div>

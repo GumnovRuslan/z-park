@@ -42,6 +42,10 @@
 
 </script>
 
+<svelte:head>
+    <title>Фотографии из альбома {data.name}</title>
+</svelte:head>
+
 <SectionTitle value={data.name}/>
 
 {#if isGalleryOpen}

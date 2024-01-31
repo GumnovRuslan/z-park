@@ -6,7 +6,7 @@
 </script>
 
 <div class='menu' id={id ?? ''}>
-    <h3 class='menu__title'>{title}</h3>
+    <h2 class='menu__title'>{title}</h2>
     <nav class='menu__cards'>
         {#each menu as dish}
             <MenuCard {dish}/>

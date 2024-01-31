@@ -1,7 +1,7 @@
 <script>
     import Contacts from "$lib/sections/Contacts.svelte";
-    import Attractions from "../lib/sections/Attractions.svelte";
-    import CustomBtn from "../lib/component/CustomBtn.svelte";
+    import Attractions from "$lib/sections/Attractions.svelte";
+    import CustomBtn from "$lib/component/CustomBtn.svelte";
 
 </script>
 

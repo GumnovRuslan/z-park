@@ -1,14 +1,13 @@
 <script>
     export let dish = {name: 'name', price: 'price', grams: 'grams', img: '', description: ''};
-    export let key = '';
 </script>
 
-<div class='card' {key}>
+<div class='card'>
     {#if dish.description}
         <div class='card__description'>{dish.description}</div>
     {/if}
     <div class='card__img'>
-        <img class={dish.img ? 'card-picture' : ''} src={dish.img ?? 'img/favicon.png'} alt={dish.name}>
+        <img class={dish.img ? 'card-picture' : ''} src={dish.img ?? 'img/favicon.webp'} alt={dish.name}>
     </div>
     <div class='card__inner'>
         <p class='card__name'>{dish.name ?? 'name'}

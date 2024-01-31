@@ -51,7 +51,7 @@ export function setMaskTel(attribute) {
 export function setWheelNumber(attribute) {
 	const inputs = document.querySelectorAll(`[${attribute}]`);
 	inputs.forEach((input) => {
-		input.addEventListener('wheel', wheelNumber, { passive: true });
+		input.addEventListener('wheel', wheelNumber);
 		input.addEventListener('input', limitationNumber);
 	});
 
