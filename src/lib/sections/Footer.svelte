@@ -30,11 +30,6 @@
 
 
 <style>
-    :root {
-        --bg: #24b3ff;
-        --text: #f5f5f5;
-        --link: #9f9f9f;
-    }
     .footer-top__logo-link {
         display: block;
         width: 140px;

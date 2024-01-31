@@ -1,13 +1,13 @@
 <script>
     import SectionTitle from "$lib/component/SectionTitle.svelte";
-    import ReadMore from "$lib/component/ReadMore.svelte";
-    import { openPopup } from '$lib/utils/popup.js'
+    // import ReadMore from "$lib/component/ReadMore.svelte";
+    import CustomBtn from "$lib/component/CustomBtn.svelte";
 
-    let cards = [
-        {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ratione odit, magni exercitationem labore illum possimus harum veritatis, error repudiandae vitae, similique velit culpa maiores cum libero suscipit commodi animi id ullam optio a illo necessitatibus laboriosam? Ratione molestiae non quia ab tenetur, reprehenderit nesciunt. Quaerat voluptates dolor corporis nihil cum quod labore culpa quam blanditiis facilis voluptatum eum et iure soluta quidem, libero laboriosam fugiat ratione autem recusandae dignissimos mollitia saepe! Nemo facilis at tenetur necessitatibus asperiores quas, aut dolorum? Iure accusamus necessitatibus ea ipsam odit tempore vitae! Omnis quia minima quae quam est modi veritatis, facilis autem repudiandae?'},
-        {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ratione odit, magni exercitationem labore illum possimus harum veritatis, error repudiandae vitae, similique velit culpa maiores cum libero suscipit commodi animi id ullam optio a illo necessitatibus laboriosam? Ratione molestiae non quia ab tenetur, reprehenderit nesciunt. Quaerat voluptates dolor corporis nihil cum quod labore culpa quam blanditiis facilis voluptatum eum et iure soluta quidem, libero laboriosam fugiat ratione autem recusandae dignissimos mollitia saepe! Nemo facilis at tenetur necessitatibus asperiores quas, aut dolorum? Iure accusamus necessitatibus ea ipsam odit tempore vitae! Omnis quia minima quae quam est modi veritatis, facilis autem repudiandae?'},
-        {text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni provident earum tenetur quibusdam, cupiditate dolorum.'},
-        ];
+    // let cards = [
+    //     {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ratione odit, magni exercitationem labore illum possimus harum veritatis, error repudiandae vitae, similique velit culpa maiores cum libero suscipit commodi animi id ullam optio a illo necessitatibus laboriosam? Ratione molestiae non quia ab tenetur, reprehenderit nesciunt. Quaerat voluptates dolor corporis nihil cum quod labore culpa quam blanditiis facilis voluptatum eum et iure soluta quidem, libero laboriosam fugiat ratione autem recusandae dignissimos mollitia saepe! Nemo facilis at tenetur necessitatibus asperiores quas, aut dolorum? Iure accusamus necessitatibus ea ipsam odit tempore vitae! Omnis quia minima quae quam est modi veritatis, facilis autem repudiandae?'},
+    //     {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ratione odit, magni exercitationem labore illum possimus harum veritatis, error repudiandae vitae, similique velit culpa maiores cum libero suscipit commodi animi id ullam optio a illo necessitatibus laboriosam? Ratione molestiae non quia ab tenetur, reprehenderit nesciunt. Quaerat voluptates dolor corporis nihil cum quod labore culpa quam blanditiis facilis voluptatum eum et iure soluta quidem, libero laboriosam fugiat ratione autem recusandae dignissimos mollitia saepe! Nemo facilis at tenetur necessitatibus asperiores quas, aut dolorum? Iure accusamus necessitatibus ea ipsam odit tempore vitae! Omnis quia minima quae quam est modi veritatis, facilis autem repudiandae?'},
+    //     {text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni provident earum tenetur quibusdam, cupiditate dolorum.'},
+    //     ];
 </script>
 
 <svelte:head>
@@ -24,19 +24,22 @@
             <div class='card'>
                 <p class='card__title'>Развлечения</p>
                 <p class='card__text'>
-                    На сайте мы собрали лучшие предложения для самых веселых праздников, но это лишь небольшая часть того, мы можем предложить вам! Узнать про все наши (практически безграничные) возможности можно пообщавшись с главным специалистом по праздникам в самом парке или по телефону +375 XX XXX XX XX.
+                    <sapn>На сайте мы собрали лучшие предложения для самых веселых праздников, но это лишь небольшая часть того, мы можем предложить вам!</sapn>
+                    <span>Узнать про все наши (практически безграничные) возможности можно пообщавшись с главным специалистом по праздникам в самом парке или по телефону +375 XX XXX XX XX.</span>
                 </p>
             </div>
             <div class='card'>
                 <p class='card__title'>Никакой арендной платы!</p>
                 <p class='card__text'>
-                    Мы забронируем для вас одну из комнат для праздников, Вам нужно будет только оплатить входные билеты для маленьких гостей торжества и внести минимальный депозит. Гости старше 18 лет проходят в парк бесплатно! Билеты на мероприятие действуют в течение всего дня - наиграться вдоволь получится у всех!
+                    <span>Мы забронируем для вас одну из комнат для праздников. Вам нужно будет только оплатить входные билеты для маленьких гостей торжества и внести минимальный депозит.</span>
+                    <span>Гости старше 18 лет проходят в парк бесплатно!</span>
+                    <span>Билеты на мероприятие действуют в течение всего дня - наиграться вдоволь получится у всех!</span>
                 </p>
             </div>
             <div class='card'>
                 <p class='card__title'>Угощения</p>
                 <p class='card__text'>
-                    Наш бренд-шеф создал специальное детское меню для праздников, а взрослые гости смогут выбрать вкусности из основного меню заранее или прямо в процессе торжества!
+                    <span>Наш бренд-шеф создал специальное детское меню для праздников, а взрослые гости смогут выбрать вкусности из основного меню заранее или прямо в процессе торжества!</span>
                 </p>
             </div>
         </div>
@@ -45,34 +48,37 @@
         <p class='title'>Можно заказать прямо сейчас!</p>
         <div class='list'>
             <ol class='info'>
-                <li class='info__item'>Кто и когда
+                <li class='info__item'>
+                    <p class='info__title'>Кто и когда</p>
                     <p class='info__text'>Выберите дату и уточните число гостей</p>
                 </li>
-                <li class='info__item'>Развлечения и услуги
+                <li class='info__item'>
+                    <p class='info__title'>Развлечения и услуги</p>
                     <p class='info__text'>Мы подобрали лучших фотографов, аквогримеров и аниматоров, чтобы сделать ваше торжество незабываемым!</p>
                 </li>
-                <li class='info__item'>Угощения
+                <li class='info__item'>
+                    <p class='info__title'>Угощения</p>
                     <p class='info__text'>В нашем кафе самое необычное детское меню</p>
                 </li>
             </ol>
-            <button class='btn' type="button" on:click={openPopup}>Заказать</button>
+            <CustomBtn text='Заказать'/>
         </div>
     </div>
 </div>
-<div class='info-block'>
+<!-- <div class='info-block'>
     {#each cards as card, i}
         <ReadMore id={'card-info-' + i} text={card.text}/>
     {/each}
-</div>
+</div> -->
 
 <style>
-    .info-block {
+    /* .info-block {
         padding: 40px 10px;
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
         justify-content: center;
-    }
+    } */
     p {
         margin: 0;
         padding: 0;
@@ -126,32 +132,16 @@
         flex-direction: column;
         gap: 20px;
         margin: 0 0 20px 0;
-        padding-left: 20px;
-
     }
-    .info__item {
+    .info__title {
+        margin-bottom: 10px;
         text-transform: uppercase;
         font-weight: 700;
         font-size: 22px;
         line-height: 1.3;
     }
     .info__text {
-        text-transform: none;
-        font-weight: 400;
         font-size: 18px;
-        padding-top: 10px;
-    }
-    .btn {
-        text-transform: uppercase;
-        background: #ffc011;
-        border: none;
-        border-radius: 30px;
-        font-size: 18px;
-        font-weight: 700;
-        color: #f5f5f5;
-        text-shadow: 1px 1px 2px #000;
-        padding: 10px 30px;
-        box-shadow: 1px 1px 2px #868686;
     }
 
     @media screen and (max-width: 750px) {

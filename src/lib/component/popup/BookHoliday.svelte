@@ -36,7 +36,7 @@
     </div>
     <div class='popup__content'>
         <div class='popup__image-container'>
-            <img class="popup__image" src='/img/woman.webp' alt='manager'>
+            <amp-img class="popup__image" src='/img/woman.webp' alt='manager'>
         </div>
         <form class="form form-booking" method="post">
             <label class='form__label'>Ваше имя *
