@@ -1,19 +1,22 @@
 <script>
     import SectionTitle from '$lib/component/SectionTitle.svelte'
-    import MenuItem from '$lib/component/MenuItem.svelte';
     import { onMount } from "svelte";
     import menuList from '$lib/db/menuList'
+    import MenuCard from "$lib/component/MenuCard.svelte";
+
 
     let anchors
     let cards
     let menuTitles
     let menu
+    let menuNavigation
 
     onMount(() => {
-        menu = document.querySelector('.menu')
-        anchors = document.querySelectorAll('a[href*="#"]')
+        menuNavigation = document.querySelector('.cafe-nav')
+        anchors = menuNavigation.querySelectorAll('a[href*="#"]')
+        menu = document.querySelector('.cafe-menu__list')
         cards = document.querySelectorAll('.card')
-        menuTitles = document.querySelectorAll('.menu__title')
+        menuTitles = document.querySelectorAll('.cafe-menu__title')
         window.addEventListener('resize', titleMargin)
         titleMargin()
         setAnchor()
@@ -48,29 +51,28 @@
 
 <SectionTitle value='Кафе в Z-park'/>
 
-<div class="menu-nav">
+<div class="cafe-nav">
     {#each menuList as menu}
-        <a class="menu-nav-item" href='#{menu.id}'>{menu.title}</a>
+        <a class="cafe-nav__link" href='#{menu.id}'>{menu.title}</a>
     {/each}
 </div>
 
-<div class='menu-content'>
-    {#each menuList as menu}
-        <MenuItem {...menu}/>
+<div class='cafe-menu'>
+    {#each menuList as category}
+        <div class='cafe-menu__list' id={category.id ?? ''}>
+            <h2 class='cafe-menu__title'>{category.title}</h2>
+            <nav class='cafe-menu__cards'>
+                {#each category.dish as dish}
+                    <MenuCard {dish}/>
+                {/each}
+            </nav>
+        </div>
     {/each}
 </div>
 
 
 <style>
-    .menu-content {
-        display: flex;
-        flex-direction: column;
-        gap: clamp(20px, 5vw, 40px);
-        padding-left: clamp(10px, 3vw, 40px);
-        padding-right: clamp(10px, 3vw, 40px);
-        padding-bottom: 30px;
-    }
-    .menu-nav {
+    .cafe-nav {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -79,7 +81,7 @@
         row-gap: 5px;
         padding: 10px;
     }
-    .menu-nav-item {
+    .cafe-nav__link {
         padding: 5px 15px;
         text-transform: uppercase;
         text-decoration: none;
@@ -92,8 +94,33 @@
         transition: all 0.3s;
         line-height: 1.3;
     }
-    .menu-nav-item:hover {
+    .cafe-nav__link:hover {
         color: red;
         border-color: red;
+    }
+    .cafe-menu {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(20px, 5vw, 40px);
+        padding-left: clamp(10px, 3vw, 40px);
+        padding-right: clamp(10px, 3vw, 40px);
+        padding-bottom: 30px;
+    }
+    .cafe-menu__title {
+        text-transform: uppercase;
+        font-size: clamp(24px, 3.5vw, 30px);
+        line-height: 1.3;
+        margin: 0;
+        margin-bottom: clamp(10px, 3vw, 20px);
+    }
+
+    .cafe-menu__cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 350px));
+        grid-template-rows: auto;
+        justify-items: center;
+        justify-content: center;
+        row-gap: 30px;
+        column-gap: 20px;
     }
 </style>
