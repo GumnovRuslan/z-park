@@ -1,5 +1,5 @@
 <script>
-	import SectionTitle from '$lib/component/SectionTitle.svelte'
+	import SectionTitle from '$lib/components/SectionTitle.svelte'
 	import {fade} from 'svelte/transition'
 
 	export let data
@@ -41,6 +41,10 @@
 	}
 
 </script>
+
+<svelte:head>
+    <title>Фотографии из альбома {data.name}</title>
+</svelte:head>
 
 <SectionTitle value={data.name}/>
 
@@ -90,7 +94,7 @@
 	<div class='photo__content'>
 		{#each images as image, i}
 			<a class="photo__img-link" href='#' on:click={() => openGallery(i)}>
-				<img src={image} alt='' class='photo__img' >
+				<img src={image} alt='Фото из альбома {data.name}' class='photo__img' >
 			</a>
 		{/each}
 	</div>
@@ -207,7 +211,7 @@
 			justify-content: center;
 			gap: 50px;
 			top: auto;
-			bottom: 0;
+			bottom: 60px;
 			transform: translateY(0);
 		}
 	}

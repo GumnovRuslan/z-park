@@ -1,5 +1,6 @@
 <script>
-    import SectionTitle from "$lib/component/SectionTitle.svelte";
+    import SectionTitle from "$lib/components/SectionTitle.svelte";
+    import CustomBtn from "$lib/components/CustomBtn.svelte";
 </script>
 
 <svelte:head>
@@ -7,7 +8,6 @@
         Праздинки в Z-park
     </title>
 </svelte:head>
-
 
 <SectionTitle value='Праздники в Z-park'/>
 <div class='content'>
@@ -17,48 +17,50 @@
             <div class='card'>
                 <p class='card__title'>Развлечения</p>
                 <p class='card__text'>
-                    На сайте мы собрали лучшие предложения для самых веселых праздников, но это лишь небольшая часть того, мы можем предложить вам! Узнать про все наши (практически безграничные) возможности можно пообщавшись с главным специалистом по праздникам в самом парке или по телефону +375 XX XXX XX XX.
+                    <sapn>На сайте мы собрали лучшие предложения для самых веселых праздников, но это лишь небольшая часть того, мы можем предложить вам!</sapn>
+                    <span>Узнать про все наши (практически безграничные) возможности можно пообщавшись с главным специалистом по праздникам в самом парке или по телефону +375 XX XXX XX XX.</span>
                 </p>
             </div>
             <div class='card'>
                 <p class='card__title'>Никакой арендной платы!</p>
                 <p class='card__text'>
-                    Мы забронируем для вас одну из комнат для праздников, Вам нужно будет только оплатить входные билеты для маленьких гостей торжества и внести минимальный депозит. Гости старше 18 лет проходят в парк бесплатно! Билеты на мероприятие действуют в течение всего дня - наиграться вдоволь получится у всех!
+                    <span>Мы забронируем для вас одну из комнат для праздников. Вам нужно будет только оплатить входные билеты для маленьких гостей торжества и внести минимальный депозит.</span>
+                    <span>Гости старше 18 лет проходят в парк бесплатно!</span>
+                    <span>Билеты на мероприятие действуют в течение всего дня - наиграться вдоволь получится у всех!</span>
                 </p>
             </div>
             <div class='card'>
                 <p class='card__title'>Угощения</p>
                 <p class='card__text'>
-                    Наш бренд-шеф создал специальное детское меню для праздников, а взрослые гости смогут выбрать вкусности из основного меню заранее или прямо в процессе торжества!
+                    <span>Наш бренд-шеф создал специальное детское меню для праздников, а взрослые гости смогут выбрать вкусности из основного меню заранее или прямо в процессе торжества!</span>
                 </p>
             </div>
         </div>
     </div>
     <div class='right'>
-        <p class='title'>Можно заказать прмо сейчас!</p>
+        <p class='title'>Можно заказать прямо сейчас!</p>
         <div class='list'>
             <ol class='info'>
-                <li class='info__item'>Кто и когда
+                <li class='info__item'>
+                    <p class='info__title'>Кто и когда</p>
                     <p class='info__text'>Выберите дату и уточните число гостей</p>
                 </li>
-                <li class='info__item'>Развлечения и услуги
+                <li class='info__item'>
+                    <p class='info__title'>Развлечения и услуги</p>
                     <p class='info__text'>Мы подобрали лучших фотографов, аквогримеров и аниматоров, чтобы сделать ваше торжество незабываемым!</p>
                 </li>
-                <li class='info__item'>Угощения
+                <li class='info__item'>
+                    <p class='info__title'>Угощения</p>
                     <p class='info__text'>В нашем кафе самое необычное детское меню</p>
                 </li>
             </ol>
-            <button class='btn' type="button" on:click={() => window.bookHoliday.showModal()}>Заказать</button>
+            <CustomBtn text='Заказать'/>
         </div>
     </div>
 </div>
 
 <style>
-    p {
-        margin: 0;
-        padding: 0;
-        line-height: 1.5;
-    }
+
     .content {
         display: flex;
         gap: 20px;
@@ -86,6 +88,7 @@
     .card {
         padding: 20px;
         border: 2px solid #bebebe;
+        border-radius: 10px;
         box-shadow: 2px 2px 5px #bebebe;
         background: #f5f5f5;
     }
@@ -96,10 +99,12 @@
     }
     .card__text {
         font-size: 18px;
+        line-height: 1.5;
     }
     .list {
         padding: 20px;
         outline: 4px dashed #d3d3d3;
+        border-radius: 10px;
         background: #d3d3d3;
     }
     .info {
@@ -107,32 +112,16 @@
         flex-direction: column;
         gap: 20px;
         margin: 0 0 20px 0;
-        padding-left: 20px;
-
     }
-    .info__item {
+    .info__title {
+        margin-bottom: 10px;
         text-transform: uppercase;
         font-weight: 700;
         font-size: 22px;
         line-height: 1.3;
     }
     .info__text {
-        text-transform: none;
-        font-weight: 400;
         font-size: 18px;
-        padding-top: 10px;
-    }
-    .btn {
-        text-transform: uppercase;
-        background: #ffc011;
-        border: none;
-        border-radius: 30px;
-        font-size: 18px;
-        font-weight: 700;
-        color: #f5f5f5;
-        text-shadow: 1px 1px 2px #000;
-        padding: 10px 30px;
-        box-shadow: 1px 1px 2px #868686;
     }
 
     @media screen and (max-width: 750px) {

@@ -1,4 +1,4 @@
-import photoAlbums from '$lib/db/photo';
+import photoAlbums from '$lib/db/photoAlbums';
 
 export function load() {
 	return {

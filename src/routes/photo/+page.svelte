@@ -1,7 +1,7 @@
 <script>
-    import Album from '$lib/component/Album.svelte';
-    import photoAlbums from '$lib/db/photo'
-    import SectionTitle from '$lib/component/SectionTitle.svelte'
+    import Album from '$lib/components/Album.svelte';
+    import photoAlbums from '$lib/db/photoAlbums'
+    import SectionTitle from '$lib/components/SectionTitle.svelte'
 </script>
 
 <svelte:head>

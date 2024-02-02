@@ -1,28 +1,33 @@
 <script>
-    import SectionTitle from "$lib/component/SectionTitle.svelte";
+    import SectionTitle from "$lib/components/SectionTitle.svelte";
 </script>
+
+<svelte:head>
+    <meta name="description">
+    <title>О нас</title>
+</svelte:head>
 
 <SectionTitle value='О парке'/>
 
 <div class='about'>
     <div class='about__section'>
-        <img src='/img/photo1.jpg' alt='' class='about__img'>
+        <img src='/img/photo1.webp' alt='Фотография из парка Z-park' class='about__img'>
         <p class='about__text'>Развлекательный центр Z-park - это огромное пространство, на котором дети отправляются в активное путешествие, прыгают на батутах, пробираются сквозь препятствия в лабиринтах и еще многое, что позволяет ребенку выплеснуть свою энергию, а родителям с удовольствием разделить радость ребят.</p>
     </div>
 
     <div class='about__section'>
         <p class='about__text'>Наша команда - это семья, которая понимает, что дети меняют нашу жизнь навсегда. Для нас очень важна среда, в которую погружаются юные мечтатели, - дух приключений и неограниченной свободы развлечений наполняют наш парк.</p>
-        <img src='/img/photo1.jpg' alt='' class='about__img'>
+        <img src='/img/photo1.webp' alt='Фотография из парка Z-park' class='about__img'>
     </div>
 
     <div class='about__section'>
-        <img src='/img/photo1.jpg' alt='' class='about__img'>
+        <img src='/img/photo1.webp' alt='Фотография из парка Z-park' class='about__img'>
         <p class='about__text'>Развлекательный центр Z-park поражает своими размерами, большим количеством площадок и занятий для ребят с разными увлечениями. Здесь будет занимательно и весело как детям школьного возраста, так и самым маленьким посетителям.</p>
     </div>
 
     <div class='about__section'>
         <p class='about__text'>Наш центр отвечает всем требованиям безопасности. В парке предусмотрена специальная зона ожидания для родителей, откуда они смогут наблюдать за своим ребенком.</p>
-        <img src='/img/photo1.jpg' alt='' class='about__img'>
+        <img src='/img/photo1.webp' alt='Фотография из парка Z-park' class='about__img'>
     </div>
 </div>
 
@@ -64,6 +69,7 @@
         width: 30%;
         min-height: 250px;
         object-fit: cover;
+        border-radius: 10px;
     }
 
     @media screen and (max-width: 600px) {
