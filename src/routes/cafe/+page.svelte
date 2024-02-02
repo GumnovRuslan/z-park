@@ -1,8 +1,8 @@
 <script>
-    import SectionTitle from '$lib/component/SectionTitle.svelte'
+    import SectionTitle from '$lib/components/SectionTitle.svelte'
     import { onMount } from "svelte";
     import menuList from '$lib/db/menuList'
-    import MenuCard from "$lib/component/MenuCard.svelte";
+    import MenuCard from "$lib/components/MenuCard.svelte";
 
 
     let anchors

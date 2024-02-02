@@ -1,13 +1,6 @@
 <script>
-    import SectionTitle from "$lib/component/SectionTitle.svelte";
-    // import ReadMore from "$lib/component/ReadMore.svelte";
-    import CustomBtn from "$lib/component/CustomBtn.svelte";
-
-    // let cards = [
-    //     {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ratione odit, magni exercitationem labore illum possimus harum veritatis, error repudiandae vitae, similique velit culpa maiores cum libero suscipit commodi animi id ullam optio a illo necessitatibus laboriosam? Ratione molestiae non quia ab tenetur, reprehenderit nesciunt. Quaerat voluptates dolor corporis nihil cum quod labore culpa quam blanditiis facilis voluptatum eum et iure soluta quidem, libero laboriosam fugiat ratione autem recusandae dignissimos mollitia saepe! Nemo facilis at tenetur necessitatibus asperiores quas, aut dolorum? Iure accusamus necessitatibus ea ipsam odit tempore vitae! Omnis quia minima quae quam est modi veritatis, facilis autem repudiandae?'},
-    //     {text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ratione odit, magni exercitationem labore illum possimus harum veritatis, error repudiandae vitae, similique velit culpa maiores cum libero suscipit commodi animi id ullam optio a illo necessitatibus laboriosam? Ratione molestiae non quia ab tenetur, reprehenderit nesciunt. Quaerat voluptates dolor corporis nihil cum quod labore culpa quam blanditiis facilis voluptatum eum et iure soluta quidem, libero laboriosam fugiat ratione autem recusandae dignissimos mollitia saepe! Nemo facilis at tenetur necessitatibus asperiores quas, aut dolorum? Iure accusamus necessitatibus ea ipsam odit tempore vitae! Omnis quia minima quae quam est modi veritatis, facilis autem repudiandae?'},
-    //     {text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni provident earum tenetur quibusdam, cupiditate dolorum.'},
-    //     ];
+    import SectionTitle from "$lib/components/SectionTitle.svelte";
+    import CustomBtn from "$lib/components/CustomBtn.svelte";
 </script>
 
 <svelte:head>
@@ -65,25 +58,9 @@
         </div>
     </div>
 </div>
-<!-- <div class='info-block'>
-    {#each cards as card, i}
-        <ReadMore id={'card-info-' + i} text={card.text}/>
-    {/each}
-</div> -->
 
 <style>
-    /* .info-block {
-        padding: 40px 10px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-    } */
-    p {
-        margin: 0;
-        padding: 0;
-        line-height: 1.5;
-    }
+
     .content {
         display: flex;
         gap: 20px;
@@ -111,6 +88,7 @@
     .card {
         padding: 20px;
         border: 2px solid #bebebe;
+        border-radius: 10px;
         box-shadow: 2px 2px 5px #bebebe;
         background: #f5f5f5;
     }
@@ -121,10 +99,12 @@
     }
     .card__text {
         font-size: 18px;
+        line-height: 1.5;
     }
     .list {
         padding: 20px;
         outline: 4px dashed #d3d3d3;
+        border-radius: 10px;
         background: #d3d3d3;
     }
     .info {

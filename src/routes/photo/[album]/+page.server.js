@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import photoAlbums from '$lib/db/photo';
+import photoAlbums from '$lib/db/photoAlbums';
 
 export function load({ params }) {
 	const album = photoAlbums.find((post) => post.link === params.album);

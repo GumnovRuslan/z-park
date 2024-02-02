@@ -1,5 +1,5 @@
 <script>
-    import SectionTitle from "$lib/component/SectionTitle.svelte";
+    import SectionTitle from "$lib/components/SectionTitle.svelte";
 </script>
 
 <svelte:head>
@@ -69,6 +69,7 @@
         width: 30%;
         min-height: 250px;
         object-fit: cover;
+        border-radius: 10px;
     }
 
     @media screen and (max-width: 600px) {

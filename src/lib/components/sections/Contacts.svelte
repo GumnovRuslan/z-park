@@ -65,6 +65,7 @@
         overflow: hidden;
         border: 1px solid #9d9d9d;
         box-shadow: 2px 2px 10px #9d9d9d;
+        border-radius: 10px;
     }
     .map__img {
         object-fit: cover;
@@ -111,7 +112,7 @@
         text-decoration: none;
         color: #606060;
     }
-    a.contact__text:hover {
+    .contact__text[href]:hover {
         color: red;
     }
     .contact__img-network {

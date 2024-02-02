@@ -1,5 +1,5 @@
 <script>
-	import SectionTitle from '$lib/component/SectionTitle.svelte'
+	import SectionTitle from '$lib/components/SectionTitle.svelte'
 	import {fade} from 'svelte/transition'
 
 	export let data
