@@ -31,7 +31,7 @@
         height: 100%;
         padding: clamp(15px, 3vw, 20px);
         border: none;
-        border-radius: 5px;
+        border-radius: 10px;
         box-shadow: 1px 1px 5px #ababab;
         background: #fff;
     }
@@ -66,6 +66,7 @@
         margin-bottom: 10px;
         overflow: hidden;
         background: #fff;
+        border-radius: 10px;
     }
     .card-picture {
         object-fit: cover;

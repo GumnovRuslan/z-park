@@ -1,7 +1,7 @@
 <script>
-    import Contacts from "$lib/sections/Contacts.svelte";
-    import Attractions from "$lib/sections/Attractions.svelte";
-    import CustomBtn from "$lib/component/CustomBtn.svelte";
+    import Contacts from "$lib/components/sections/Contacts.svelte";
+    import Attractions from "$lib/components/sections/Attractions.svelte";
+    import CustomBtn from "$lib/components/CustomBtn.svelte";
 
 </script>
 
@@ -114,6 +114,7 @@
         width: 30%;
         height: 250px;
         object-fit: cover;
+        border-radius: 10px;
     }
     .place__text {
         font-weight: 500;

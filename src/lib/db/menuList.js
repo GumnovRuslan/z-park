@@ -2,7 +2,7 @@ let menuList = [
 	{
 		title: 'Напитки',
 		id: 'drinks',
-		menu: [
+		dish: [
 			{
 				name: 'Кофе',
 				price: '5 BYN',
@@ -19,7 +19,7 @@ let menuList = [
 	{
 		title: 'Сеты',
 		id: 'sets',
-		menu: [
+		dish: [
 			{
 				name: 'Сет №1 - 3 бургера и картошка фри',
 				price: '18 BYN',
@@ -43,7 +43,7 @@ let menuList = [
 	{
 		title: 'Закуски',
 		id: 'snacks',
-		menu: [
+		dish: [
 			{
 				name: 'Ход-дог французский',
 				price: '3.5 BYN',
@@ -84,7 +84,7 @@ let menuList = [
 	{
 		title: 'Пиццы',
 		id: 'pizzas',
-		menu: [
+		dish: [
 			{
 				name: 'Super пицца',
 				price: '18 BYN',

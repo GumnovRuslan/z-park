@@ -1,17 +1,16 @@
 <script>
-    export let title = 'title';
-    export let line = [['service', '00.00byn', 'description']];
+    export let price = {title: 'title', line: [{name: 'name', price: 'price', description: 'description'}]};
 </script>
 
 <div class='prise-list'>
-    <h3 class='prise-list__title'>{title}</h3>
-    {#each line as service, i}
+    <h2 class='prise-list__title'>{price.title}</h2>
+    {#each price.line as service}
         <div class='prise-list__inner'>
             <div class='prise-list__service'>
-                <p class='prise-list__service-title'>{service[0]}</p>
-                <p class='prise-list__service-description'>{service[2] ?? ''}</p>
+                <p class='prise-list__service-title'>{service.name ?? 'title'}</p>
+                <p class='prise-list__service-description'>{service.description ?? ''}</p>
             </div>
-            <span class="prise-list__service-prise">{service[1]}</span>
+            <span class="prise-list__service-prise">{service.price ?? ''}</span>
         </div>
     {/each}
 </div>
@@ -25,6 +24,7 @@
         outline: 2px solid #000;
         box-shadow: 0 5px 10px #8c8c8c;
         background: #fff;
+        border-radius: 10px;
     }
     .prise-list:not(:last-child) {
         margin-bottom: 30px;
@@ -38,6 +38,8 @@
         font-size: clamp(14px, 3vw, 20px);
         line-height: 1.3;
         letter-spacing: 2px;
+        border-radius: 10px;
+        border: 2px solid #000;
     }
     .prise-list__title::after {
         content: '';

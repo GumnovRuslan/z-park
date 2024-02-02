@@ -1,10 +1,10 @@
 <script>
-    import Header from "$lib/sections/Header.svelte";
-    import Footer from "$lib/sections/Footer.svelte";
-    import BtnUp from "../lib/component/aside/BtnUp.svelte";
-    import BtnHoliday from "../lib/component/aside/BtnHoliday.svelte";
-    import BookHoliday  from "$lib/component/popup/BookHoliday.svelte";
-    import Subscribe from "../lib/sections/Subscribe.svelte";
+    import Header from "$lib/components/sections/Header.svelte";
+    import Footer from "$lib/components/sections/Footer.svelte";
+    import BtnUp from "$lib/components/aside/BtnUp.svelte";
+    import BtnHoliday from "$lib/components/aside/BtnHoliday.svelte";
+    import BookHoliday  from "$lib/components/popup/BookHoliday.svelte";
+    import Subscribe from "$lib/components/sections/Subscribe.svelte";
 </script>
 
 <div class='wrapper'>
