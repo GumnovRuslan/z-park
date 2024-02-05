@@ -65,29 +65,16 @@ export function setWheelNumber(attribute) {
 		value = e.deltaY > 0 ? +input.value - step : +input.value + step;
 		input.value = value <= minNumber ? minNumber : value >= maxNumber ? maxNumber : value;
 	}
-
-	function limitationNumber(e) {
-		let input = e.target;
-		let inputValue = input.value;
-		let maxValue = input.max || 100;
-		let minValue = input.min || 0;
-
-		if (inputValue == '') return (e.target.value = '');
-		if (inputValue.length > 1 && inputValue[0] == 0) inputValue = inputValue.slice(1);
-		if (+inputValue > +maxValue) inputValue = maxValue;
-		else if (+inputValue < +minValue) inputValue = minValue;
-		e.target.value = inputValue;
-	}
 }
 
 export function setDate(attribute, min = [0, 0, 1], max = [1, 0, 1]) {
 	const addZero = (n) => (n < 10 ? '0' + n : n);
 	const date = new Date();
-	const formatDate = (dateShift) => {
-		return `${date.getFullYear() + dateShift[0]}-${addZero(
-			date.getMonth() + 1 + dateShift[1]
-		)}-${addZero(date.getDate() + dateShift[2])}`;
-	};
+
+	const formatDate = (dateShift) =>
+		`${date.getFullYear() + dateShift[0]}-${addZero(date.getMonth() + 1 + dateShift[1])}-${addZero(
+			date.getDate() + dateShift[2]
+		)}`;
 
 	if (attribute) {
 		const inputs = document.querySelectorAll(`[${attribute}]`);
@@ -96,4 +83,17 @@ export function setDate(attribute, min = [0, 0, 1], max = [1, 0, 1]) {
 			input.max = formatDate(max);
 		});
 	} else return formatDate([0, 0, 0]);
+}
+
+export function limitationNumber(e) {
+	let input = e.target;
+	let maxValue = input.max || '100';
+	let minValue = input.min || '0';
+	let inputValue = input.value;
+
+	if (inputValue == '') return (e.target.value = '');
+	if (inputValue.length > 1 && inputValue[0] == 0) inputValue = inputValue.slice(1);
+	if (+inputValue > +maxValue) inputValue = maxValue;
+	else if (+inputValue < +minValue) inputValue = minValue;
+	e.target.value = inputValue;
 }

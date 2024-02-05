@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import { setMaskTel, setWheelNumber, setDate } from "$lib/utils/inputMask.js";
+    import { setMaskTel, setWheelNumber, setDate, } from "$lib/utils/inputMask.js";
     import { closePopup} from '$lib/utils/popup.js'
 
     let form
@@ -12,18 +12,73 @@
         setDate('data-mask-date')
     })
 
-    function validationForm() {
-        const inputTel = form.querySelectorAll('input[data-mask-tel][required]')
-        const inputNum = form.querySelectorAll('input[type="number"][required]')
-        const inputDate = form.querySelectorAll('input[data-mask-date][required]')
-        const inputText = form.querySelectorAll('input[type="text"][required]')
-        const inputCheckbox = form.querySelectorAll('input[type="checkbox"][required]')
+    async function submitForm(event) {
+        const elements = form.elements
 
-        inputTel.forEach(input => input.style.outlineColor = input.value.length < 19 ? 'red' : '#5e3ed0')
-        inputNum.forEach(input => input.style.outlineColor = !input.value ? 'red' : '#5e3ed0')
-        inputDate.forEach(input => input.style.outlineColor = !input.value || input.value < input.min || input.value > input.max ? 'red' : '#5e3ed0')
-        inputCheckbox.forEach(input => input.parentNode.style.outlineColor = input.checked ? 'transparent' : 'red')
-        inputText.forEach(input => input.style.outlineColor = !input.value ? 'red' : '#5e3ed0')
+        const formData = {
+            name: elements[0].value,
+            date: elements[1].value,
+            name_kid: elements[2].value,
+            age_kid: elements[3].value,
+            count_kid: elements[4].value,
+            number: elements[5].value.replace(/\D/g, ''),
+            formSource: 'Site',
+        };
+
+        event.preventDefault();
+        // https://zparkbackend.onrender.com
+        // http://localhost:3000
+        try {
+            const feedbackResponse = await fetch('https://zparkbackend.onrender.com/sendFeedback', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (feedbackResponse.ok) {
+                console.log('Form submitted successfully to /sendFeedback');
+            } else {
+                console.error('Form submission failed for /sendFeedback');
+            }
+
+            const messageResponse = await fetch('https://zparkbackend.onrender.com/sendMessage', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (messageResponse.ok) {
+                console.log('Form submitted successfully to /send-message');
+            } else {
+                console.error('Form submission failed for /send-message');
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    function validateDate(e) {
+        const inputDate = new Date(e.target.value);
+        const currentDate = new Date();
+        const maxDate = new Date();
+        maxDate.setFullYear(maxDate.getFullYear() + 1);
+
+        if (inputDate < currentDate || inputDate > maxDate)
+            e.target.setCustomValidity('Please enter a valid date');
+         else
+            e.target.setCustomValidity('');
+
+    }
+
+    function validateTel(e) {
+        let inputValue = e.target.value.replace(/\D/g, '');
+
+        if (inputValue.length == 12) e.target.setCustomValidity('');
+        else e.target.setCustomValidity('Please enter a valid 12-digit number');
     }
 </script>
 
@@ -38,30 +93,30 @@
         <div class='popup__image-container'>
             <img class="popup__image" src='/img/woman.webp' alt='manager'>
         </div>
-        <form class="form form-booking" method="post">
+        <form class="form form-booking" method="post" enctype="application/json" on:submit={submitForm}>
             <label class='form__label'>Ваше имя *
                 <input class="form__input" type="text" placeholder="Андрей" required>
             </label>
             <label class='form__label'>Дата проведения *
-                <input class="form__input" type="date" data-mask-date required>
+                <input class="form__input"  type="date" on:input={validateDate} data-mask-date required>
             </label>
             <label class='form__label'>Имя именинника
-                <input class="form__input" type="text" placeholder="Полина">
+                <input class="form__input"  type="text" placeholder="Полина">
             </label>
             <label class='form__label'>Сколько лет исполняется
-                <input class="form__input" type="number" min='0' max='17' placeholder="0" data-mask-num>
+                <input class="form__input"  type="number" min='0' max='17'  placeholder="0" data-mask-num>
             </label>
             <label class='form__label'>Количество детей *
-                <input class="form__input" type="number" min="1" max="100" data-mask-num  placeholder="1" required>
+                <input class="form__input"  type="number" min="1" max="100"  data-mask-num  placeholder="1" required>
             </label>
             <label class='form__label'>Телефон *
-                <input class="form__input" type='tel' data-mask-tel required>
+                <input class="form__input" on:input={validateTel}  type='tel' data-mask-tel required>
             </label>
             <label class='form__label-confirm'>
                 <input type='checkbox' class='form__input-confirm' required>
                 Даю согласие на обработку персональных данных, в том числе в маркетинговых целях.
             </label>
-            <button class="form__btn-send" type='submit' on:click={validationForm}>Отправить</button>
+            <button class="form__btn-send" type='submit'>Отправить</button>
             <button class="popup__btn-close" type="button" on:click={closePopup} aria-label="Закрыть форму заказа праздника">
                 <span class='popup__close-line'></span>
             </button>
