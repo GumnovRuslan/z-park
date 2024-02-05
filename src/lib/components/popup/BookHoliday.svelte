@@ -68,7 +68,7 @@
         maxDate.setFullYear(maxDate.getFullYear() + 1);
 
         if (inputDate < currentDate || inputDate > maxDate)
-            e.target.setCustomValidity('Please enter a valid date');
+            e.target.setCustomValidity('Введите правильную дату');
          else
             e.target.setCustomValidity('');
 
@@ -78,7 +78,7 @@
         let inputValue = e.target.value.replace(/\D/g, '');
 
         if (inputValue.length == 12) e.target.setCustomValidity('');
-        else e.target.setCustomValidity('Please enter a valid 12-digit number');
+        else e.target.setCustomValidity('Введите 12-значный номер');
     }
 </script>
 
@@ -98,7 +98,7 @@
                 <input class="form__input" type="text" placeholder="Андрей" required>
             </label>
             <label class='form__label'>Дата проведения *
-                <input class="form__input"  type="date" on:input={validateDate} data-mask-date required>
+                <input class="form__input"  type="date" data-mask-date required>
             </label>
             <label class='form__label'>Имя именинника
                 <input class="form__input"  type="text" placeholder="Полина">
@@ -110,7 +110,7 @@
                 <input class="form__input"  type="number" min="1" max="100"  data-mask-num  placeholder="1" required>
             </label>
             <label class='form__label'>Телефон *
-                <input class="form__input" on:input={validateTel}  type='tel' data-mask-tel required>
+                <input class="form__input" type='tel' on:input={validateTel} data-mask-tel required>
             </label>
             <label class='form__label-confirm'>
                 <input type='checkbox' class='form__input-confirm' required>

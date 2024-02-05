@@ -6,6 +6,7 @@ export function setMaskTel(attribute) {
 		input.addEventListener('paste', onPhonePaste, false);
 		input.value = '+375 ';
 		input.maxLength = 19;
+		validateTel();
 
 		function getInputNumbersValue(input) {
 			return input.value.replace(/\D/g, '');
@@ -44,6 +45,13 @@ export function setMaskTel(attribute) {
 					return;
 				}
 			}
+		}
+
+		function validateTel() {
+			let inputValue = input.value.replace(/\D/g, '');
+
+			if (inputValue.length == 12) input.setCustomValidity('');
+			else input.setCustomValidity('Введите 12-значный номер');
 		}
 	});
 }

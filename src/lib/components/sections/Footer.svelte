@@ -9,8 +9,8 @@
                 </a>
             </div>
             <div class='footer-top__content'>
-                <a href='#' class='footer-top__link'>Правила посещения</a>
-                <a href='#' class='footer-top__link'>Политика кафиденциальности</a>
+                <a href='/rules' class='footer-top__link'>Правила посещения</a>
+                <a href='/privacy-policy' class='footer-top__link'>Политика конфиденциальности</a>
             </div>
             <div class='footer-top__content'>
                 <a href='/contacts' class='footer-top__link'>Контакты</a>
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class='footer-bottom'>
-            <p class='footer-bottom__copy'>@copy 2024г</p>
+            <p class='footer-bottom__copy'>Все права защищены © 2018-2024 ООО "Парки развлечений"</p>
         </div>
 </div>
 
