@@ -1,28 +1,24 @@
 <script>
     import { onMount } from "svelte";
 
-    let isChecked
+    let isChecked = false
+    let burgerLines;
     let checkbox;
-	let burgerLineTop;
-	let burgerLineCenter;
-	let burgerLineBottom;
 	let time = 200;
 
     onMount(() => {
         let links = document.querySelectorAll('.link')
         checkbox = document.querySelector('.burger-checkbox');
-		let lines = document.querySelectorAll('.burger__line');
-		burgerLineTop = lines[0];
-		burgerLineCenter = lines[1];
-		burgerLineBottom = lines[2];
+		burgerLines = document.querySelectorAll('.burger__line');
         closeMenu(links)
     })
 
     function closeMenu(links) {
         links.forEach(link => link.addEventListener('click', (e) => {
             if(window.innerWidth < 800) {
-                isChecked = false
+                isChecked = !isChecked
                 stopScroll()
+                burgerAnimation()
             } else {
                 document.body.style.overflow = 'visible'
             }
@@ -30,44 +26,44 @@
     }
 
     function stopScroll() {
-        if(!checkbox.checked) document.body.style.overflow = 'visible'
+        if(!isChecked) document.body.style.overflow = 'visible'
         else document.body.style.overflow = 'hidden'
     }
 
-    function burgerOpen() {
-		lineTop();
-		lineCenter();
-		lineBottom();
-        function lineTop() {
+    function burgerAnimation() {
+		lineTop(burgerLines[0]);
+		lineCenter(burgerLines[1]);
+		lineBottom(burgerLines[2]);
+        function lineTop(line) {
             if (!checkbox.checked) {
-                burgerLineTop.style.transform = 'translateY(10px)';
+                line.style.transform = 'translateY(10px)';
                 setTimeout(() => {
-                    burgerLineTop.style.transform = 'translateY(10px) rotate(45deg)';
+                    line.style.transform = 'translateY(10px) rotate(45deg)';
                 }, time);
             } else {
-                burgerLineTop.style.transform = 'translateY(10px) rotate(0)';
+                line.style.transform = 'translateY(10px) rotate(0)';
                 setTimeout(() => {
-                    burgerLineTop.style.transform = '';
+                    line.style.transform = '';
                 }, time);
             }
         }
-        function lineCenter() {
+        function lineCenter(line) {
             if (!checkbox.checked) {
-                burgerLineCenter.style.transform = 'scale(0)';
+                line.style.transform = 'scale(0)';
             } else {
-                burgerLineCenter.style.transform = 'scale(1)';
+                line.style.transform = 'scale(1)';
             }
         }
-        function lineBottom() {
+        function lineBottom(line) {
             if (!checkbox.checked) {
-                burgerLineBottom.style.transform = 'translateY(-10px)';
+                line.style.transform = 'translateY(-10px)';
                 setTimeout(() => {
-                    burgerLineBottom.style.transform = 'translateY(-10px) rotate(-45deg)';
+                    line.style.transform = 'translateY(-10px) rotate(-45deg)';
                 }, time);
             } else {
-                burgerLineBottom.style.transform = 'translateY(-10px) rotate(0)';
+                line.style.transform = 'translateY(-10px) rotate(0)';
                 setTimeout(() => {
-                    burgerLineBottom.style.transform = '';
+                    line.style.transform = '';
                 }, time);
             }
         }
@@ -77,7 +73,7 @@
 <header class="header" id="header">
     <input class="burger-checkbox" type='checkbox' id="falseCheckbox" bind:checked={isChecked} on:change={stopScroll}>
 
-    <button class="burger" on:click={burgerOpen} aria-label="Меню">
+    <button class="burger" on:click={burgerAnimation} aria-label="Меню">
         <label class="burger__container" for="falseCheckbox">
             <span class="burger__line burger__line-top"></span>
             <span class="burger__line burger__line-center"></span>
@@ -94,7 +90,7 @@
             <a class="header__link link" href='/about'>О нас</a>
             <a class="header__link link" href='/holidays'>Праздники</a>
             <a class="header__link link" href='/photo'>Фото</a>
-            <a class="logo-link logo-desktop link" href='/' aria-label="Логотип Z park">
+            <a class="logo-link logo-desktop" href='/' aria-label="Логотип Z park">
                 <img src='/img/logo-removebg-cut.webp' alt='Логотип Z-park' class='logo-img'>
             </a>
             <a class="header__link link" href='/cafe'>Кафе</a>
