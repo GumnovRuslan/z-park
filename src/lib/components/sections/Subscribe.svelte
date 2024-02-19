@@ -1,9 +1,50 @@
 <script>
+    import { onMount } from 'svelte';
+
+    async function submitForm(event) {
+      event.preventDefault();
+
+      const emailInput = document.querySelector('.subscribe__form-email');
+      const email = emailInput.value;
+
+      const agreementCheckbox = document.querySelector('.subscribe__form-checkbox');
+
+      if (!agreementCheckbox.checked) {
+        alert('Для подписки необходимо согласиться на обработку персональных данных');
+        return;
+      }
+
+      const formData = { email: email };
+
+      try {
+        const emailResponse = await fetch('https://zparkbackend.onrender.com/sendEmailSub', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (emailResponse.ok) {
+          console.log('Form submitted successfully to /sendEmailSub');
+        } else {
+            console.error('Form submission failed for /sendEmailSub');
+            alert('Этот email уже подписан');
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    onMount(() => {
+      const form = document.querySelector('.subscribe__form');
+      form.addEventListener('submit', submitForm);
+    });
 </script>
 
 <div class='subscribe'>
     <img src='/img/spider-man.webp' class="subscribe__img" alt='Картинка человека-паука'>
-    <form class='subscribe__form'>
+    <form class='subscribe__form' method="post">
         <div class='subscribe__content'>
             <div class='subscribe__action'>
                 <p class='subscribe__action-title'>Подпишитесь на новости</p>
