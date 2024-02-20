@@ -27,6 +27,7 @@ const Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { form } = $$props;
   let { data_0 = null } = $$props;
   let { data_1 = null } = $$props;
+  let { data_2 = null } = $$props;
   {
     setContext("__svelte__", stores);
   }
@@ -45,6 +46,8 @@ const Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     $$bindings.data_0(data_0);
   if ($$props.data_1 === void 0 && $$bindings.data_1 && data_1 !== void 0)
     $$bindings.data_1(data_1);
+  if ($$props.data_2 === void 0 && $$bindings.data_2 && data_2 !== void 0)
+    $$bindings.data_2(data_2);
   let $$settled;
   let $$rendered;
   let previous_head = $$result.head;
@@ -65,7 +68,31 @@ const Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       },
       {
         default: () => {
-          return `${validate_component(constructors[1] || missing_component, "svelte:component").$$render(
+          return `${constructors[2] ? `${validate_component(constructors[1] || missing_component, "svelte:component").$$render(
+            $$result,
+            { data: data_1, this: components[1] },
+            {
+              this: ($$value) => {
+                components[1] = $$value;
+                $$settled = false;
+              }
+            },
+            {
+              default: () => {
+                return `${validate_component(constructors[2] || missing_component, "svelte:component").$$render(
+                  $$result,
+                  { data: data_2, form, this: components[2] },
+                  {
+                    this: ($$value) => {
+                      components[2] = $$value;
+                      $$settled = false;
+                    }
+                  },
+                  {}
+                )}`;
+              }
+            }
+          )}` : `${validate_component(constructors[1] || missing_component, "svelte:component").$$render(
             $$result,
             { data: data_1, form, this: components[1] },
             {
@@ -75,7 +102,7 @@ const Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
               }
             },
             {}
-          )}`;
+          )}`}`;
         }
       }
     )}` : `${validate_component(constructors[0] || missing_component, "svelte:component").$$render(
@@ -106,10 +133,10 @@ const options = {
   root: Root,
   service_worker: false,
   templates: {
-    app: ({ head, body, assets: assets2, nonce, env }) => '<!doctype html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<link rel="icon" href="' + assets2 + '/img/favicon.jpg" />\n		<meta name="viewport" content="width=device-width, initial-scale=1" />\n		<link\n			href="https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic"\n			rel="stylesheet"\n		/>\n		<link\n			href="https://fonts.googleapis.com/css?family=Geologica:100,200,300,regular,500,600,700,800,900"\n			rel="stylesheet"\n		/>\n		<link href="https://fonts.googleapis.com/css?family=Lobster:regular" rel="stylesheet" />\n		' + head + '\n	</head>\n	<body data-sveltekit-preload-data="hover" style="font-family: Rubik; width: 100%">\n		<div style="display: contents">' + body + "</div>\n	</body>\n</html>\n",
+    app: ({ head, body, assets: assets2, nonce, env }) => '<!doctype html>\n<html lang="ru">\n	<head>\n		<meta charset="utf-8" />\n		<link rel="icon" href="' + assets2 + '/img/favicon.webp" />\n		<meta name="viewport" content="width=device-width, initial-scale=1" />\n		<!-- <link\n			href="https://fonts.googleapis.com/css?family=Rubik:regular,500,700&display=swap"\n			rel="stylesheet"\n		/> -->\n		<link rel="stylesheet" href="' + assets2 + '/css/fonts.css" />\n		<link rel="stylesheet" href="' + assets2 + '/css/global.css" />\n		<link rel="stylesheet" href="' + assets2 + '/css/reset.css" />\n		' + head + '\n	</head>\n	<body data-sveltekit-preload-data="hover" style="width: 100%" id="body">\n		<div style="display: contents">' + body + "</div>\n	</body>\n</html>\n",
     error: ({ status, message }) => '<!doctype html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + "</title>\n	</head>\n	<body>\n		<h1>My custom error page</h1>\n		<p>Status: " + status + "</p>\n		<p>Message: " + message + "</p>\n	</body>\n</html>\n"
   },
-  version_hash: "1qrqk0n"
+  version_hash: "1aihra6"
 };
 function get_hooks() {
   return {};
