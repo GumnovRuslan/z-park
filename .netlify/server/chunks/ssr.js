@@ -12,6 +12,9 @@ function run_all(fns) {
 function safe_not_equal(a, b) {
   return a != a ? b == b : a !== b || a && typeof a === "object" || typeof a === "function";
 }
+function null_to_empty(value) {
+  return value == null ? "" : value;
+}
 let current_component;
 function set_current_component(component) {
   current_component = component;
@@ -43,6 +46,10 @@ function escape(value, is_attr = false) {
     last = i + 1;
   }
   return escaped + str.substring(last);
+}
+function escape_attribute_value(value) {
+  const should_escape = typeof value === "string" || value && typeof value === "object";
+  return should_escape ? escape(value, true) : value;
 }
 function each(items, fn) {
   items = ensure_array_like(items);
@@ -108,12 +115,21 @@ function add_attribute(name, value, boolean) {
   const assignment = boolean && value === true ? "" : `="${escape(value, true)}"`;
   return ` ${name}${assignment}`;
 }
+function style_object_to_string(style_object) {
+  return Object.keys(style_object).filter((key) => style_object[key]).map((key) => `${key}: ${escape_attribute_value(style_object[key])};`).join(" ");
+}
+function add_styles(style_object) {
+  const styles = style_object_to_string(style_object);
+  return styles ? ` style="${styles}"` : "";
+}
 export {
   setContext as a,
   add_attribute as b,
   create_ssr_component as c,
-  each as d,
-  escape as e,
+  add_styles as d,
+  each as e,
+  escape as f,
+  null_to_empty as g,
   missing_component as m,
   noop as n,
   safe_not_equal as s,

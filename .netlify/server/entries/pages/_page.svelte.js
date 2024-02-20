@@ -1,73 +1,77 @@
-import { c as create_ssr_component, d as each, b as add_attribute, v as validate_component } from "../../chunks/ssr.js";
+import { c as create_ssr_component, e as each, f as escape, b as add_attribute, v as validate_component } from "../../chunks/ssr.js";
 import { C as Contacts } from "../../chunks/Contacts.js";
-const slider_svelte_svelte_type_style_lang = "";
-const css$2 = {
-  code: ".slider.svelte-8bixf4{position:relative;width:100%;height:clamp(400px, 40vw, 50vw);background-color:#222}.slide.svelte-8bixf4{position:absolute;left:0;top:0;width:100%;height:100%;overflow:hidden}.slide-img.svelte-8bixf4{width:100%;height:100%;object-fit:cover}.next.svelte-8bixf4,.prev.svelte-8bixf4{position:absolute;display:block;z-index:2;top:50%;transform:translateY(-50%);width:50px;height:50px;padding:0;border:none;border-radius:50%;font-size:40px;cursor:pointer;background:rgba(128, 128, 128, 0.415);color:#fff}.next.svelte-8bixf4{right:20px;background-image:url(img/svg/caret-right-fill.svg);background-repeat:no-repeat;background-size:cover}.prev.svelte-8bixf4{left:20px;background-image:url(img/svg/caret-left-fill.svg);background-repeat:no-repeat;background-size:cover}.nav.svelte-8bixf4{position:absolute;bottom:20px;left:0;right:0;height:50px;z-index:3;display:flex;gap:20px;justify-content:center;align-items:center}.bubble.svelte-8bixf4{padding:0;border:0;height:10px;width:10px;border-radius:100px;transition:all 0.4s ease-out;cursor:pointer}.current.svelte-8bixf4{transform:scale(200%)}.onedown.svelte-8bixf4,.oneup.svelte-8bixf4{transform:scale(150%)}.twodown.svelte-8bixf4,.twoup.svelte-8bixf4{transform:scale(120%)}",
-  map: null
-};
-const Slider = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let { duration = 2e3 } = $$props;
-  let { slides } = $$props;
-  let currentSlide = 0;
-  const nextSlide = () => {
-    currentSlide++;
-    if (currentSlide >= slides.length) {
-      currentSlide = 0;
-    }
-    timer();
-  };
-  let interval;
-  const timer = () => {
-    clearInterval(interval);
-    interval = setInterval(nextSlide, duration);
-  };
-  timer();
-  if ($$props.duration === void 0 && $$bindings.duration && duration !== void 0)
-    $$bindings.duration(duration);
-  if ($$props.slides === void 0 && $$bindings.slides && slides !== void 0)
-    $$bindings.slides(slides);
-  $$result.css.add(css$2);
-  return `<div class="slider svelte-8bixf4">${each(slides, (slider, i) => {
-    return `${currentSlide === i ? `<div class="slide svelte-8bixf4"><img class="slide-img svelte-8bixf4"${add_attribute("src", slider, 0)} alt="action"> </div>` : ``}`;
-  })} <button class="next svelte-8bixf4"></button> <button class="prev svelte-8bixf4"></button> <div class="nav svelte-8bixf4">${each(slides, (slider, i) => {
-    return `<button class="${[
-      "bubble svelte-8bixf4",
-      (i === currentSlide ? "current" : "") + " " + (i === currentSlide - 1 ? "onedown" : "") + " " + (i === currentSlide - 2 ? "twodown" : "") + " " + (i === currentSlide + 1 ? "oneup" : "") + " " + (i === currentSlide + 2 ? "twoup" : "")
-    ].join(" ").trim()}"></button>`;
-  })}</div> </div>`;
-});
+import { C as CustomBtn } from "../../chunks/CustomBtn.js";
 const Attractions_svelte_svelte_type_style_lang = "";
 const css$1 = {
-  code: ".container.svelte-y70oyi{display:grid;grid-template-columns:repeat(3, minmax(300px, 350px));grid-template-rows:repeat(4, 1fr);justify-items:center;justify-content:center;gap:20px}.card.svelte-y70oyi{display:flex;gap:20px;padding:15px;border-radius:5px;box-shadow:2px 2px 5px #a7a7a7;background:#e2e1ff}.content.svelte-y70oyi{line-height:1.3}.img.svelte-y70oyi{width:50px;height:50px}.title.svelte-y70oyi{font-weight:700;font-size:20px;text-transform:uppercase}.text.svelte-y70oyi{font-size:18px;font-weight:500;color:rgb(101, 101, 101);transition:all 0.5s}@media screen and (max-width: 980px){.container.svelte-y70oyi{display:grid;grid-template-columns:repeat(3, minmax(200px, 250px));grid-template-rows:repeat(4, 1fr);justify-items:center;justify-content:center;gap:10px}.title.svelte-y70oyi{font-size:16px}.text.svelte-y70oyi{font-size:14px}.img.svelte-y70oyi{width:30px;height:30px}}@media screen and (max-width: 650px){.container.svelte-y70oyi{display:flex;flex-wrap:wrap}.card.svelte-y70oyi{flex:auto}.title.svelte-y70oyi{font-size:16px}.text.svelte-y70oyi{font-size:14px}.img.svelte-y70oyi{width:30px;height:30px}}",
+  code: ".btn__more.svelte-16whmzr.svelte-16whmzr{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 auto;width:300px;padding:6px;border:none;transition:0.3s;background:#ffa600;color:#fff}.btn__more.svelte-16whmzr.svelte-16whmzr:hover{color:#000}.btn__more-text.svelte-16whmzr.svelte-16whmzr{text-shadow:0 0 1px #000;font-weight:500;font-size:16px}.btn__more-img.svelte-16whmzr.svelte-16whmzr{height:25px}.attractions__cards.svelte-16whmzr.svelte-16whmzr{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 340px));grid-template-rows:repeat(260px);justify-content:center;gap:30px;overflow:hidden;max-width:calc((340px + 30px) * 3 - 30px);margin:0 auto;height:calc((260px + 30px) * 2 - 30px);transition:all 0.5s;margin-bottom:30px}.card.svelte-16whmzr.svelte-16whmzr{position:relative;display:flex;flex-direction:column;height:260px;padding:20px;border:2.3px dashed #ffa600;border-radius:10px;overflow:hidden;background:#fff}.card.svelte-16whmzr:hover .card__img.svelte-16whmzr{transform:scale(110%)}.card__title.svelte-16whmzr.svelte-16whmzr{margin-bottom:20px;text-transform:uppercase;font-size:22px;font-weight:700;line-height:1.3;letter-spacing:1.5px}.card__description.svelte-16whmzr.svelte-16whmzr{width:calc(100% - 130px);line-height:1.3;font-size:16px;color:#414141}.card__img-container.svelte-16whmzr.svelte-16whmzr{position:absolute;right:0;bottom:0;width:clamp(160px, 45vw, 180px);height:clamp(160px, 45vw, 180px);font-weight:700;text-transform:uppercase;border-radius:93% 7% 25% 75% / 89% 55% 45% 11% ;background:grey;overflow:hidden}.card__img.svelte-16whmzr.svelte-16whmzr{display:block;object-fit:cover;object-position:30%;width:100%;height:100%;transition:all 0.5s}",
   map: null
 };
 const Attractions = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let cards = [
+    {
+      title: "Поролоновая яма",
+      description: "Прыгайте, веселитесь и отрывайтесь!",
+      img: "/img/photo1.webp"
+    },
+    {
+      title: "Батуты",
+      description: "Прыгайте, веселитесь и отрывайтесь!",
+      img: "/img/photo1.webp"
+    },
+    {
+      title: "Зона для малышей",
+      description: "Прыгайте, веселитесь и отрывайтесь!",
+      img: "/img/photo1.webp"
+    },
+    {
+      title: "Тарзанка",
+      description: "Прыгайте, веселитесь и отрывайтесь!",
+      img: "/img/photo1.webp"
+    },
+    {
+      title: "Лабиринт",
+      description: "Прыгайте, веселитесь и отрывайтесь!",
+      img: "/img/photo1.webp"
+    },
+    {
+      title: "Песочница",
+      description: "Прыгайте, веселитесь и отрывайтесь!",
+      img: "/img/photo1.webp"
+    },
+    {
+      title: "Бассейн с шариками",
+      description: "Прыгайте, веселитесь и отрывайтесь!",
+      img: "/img/photo1.webp"
+    },
+    {
+      title: "Кульбитные подушки",
+      description: "Прыгайте, веселитесь и отрывайтесь!",
+      img: "/img/photo1.webp"
+    },
+    {
+      title: "Ледяная горка",
+      description: "Прыгайте, веселитесь и отрывайтесь!",
+      img: "/img/photo1.webp"
+    },
+    {
+      title: "Аэрохокей",
+      description: "Прыгайте, веселитесь и отрывайтесь!",
+      img: "/img/photo1.webp"
+    }
+  ];
   $$result.css.add(css$1);
-  return `<div class="container svelte-y70oyi" data-svelte-h="svelte-1w3k93h"><div class="card svelte-y70oyi"><img src="img/svg/clock.svg" alt="" class="img svelte-y70oyi"> <div class="content svelte-y70oyi"><p class="title svelte-y70oyi">Поролоновая яма</p> <p class="text svelte-y70oyi">Запрыгивай прямо со скалодрома или батута!</p></div></div> <div class="card svelte-y70oyi"><img src="img/svg/clock.svg" alt="" class="img svelte-y70oyi"> <div class="content svelte-y70oyi"><p class="title svelte-y70oyi">Батуты</p> <p class="text svelte-y70oyi">Детские и взрослые батуты</p></div></div> <div class="card svelte-y70oyi"><img src="img/svg/clock.svg" alt="" class="img svelte-y70oyi"> <div class="content svelte-y70oyi"><p class="title svelte-y70oyi">День рождения</p> <p class="text svelte-y70oyi">Подарите своим детям незабываемые впечатления!</p></div></div> <div class="card svelte-y70oyi"><img src="img/svg/clock.svg" alt="" class="img svelte-y70oyi"> <div class="content svelte-y70oyi"><p class="title svelte-y70oyi">Зона для малышей</p> <p class="text svelte-y70oyi">Запрыгивай прямо со скалодрома или батута!</p></div></div> <div class="card svelte-y70oyi"><img src="img/svg/clock.svg" alt="" class="img svelte-y70oyi"> <div class="content svelte-y70oyi"><p class="title svelte-y70oyi">Тарзанка</p> <p class="text svelte-y70oyi">Запрыгивай прямо со скалодрома или батута!</p></div></div> <div class="card svelte-y70oyi"><img src="img/svg/clock.svg" alt="" class="img svelte-y70oyi"> <div class="content svelte-y70oyi"><p class="title svelte-y70oyi">Лабиринт</p> <p class="text svelte-y70oyi">Детские и взрослые батуты</p></div></div> <div class="card svelte-y70oyi"><img src="img/svg/clock.svg" alt="" class="img svelte-y70oyi"> <div class="content svelte-y70oyi"><p class="title svelte-y70oyi">Песочница</p> <p class="text svelte-y70oyi">Подарите своим детям незабываемые впечатления!</p></div></div> <div class="card svelte-y70oyi"><img src="img/svg/clock.svg" alt="" class="img svelte-y70oyi"> <div class="content svelte-y70oyi"><p class="title svelte-y70oyi">Бассейн с шариками</p> <p class="text svelte-y70oyi">Запрыгивай прямо со скалодрома или батута!</p></div></div> <div class="card svelte-y70oyi"><img src="img/svg/clock.svg" alt="" class="img svelte-y70oyi"> <div class="content svelte-y70oyi"><p class="title svelte-y70oyi">Кульбитные подушки</p> <p class="text svelte-y70oyi">Запрыгивай прямо со скалодрома или батута!</p></div></div> <div class="card svelte-y70oyi"><img src="img/svg/clock.svg" alt="" class="img svelte-y70oyi"> <div class="content svelte-y70oyi"><p class="title svelte-y70oyi">Башня</p> <p class="text svelte-y70oyi">Запрыгивай прямо со скалодрома или батута!</p></div></div> <div class="card svelte-y70oyi"><img src="img/svg/clock.svg" alt="" class="img svelte-y70oyi"> <div class="content svelte-y70oyi"><p class="title svelte-y70oyi">Ледяная горка</p> <p class="text svelte-y70oyi">Запрыгивай прямо со скалодрома или батута!</p></div></div> <div class="card svelte-y70oyi"><img src="img/svg/clock.svg" alt="" class="img svelte-y70oyi"> <div class="content svelte-y70oyi"><p class="title svelte-y70oyi">Аэрохокей</p> <p class="text svelte-y70oyi">Запрыгивай прямо со скалодрома или батута!</p></div></div> </div>`;
+  return `<div class="attractions"><div class="attractions__cards svelte-16whmzr">${each(cards, (card) => {
+    return `<div class="card svelte-16whmzr"><p class="card__title svelte-16whmzr">${escape(card.title)}</p> <p class="card__description svelte-16whmzr">${escape(card.description)}</p> <div class="card__img-container svelte-16whmzr"><img${add_attribute("src", card.img, 0)} alt="${"Картика " + escape(card.title, true)}" class="card__img svelte-16whmzr"></div> </div>`;
+  })}</div> <button class="btn__more svelte-16whmzr" type="button" data-show="0" aria-labelledby="textBtnMore" data-svelte-h="svelte-qq6leo"><span id="textBtnMore" class="btn__more-text svelte-16whmzr">Показать все</span> <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="btn__more-img arrow-down-short svelte-16whmzr" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4"></path></svg></button> </div>`;
 });
 const _page_svelte_svelte_type_style_lang = "";
 const css = {
-  code: ".section.svelte-1nsg3or.svelte-1nsg3or{padding:20px}.title.svelte-1nsg3or.svelte-1nsg3or{text-transform:uppercase;font-size:36px;font-weight:700;text-align:center;padding:20px;line-height:1.3}.content.svelte-1nsg3or.svelte-1nsg3or{max-width:900px;margin:0 auto;flex-wrap:wrap;display:flex;justify-content:center;gap:20px}.card.svelte-1nsg3or.svelte-1nsg3or{position:relative;display:flex;flex-direction:column;width:300px;height:230px;padding:15px;border-radius:20px;box-shadow:2px 2px 5px grey;overflow:hidden}.card.svelte-1nsg3or:hover .card__img.svelte-1nsg3or{transform:scale(110%)}.card__title.svelte-1nsg3or.svelte-1nsg3or{flex:auto;text-transform:uppercase;font-size:18px;font-weight:700}.card__price.svelte-1nsg3or.svelte-1nsg3or{flex:auto;justify-self:center;font-weight:700;font-size:20px;color:orangered}.card__img.svelte-1nsg3or.svelte-1nsg3or{position:absolute;z-index:-1;right:-25%;bottom:-30%;width:250px;height:250px;display:flex;align-items:center;justify-content:center;font-weight:700;text-transform:uppercase;font-size:18px;border-radius:50%;background:grey;transition:all 0.5s}@media screen and (min-width: 600px){.wrapper.svelte-1nsg3or.svelte-1nsg3or{max-width:2000px;margin:0 auto;padding:50px 20px}}@media screen and (max-width: 600px){.wrapper.svelte-1nsg3or.svelte-1nsg3or{padding:20px 10px}}",
+  code: ".preview__container.svelte-1u9o8xq{position:relative;height:100vh;max-height:900px}.preview__img.svelte-1u9o8xq{object-fit:cover;width:100%;height:100%}.preview__bg.svelte-1u9o8xq{display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;position:absolute;top:0;left:0;width:100%;height:100%;background:#0000009a}.preview__logo.svelte-1u9o8xq{width:clamp(160px, 35vw, 250px)}.preview__text.svelte-1u9o8xq{max-width:600px;padding:0 30px;color:#fff;font-weight:700;font-size:clamp(20px, 5vw, 50px);line-height:1.3;letter-spacing:3px;text-align:center}.place__content.svelte-1u9o8xq{position:relative;display:flex;align-items:center;gap:20px;padding:30px 10px;max-width:1200px;margin:0 auto}.place__content.svelte-1u9o8xq:before,.place__content.svelte-1u9o8xq:after{content:'';position:absolute;left:50%;transform:translateX(-50%);width:100%;height:3px;border-radius:50%;background:#ffa600}.place__content.svelte-1u9o8xq:before{top:0}.place__content.svelte-1u9o8xq:after{bottom:0}.place__img.svelte-1u9o8xq{width:30%;height:250px;object-fit:cover;border-radius:10px}.place__text.svelte-1u9o8xq{font-weight:500;font-size:clamp(16px, 4vw, 20px);line-height:1.3;text-align:center}.place__text.svelte-1u9o8xq:not(:last-child){margin-bottom:10px}.title.svelte-1u9o8xq{text-transform:uppercase;font-size:clamp(28px, 4vw, 36px);font-weight:700;text-align:center;line-height:1.3;margin:0 0 20px 0}@media screen and (min-width: 600px){.wrapper.svelte-1u9o8xq{max-width:2000px;margin:0 auto;padding:50px 20px}}@media screen and (max-width: 600px){.wrapper.svelte-1u9o8xq{padding:20px 10px}.place__img.svelte-1u9o8xq{display:none}}",
   map: null
 };
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
-  return `${$$result.head += `<!-- HEAD_svelte-5d5fcl_START -->${$$result.title = `<title>Парк развлечений в Витебске</title>`, ""}<!-- HEAD_svelte-5d5fcl_END -->`, ""} ${validate_component(Slider, "Slider").$$render(
-    $$result,
-    {
-      duration: 5e3,
-      slides: [
-        "https://www.pizzatempo.by/i/photo/pizza_za_2_rub.jpg",
-        "https://pizzahouse67.ru/wp-content/uploads/2020/05/%D1%86%D0%B5%D0%B7%D0%B0%D1%80%D1%8C_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.png",
-        "https://pivkomarket.kz/wp-content/uploads/2020/06/akcija-31-picca.jpg",
-        "https://www.pizzatempo.by/i/photo/pizza_za_2_rub.jpg",
-        "https://pizzahouse67.ru/wp-content/uploads/2020/05/%D1%86%D0%B5%D0%B7%D0%B0%D1%80%D1%8C_%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F.png",
-        "https://pivkomarket.kz/wp-content/uploads/2020/06/akcija-31-picca.jpg"
-      ]
-    },
-    {},
-    {}
-  )} <section class="section svelte-1nsg3or" data-svelte-h="svelte-1b0no9"><p class="title svelte-1nsg3or">Z-park в Витебске</p> <div class="content svelte-1nsg3or"><div class="card svelte-1nsg3or"><p class="card__title svelte-1nsg3or">День рождения</p> <div class="p card__price svelte-1nsg3or">от 130 BYN</div> <div class="card__img svelte-1nsg3or">Картинка</div></div> <div class="card svelte-1nsg3or"><p class="card__title svelte-1nsg3or">Свободные прыжки</p> <div class="p card__price svelte-1nsg3or">от 9 BYN</div> <div class="card__img svelte-1nsg3or"></div></div> <div class="card svelte-1nsg3or"><p class="card__title svelte-1nsg3or">Фитнес на батутах</p> <div class="p card__price svelte-1nsg3or">от 75 BYN</div> <div class="card__img svelte-1nsg3or"></div></div> <div class="card svelte-1nsg3or"><p class="card__title svelte-1nsg3or">Акробатика для детей</p> <div class="p card__price svelte-1nsg3or">от 75 BYN</div> <div class="card__img svelte-1nsg3or"></div></div></div></section> <section class="section svelte-1nsg3or"><h2 class="title svelte-1nsg3or" data-svelte-h="svelte-p6zvgk">Развлечения</h2> ${validate_component(Attractions, "Attractions").$$render($$result, {}, {}, {})}</section> <section class="wrapper svelte-1nsg3or"><p class="title svelte-1nsg3or" data-svelte-h="svelte-1dp0g9x">Контакты</p> ${validate_component(Contacts, "Contacts").$$render($$result, {}, {}, {})} </section>`;
+  return `${$$result.head += `<!-- HEAD_svelte-5d5fcl_START -->${$$result.title = `<title>Парк развлечений в Витебске</title>`, ""}<!-- HEAD_svelte-5d5fcl_END -->`, ""} <div class="preview"><div class="preview__container svelte-1u9o8xq"><img class="preview__img svelte-1u9o8xq" src="/img/super-hero.webp" alt="Задний фон с супер героями"> <div class="preview__bg svelte-1u9o8xq"><img class="preview__logo svelte-1u9o8xq" src="/img/logo-removebg-cut.webp" alt="Логотип Z park"> <p class="preview__text svelte-1u9o8xq" data-svelte-h="svelte-64bj7x">СОВРЕМЕННЫЙ РАЗВЛЕКАТЕЛЬНЫЙ ЦЕНТР</p> ${validate_component(CustomBtn, "CustomBtn").$$render($$result, { text: "Заказать праздник" }, {}, {})}</div></div></div> <div class="wrapper svelte-1u9o8xq" data-svelte-h="svelte-1kqndjl"><div class="place"><h2 class="title svelte-1u9o8xq">Z-park</h2> <div class="place__content svelte-1u9o8xq"><div class="place__description"><p class="place__text svelte-1u9o8xq">В развлекательном центре Z-park богатый выбор спортивных активностей для детей разных возрастных групп. Каждый ребенок найдет для себя что-то интересное и познавательное, о чем будет рассказывать родным или своим друзьям.</p> <p class="place__text svelte-1u9o8xq">Здесь можно культурно отдыхать, участвовать в играх и преодолении увлекательных препятствий, прохождении сложных лабиринтов. Z-park прекрасно подходит для отдыха всей семьей и дружными компаниями.</p></div> <img src="/img/photo1.webp" alt="Развлекательный центр" class="place__img svelte-1u9o8xq"></div></div></div> <section class="wrapper svelte-1u9o8xq"><h2 class="title svelte-1u9o8xq" data-svelte-h="svelte-p6zvgk">Развлечения</h2> ${validate_component(Attractions, "Attractions").$$render($$result, {}, {}, {})}</section> <section class="wrapper svelte-1u9o8xq"><h2 class="title svelte-1u9o8xq" data-svelte-h="svelte-4m1f85">Контакты</h2> ${validate_component(Contacts, "Contacts").$$render($$result, {}, {}, {})} </section>`;
 });
 export {
   Page as default

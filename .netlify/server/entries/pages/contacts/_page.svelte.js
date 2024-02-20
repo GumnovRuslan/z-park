@@ -8,7 +8,7 @@ const css = {
 };
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css);
-  return `${validate_component(SectionTitle, "SectionTitle").$$render($$result, { value: "Наши контакты" }, {}, {})} <div class="wrapper svelte-j8i39f">${validate_component(Contacts, "Contacts").$$render($$result, {}, {}, {})} </div>`;
+  return `${$$result.head += `<!-- HEAD_svelte-cfpeiq_START -->${$$result.title = `<title>Контакты Z-park</title>`, ""}<!-- HEAD_svelte-cfpeiq_END -->`, ""} ${validate_component(SectionTitle, "SectionTitle").$$render($$result, { value: "Наши контакты" }, {}, {})} <div class="wrapper svelte-j8i39f">${validate_component(Contacts, "Contacts").$$render($$result, {}, {}, {})} </div>`;
 });
 export {
   Page as default
