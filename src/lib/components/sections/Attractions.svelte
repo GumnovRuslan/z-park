@@ -1,58 +1,7 @@
 <script>
     import { onMount } from "svelte";
-
-    let cards = [
-        {
-            title: 'Поролоновая яма',
-            description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.webp'
-        },
-        {
-            title: 'Батуты',
-            description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.webp'
-        },
-        {
-            title: 'Зона для малышей',
-            description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.webp'
-        },
-        {
-            title: 'Тарзанка',
-            description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.webp'
-        },
-        {
-            title: 'Лабиринт',
-            description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.webp'
-        },
-        {
-            title: 'Песочница',
-            description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.webp'
-        },
-        {
-            title: 'Бассейн с шариками',
-            description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.webp'
-        },
-        {
-            title: 'Кульбитные подушки',
-            description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.webp'
-        },
-        {
-            title: 'Ледяная горка',
-            description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.webp'
-        },
-        {
-            title: 'Аэрохокей',
-            description: 'Прыгайте, веселитесь и отрывайтесь!',
-            img: '/img/photo1.webp'
-        },
-    ];
+    import Card from '$lib/components/block/AttractionCard.svelte'
+    import data from '$lib/db/attractions.js'
 
     let cardsContainer
     let btnMore
@@ -63,6 +12,8 @@
     })
 
     function openFullSection() {
+        let cards = cardsContainer.querySelectorAll('.attractions__card')
+
         let show = +btnMore.dataset.show
         let btnText = btnMore.querySelector('.btn__more-text')
         let btnImg = btnMore.querySelector('.btn__more-img')
@@ -83,25 +34,21 @@
 
 <div class="attractions">
     <div class='attractions__cards'>
-
-        {#each cards as card }
-            <div class='card'>
-                <p class='card__title'>{card.title}</p>
-                <p class='card__description'>{card.description}</p>
-                <div class='card__img-container'>
-                    <img src={card.img} alt='Картика {card.title}' class='card__img'>
-                </div>
+        {#each data as dataCard }
+            <div class='attractions__card'>
+                <Card {...dataCard}/>
             </div>
         {/each}
-
     </div>
 
-    <button class='btn__more' type="button" data-show="0" on:click={openFullSection} aria-labelledby="textBtnMore">
-        <span id="textBtnMore" class='btn__more-text'>Показать все</span>
-        <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="btn__more-img arrow-down-short" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4"/>
-        </svg>
-    </button>
+    {#if data.length > 6}
+        <button class='btn__more' type="button" data-show="0" on:click={openFullSection} aria-labelledby="textBtnMore">
+            <span id="textBtnMore" class='btn__more-text'>Показать все</span>
+            <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="btn__more-img arrow-down-short" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4"/>
+            </svg>
+        </button>
+    {/if}
 
 </div>
 
@@ -139,56 +86,8 @@
         overflow: hidden;
         max-width: calc((340px + 30px) * 3 - 30px);
         margin: 0 auto;
-        height: calc((260px + 30px) * 2 - 30px);
+        height: calc((279px + 30px) * 2 - 30px);
         transition: all 0.5s;
         margin-bottom: 30px;
-    }
-    .card {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        height: 260px;
-        padding: 20px;
-        border: 2.3px dashed #ffa600;
-        border-radius: 10px;
-        overflow: hidden;
-        background: #fff;
-    }
-    .card:hover .card__img {
-        transform: scale(110%);
-    }
-    .card__title {
-        margin-bottom: 20px;
-        text-transform: uppercase;
-        font-size: 22px;
-        font-weight: 700;
-        line-height: 1.3;
-        letter-spacing: 1.5px;
-    }
-    .card__description {
-        width: calc(100% - 130px);
-        line-height: 1.3;
-        font-size: 16px;
-        color: #414141;
-    }
-    .card__img-container {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        width: clamp(160px, 45vw, 180px);
-        height: clamp(160px, 45vw, 180px);
-        font-weight: 700;
-        text-transform: uppercase;
-        border-radius: 93% 7% 25% 75% / 89% 55% 45% 11% ;
-        background: grey;
-        overflow: hidden;
-    }
-    .card__img {
-        display: block;
-        object-fit: cover;
-        object-position: 30%;
-        width: 100%;
-        height: 100%;
-        transition: all 0.5s;
     }
 </style>

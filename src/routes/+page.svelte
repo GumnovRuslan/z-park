@@ -2,6 +2,7 @@
     import Contacts from "$lib/components/sections/Contacts.svelte";
     import Attractions from "$lib/components/sections/Attractions.svelte";
     import CustomBtn from "$lib/components/CustomBtn.svelte";
+    import AboutInfo from "$lib/components/block/AboutInfo.svelte";
 
 </script>
 
@@ -24,15 +25,10 @@
     <div class='place'>
         <h2 class='title'>Z-park</h2>
         <div class='place__content'>
-            <div class='place__description'>
-                <p class='place__text'>
-                    В развлекательном центре Z-park богатый выбор спортивных активностей для детей разных возрастных групп. Каждый ребенок найдет для себя что-то интересное и познавательное, о чем будет рассказывать родным или своим друзьям.
-                </p>
-                <p class='place__text'>
-                    Здесь можно культурно отдыхать, участвовать в играх и преодолении увлекательных препятствий, прохождении сложных лабиринтов. Z-park прекрасно подходит для отдыха всей семьей и дружными компаниями.
-                </p>
-            </div>
-            <img src='/img/photo1.webp' alt='Развлекательный центр' class='place__img'>
+            <AboutInfo
+                image='offer.webp'
+                alt=''
+                text='Добро пожаловать в уникальный мир веселья и приключений – детский парк развлечений, где каждый миг наполнен радостью и удивлением! У нас ты найдешь все, чтобы сделать свой день незабываемым: захватывающие аттракционы, яркие шоу, интересные мастер-классы и многое другое! Погрузись в атмосферу веселья вместе с нами!'/>
         </div>
     </div>
 </div>
