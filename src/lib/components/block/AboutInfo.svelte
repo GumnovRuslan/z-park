@@ -1,5 +1,5 @@
 <script>
-    export let image = '';
+    export let image = {};
     export let alt = '';
     export let text = 'text';
     export let position = 'left';
@@ -8,13 +8,40 @@
 <div class='about-info'>
     {#if position == 'left'}
         {#if image}
-            <img src='/img/{image}' alt='{alt}' class='about-info__img'>
+        <div class='about-info__img'>
+            <picture>
+                {#if image.big}
+                    <source srcset="/img/{image.big}.webp" media="(min-width: 1440px)"/>
+                {/if}
+                {#if image.md}
+                    <source srcset="/img/{image.md}.webp" media="(min-width: 425px) and (max-width: 1440px"/>
+                {/if}
+                {#if image.sm}
+                    <source srcset="/img/{image.sm}.webp" media="(max-width: 425px)"/>
+                {/if}
+                <img src='/img/{image.def}.webp' alt='{alt}' loading="lazy">
+            </picture>
+        </div>
+
         {/if}
         <p class='about-info__text'>{text}</p>
     {:else if position == 'right'}
         <p class='about-info__text'>{text}</p>
         {#if image}
-            <img src='/img/{image}' alt='{alt}' class='about-info__img'>
+            <div class='about-info__img'>
+            <picture>
+                {#if image.big}
+                    <source srcset="/img/{image.big}.webp" media="(min-width: 1440px)"/>
+                {/if}
+                {#if image.md}
+                    <source srcset="/img/{image.md}.webp" media="(min-width: 425px) and (max-width: 1440px"/>
+                {/if}
+                {#if image.sm}
+                    <source srcset="/img/{image.sm}.webp" media="(max-width: 425px)"/>
+                {/if}
+                <img src='/img/{image.def}.webp' alt='{alt}' loading="lazy">
+            </picture>
+        </div>
         {/if}
     {/if}
 
@@ -23,7 +50,6 @@
 
 <style>
     .about-info {
-        position: relative;
         display: flex;
         align-items: center;
         gap: 20px;
@@ -37,10 +63,18 @@
         line-height: 1.3;
     }
     .about-info__img {
-        width: 30%;
-        min-height: 250px;
-        object-fit: cover;
+        flex: 100%;
+        width: 100%;
+        max-width: 30%;
+        height: 100%;
+        max-height: 250px;
         border-radius: 10px;
+        overflow: hidden;
+    }
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
     }
 
     @media screen and (max-width: 600px) {

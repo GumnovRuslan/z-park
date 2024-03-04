@@ -14,7 +14,10 @@
     <div class='preview__container'>
         <img class='preview__img' src='/img/super-hero.webp' alt='Задний фон с супер героями'>
         <div class='preview__bg'>
-            <img class='preview__logo' src='/img/logo-removebg-cut.webp' alt='Логотип Z park'>
+            <picture>
+                <source srcset="/img/logo-removebg-cut.webp" />
+                <img class='preview__logo' src='/img/logo-removebg-cut.webp' alt='Логотип Z park'>
+            </picture>
             <p class='preview__text'>СОВРЕМЕННЫЙ РАЗВЛЕКАТЕЛЬНЫЙ ЦЕНТР</p>
             <CustomBtn text='Заказать праздник'/>
         </div>
@@ -26,7 +29,9 @@
         <h2 class='title'>Z-park</h2>
         <div class='place__content'>
             <AboutInfo
-                image='offer.webp'
+                image={{def: 'offer-default',
+                        md: 'offer-medium',
+                        sm: 'offer-small'}}
                 alt=''
                 text='Добро пожаловать в уникальный мир веселья и приключений – детский парк развлечений, где каждый миг наполнен радостью и удивлением! У нас ты найдешь все, чтобы сделать свой день незабываемым: захватывающие аттракционы, яркие шоу, интересные мастер-классы и многое другое! Погрузись в атмосферу веселья вместе с нами!'/>
         </div>
