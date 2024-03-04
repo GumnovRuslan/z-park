@@ -63,11 +63,11 @@
         line-height: 1.3;
     }
     .about-info__img {
-        flex: 100%;
-        width: 100%;
+        flex: 1 0 auto;
+        display: flex;
         max-width: 30%;
         height: 100%;
-        max-height: 250px;
+        min-height: 250px;
         border-radius: 10px;
         overflow: hidden;
     }
