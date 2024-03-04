@@ -63,7 +63,7 @@
             <h2 class='cafe-menu__title'>{category.title}</h2>
             <nav class='cafe-menu__cards'>
                 {#each category.dish as dish}
-                    <MenuCard {dish}/>
+                    <MenuCard {...dish}/>
                 {/each}
             </nav>
         </div>
