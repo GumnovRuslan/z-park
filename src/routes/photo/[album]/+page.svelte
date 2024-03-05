@@ -58,6 +58,8 @@
 			<div class='gallery__image'>
 				<picture>
 					<source srcset="/img/{image.big}" media="(min-width: 1000px)"/>
+					<source srcset="/img/{image.md}" media="(min-width: 500px) and (max-width: 1000px)"/>
+					<source srcset="/img/{image.sm}" media="(max-width: 500px)"/>
 					<img
 						src="/img/{image.def}"
 						alt="Gallery"
@@ -211,8 +213,7 @@
 			margin-top: 70px;
 		}
 		.gallery__image {
-			width: auto;
-			height: auto;
+			width: 90%;
 			max-width: 100%;
 			max-height: 100%;
 		}

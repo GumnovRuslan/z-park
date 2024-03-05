@@ -60,6 +60,11 @@
     .prise-list__inner:not(:last-child) {
         margin-bottom: 20px;
     }
+
+    .prise-list__service-title {
+        margin-bottom: 5px;
+    }
+
     .prise-list__service-title,
     .prise-list__service-prise {
         font-size: clamp(12px, 2.5vw, 18px);
