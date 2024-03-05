@@ -1,11 +1,18 @@
 <script>
     export let title = 'Title';
     export let text = 'text';
-    export let image = '';
+    export let image = {
+        def: '',
+        big: '',
+        md: '',
+        sm: '',
+    };
 </script>
 
-
-<button class='card' type="button" on:click={(e) =>e.currentTarget.querySelector('dialog').show()}>
+<button class='card' type="button" on:click={(e) => {
+    let dialog = e.currentTarget.querySelector('dialog')
+    dialog.showModal()
+    }}>
     <dialog class="card__popup" aria-label="Описание аттракциона">
         <div class='card__popup-header'>
             <h3 class='card__popup-title'>{title}</h3>
@@ -19,21 +26,38 @@
                     </svg>
                 </span>
             </button>
-
         </div>
         <div class='card__popup-content'>
-            <img src='/img/{image}.webp' alt='Картика {title}' class='card__popup-image'>
+            <div class='card__popup-image'>
+                <picture>
+                    <source srcset="/img/{image.sm}.webp" media="(max-width: 1300px)"/>
+                    <source srcset="/img/{image.big}.webp" media="(min-width: 1300px)"/>
+                    <img src='/img/{image.def}.webp' alt='Картинка {title}' loading="lazy">
+                </picture>
+            </div>
             <p class="card__popup-text">{text}</p>
         </div>
     </dialog>
-    <h3 class='card__title'>{title}</h3>
-    <span class='card__img-container'>
-        <img src='/img/{image}.webp' alt='Картинка {title}' class='card__img'>
-    </span>
+    <div class='card__inner'>
+        <h3 class='card__title'>{title}</h3>
+        <span class='card__image'>
+            <picture>
+                <source srcset="/img/{image.sm}.webp" media="(max-width: 1300px)"/>
+                <source srcset="/img/{image.big}.webp" media="(min-width: 1300px)"/>
+                <img src='/img/{image.def}.webp' alt='Картинка {title}' class='card__img' loading="lazy">
+            </picture>
+        </span>
+    </div>
+
 </button>
 
 <style>
     .card {
+        background: transparent;
+        padding: 0;
+    }
+
+    .card__inner {
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -75,11 +99,24 @@
     }
 
     .card__popup-content {
+        display: flex;
+        flex-direction: column;
 
     }
 
     .card__popup-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-bottom: 25px;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .card__popup-text {
@@ -87,7 +124,7 @@
 
     }
 
-    .card:hover .card__img {
+    .card__inner:hover .card__img {
         transform: scale(110%);
     }
 
@@ -101,14 +138,7 @@
         letter-spacing: 1.5px;
     }
 
-    .card__description {
-        width: calc(100% - 130px);
-        line-height: 1.3;
-        font-size: 16px;
-        color: #414141;
-    }
-
-    .card__img-container {
+    .card__image {
         width: 100%;
         overflow: hidden;
         border-radius: 5px;
@@ -117,7 +147,6 @@
     .card__img {
         display: block;
         object-fit: cover;
-        /* object-position: 30%; */
         width: 100%;
         height: 100%;
         transition: all 0.4s;

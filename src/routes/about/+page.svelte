@@ -14,7 +14,7 @@
 <div class='about'>
     {#each aboutInfo as data, i}
         <div class='about__info-block'>
-            <AboutInfo {...data} position={i % 2 == 0 ? 'left' : 'right'}/>
+            <AboutInfo {...data} position={i % 2 ? 'right' : 'left'}/>
         </div>
     {/each}
 </div>
