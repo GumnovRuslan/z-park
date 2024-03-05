@@ -5,7 +5,7 @@
 <a class='album' href="/photo/{album.link}">
     <div class='album__border'>
         <div class='album__preview'>
-            <img class="album__preview-img" src={album.inner[0]} alt='photo1'>
+            <img class="album__preview-img" src="/img/{album.inner[0].preview ?? album.inner[0].sm}" alt='Альбом {album.name}'>
         </div>
     </div>
     <div class='album__bottom'>
