@@ -1,6 +1,9 @@
     <div class='section'>
         <div class='map-container'>
-            <img src='/img/map.webp' alt='Карта проеза' class='map__img'>
+            <picture>
+                <source srcset="/img/map-medium.webp" media="(max-width: 900px)">
+                <img src='img/map-default.webp' alt='Карта проеза' class='map__img'>
+            </picture>
         </div>
         <div class='contacts'>
                 <div class='contact'>

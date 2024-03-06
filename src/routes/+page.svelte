@@ -12,7 +12,11 @@
 
 <div class='preview'>
     <div class='preview__container'>
-        <img class='preview__img' src='/img/super-hero.webp' alt='Задний фон с супер героями'>
+        <picture>
+            <source srcset="/img/super-hero-medium.webp" media="(min-width: 500px) and (max-width: 800px)">
+            <source srcset="/img/super-hero-mobil.webp" media="(max-width: 500px)">
+            <img class='preview__img' src='/img/super-hero.webp' alt='Задний фон с супер героями'>
+        </picture>
         <div class='preview__bg'>
             <picture>
                 <source srcset="/img/logo-removebg-cut.webp" />
