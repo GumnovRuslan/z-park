@@ -40,7 +40,7 @@
 
 <style>
     .review {
-        padding: 0 20px;
+        padding: 0 10px;
     }
     .review__title {
         display: flex;
@@ -52,7 +52,8 @@
 
     .review__title-text {
         text-align: center;
-        max-width: 600px;
+        max-width: 700px;
+        font-size: clamp(18px, 5vw, 26px);
     }
 
     .review__content {
@@ -60,6 +61,11 @@
         justify-content: space-between;
         align-items: center;
         gap: 20px;
+    }
+
+    .review__content-image  {
+        display: flex;
+        flex-direction: column;
     }
 
     .review__content-image img {
@@ -94,7 +100,6 @@
         }
         .review__content-image {
             display: flex;
-            max-height: 300px;
         }
     }
 </style>
