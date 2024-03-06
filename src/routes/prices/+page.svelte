@@ -1,6 +1,6 @@
 <script>
     import SectionTitle from '$lib/components/SectionTitle.svelte'
-    import Price from '$lib/components/Price.svelte';
+    import Price from '$lib/components/block/Price.svelte';
     import priceList from '$lib/db/priceList'
 </script>
 

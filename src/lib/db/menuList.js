@@ -1,18 +1,88 @@
 let menuList = [
 	{
-		title: 'Напитки',
-		id: 'drinks',
+		title: 'Кофе',
+		id: 'coffee',
 		dish: [
 			{
-				name: 'Кофе',
-				price: '5 BYN',
-				grams: '80 мл',
-				img: 'img/cafe/coffee.webp'
+				name: 'Эспрессо',
+				price: '2,5',
+				grams: '30 мл'
+			},
+			{
+				name: 'Американо',
+				price: '3,5',
+				grams: '200 мл'
+			},
+			{
+				name: 'Двойной американо',
+				price: '7',
+				grams: '200 мл'
+			},
+			{
+				name: 'Капучино',
+				price: '5',
+				grams: '250 мл'
+			},
+			{
+				name: 'Капучино',
+				price: '5,5',
+				grams: '300 мл'
+			},
+			{
+				name: 'Латте',
+				price: '5,5',
+				grams: '350 мл'
+			},
+			{
+				name: 'Флет уайт',
+				price: '6',
+				grams: '300 мл'
+			},
+			{
+				name: 'Раф',
+				price: '6',
+				grams: '300 мл'
+			},
+			{
+				name: 'Глясе',
+				price: '6',
+				grams: '300 мл'
+			},
+			{
+				name: 'Горячий шоколад',
+				price: '4',
+				grams: '200 мл'
 			},
 			{
 				name: 'Чай',
-				price: '3 BYN',
-				grams: '100 мл'
+				price: '1,5'
+				// grams: '200 мл'
+			}
+		]
+	},
+	{
+		title: 'Мороженое',
+		id: 'iceCream',
+		dish: [
+			{
+				name: '1 шарик',
+				price: '3',
+				grams: '50 г'
+			},
+			{
+				name: '2 шарика',
+				price: '5',
+				grams: '100 г'
+			},
+			{
+				name: '3 шарика',
+				price: '7',
+				grams: '150 г'
+			},
+			{
+				name: 'Молочный коктейль',
+				price: '6,5',
+				description: '1 шарик мороженого, молоко, сироп на выбор'
 			}
 		]
 	},
@@ -21,22 +91,22 @@ let menuList = [
 		id: 'sets',
 		dish: [
 			{
-				name: 'Сет №1 - 3 бургера и картошка фри',
-				price: '18 BYN',
-				grams: '400 гр',
-				img: 'img/cafe/set-1.webp'
+				name: 'Сет №1',
+				price: '24',
+				img: 'set-1',
+				description: '3 бургера + картофель фри'
 			},
 			{
-				name: 'Сет №2 - бургер и картошка фри',
-				price: '9 BYN',
-				grams: '150 гр',
-				img: 'img/cafe/set-2.webp'
+				name: 'Сет №2',
+				price: '11',
+				img: 'set-2',
+				description: 'Бургер + картофель фри'
 			},
 			{
-				name: 'Сет №3 - 3 порции нагетсов, 3 порции картошки фри и 3 колбаски',
-				price: '25 BYN',
-				grams: '500 гр',
-				img: 'img/cafe/set-3.webp'
+				name: 'Сет №3',
+				price: '30',
+				img: 'set-3',
+				description: '3 порции картофеля фри + 3 порции наггетсов + 3 охотничьи колбаски'
 			}
 		]
 	},
@@ -45,39 +115,49 @@ let menuList = [
 		id: 'snacks',
 		dish: [
 			{
-				name: 'Ход-дог французский',
-				price: '3.5 BYN',
-				grams: '150 гр'
+				name: 'Французский хот-дог',
+				price: '5',
+				grams: '135 гр',
+				description: 'Нежная булочка, колбаска, кетчуп, майонез'
 			},
 			{
-				name: 'Ход-дог датский',
-				price: '4.5 BYN',
-				grams: '160 гр'
+				name: 'Датский хот-дог',
+				price: '6',
+				grams: '150 гр',
+				description: 'Открытая булочка, колбаска, огурчики "Релиш", сыр, соус "Бургер"'
 			},
 			{
 				name: 'Картофель фри',
-				price: '3.5 BYN',
+				price: '4',
 				grams: '100 гр'
 			},
 			{
 				name: 'Наггетсы',
-				price: '4.5 BYN',
-				grams: '200 гр'
+				price: '5',
+				grams: '100 гр'
 			},
 			{
 				name: 'Бургер',
-				price: '6 BYN',
-				grams: '200 гр'
+				price: '8',
+				grams: '190 гр',
+				description:
+					'Сочная куриная котлета, соленые огурчики, соус "Бургер", сыр, булочка с кунжутом'
 			},
 			{
-				name: 'Варшавская колбаска',
-				price: '2 BYN',
-				grams: '150 гр'
+				name: 'Колбаска',
+				price: '2,5',
+				grams: '75 гр'
 			},
 			{
-				name: 'Сендвич 1 / 2',
-				price: '3 / 5 BYN',
-				grams: '150 / 300 гр'
+				name: 'Сырники',
+				price: '5',
+				grams: '120 гр'
+			},
+			{
+				name: 'Пончик',
+				price: '4',
+				grams: '60 гр',
+				description: 'Вкусы: черника, малина, тутти-фрутти, клубника, банан'
 			}
 		]
 	},
@@ -86,32 +166,45 @@ let menuList = [
 		id: 'pizzas',
 		dish: [
 			{
-				name: 'Super пицца',
-				price: '18 BYN',
-				grams: '400 гр',
-				description: 'Кукуруза, помидоры, ветчина, кочёная курица',
-				img: 'img/cafe/pizza-1.webp'
+				name: 'Super',
+				price: '20',
+				grams: '600 гр',
+				description: 'кукуруза, помидоры, ветчина, курица, сыр, белый соус',
+				img: 'pizza-1'
 			},
 			{
-				name: 'Злодейская пицца',
-				price: '18 BYN',
-				grams: '400 гр',
-				description: 'Ветчина, охотничьи колбаски, пепперони, помидор, сладкий перец',
-				img: 'img/cafe/pizza-2.webp'
+				name: 'Злодейская',
+				price: '20',
+				grams: '600 гр',
+				description:
+					'ветчина, охотничьи колбаски, пепперони, помидор, сладкий перец, сыр, томатный соус',
+				img: 'pizza-2'
 			},
 			{
-				name: 'Пицца чемпион',
-				price: '18 BYN',
-				grams: '400 гр',
-				description: 'Пепперони, лук, помидоры, копченая курица',
-				img: 'img/cafe/pizza-3.webp'
+				name: 'Чемпион',
+				price: '20',
+				grams: '590 гр',
+				description: 'Пепперони, курица, помидоры, лук, сыр, бургер-соус',
+				img: 'pizza-3'
 			},
 			{
-				name: 'Пицца 4-героя',
-				price: '18 BYN',
-				grams: '400 гр',
-				description: 'Ветчина, охотничьи колбаски, соленый огурец, лук',
-				img: 'img/cafe/pizza-4.webp'
+				name: '4-героя',
+				price: '20',
+				grams: '550 гр',
+				description: 'ветчина, охотничьи колбаски, соленый огурец, лук, сыр, сырный соус',
+				img: 'pizza-4'
+			},
+			{
+				name: 'Лило и стич',
+				price: '20',
+				grams: '600 гр',
+				description: 'Курица, ветчина, ананасы консервированные, сыр, томатный соус'
+			},
+			{
+				name: 'Сплинтер',
+				price: '20',
+				grams: '600 гр',
+				description: 'Сладкий перец, лук, помидоры, кукуруза, сыр, томатный соус)'
 			}
 		]
 	}

@@ -1,23 +1,31 @@
 <script>
-    export let dish = {name: 'name', price: 'price', grams: 'grams', img: '', description: ''};
+    export let name = 'name';
+    export let price = 'price';
+    export let grams = '';
+    export let img = '';
+    export let description = '';
 </script>
 
 <div class='card'>
-    {#if dish.description}
-        <div class='card__description'>{dish.description}</div>
+    {#if description}
+        <div class='card__description'>{description}</div>
     {/if}
     <div class='card__img'>
-        <img class={dish.img ? 'card-picture' : ''} src={dish.img ?? 'img/favicon.webp'} alt={dish.name}>
+        {#if img}
+            <img class='card-picture' src={`/img/cafe/${img}.webp`} alt={name}>
+        {:else}
+            <img src={'img/favicon.webp'} alt={name}>
+        {/if}
     </div>
     <div class='card__inner'>
-        <p class='card__name'>{dish.name ?? 'name'}
-            {#if dish.description}
+        <p class='card__name'>{name ?? 'name'}
+            {#if description}
                 <span class="card__description-sign">?</span>
             {/if}
             </p>
         <div class='card__info'>
-            <span class='card__price'>{dish.price ?? 'prise'}</span>
-            <span class='card__grams'>{dish.grams ?? ''}</span>
+            <span class='card__price'>{`${price} p`}</span>
+            <span class='card__grams'>{grams}</span>
         </div>
     </div>
 </div>

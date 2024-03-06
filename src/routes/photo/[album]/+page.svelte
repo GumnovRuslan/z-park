@@ -55,12 +55,19 @@
 	<div class="gallery__content">
 		{#each images as image, i}
 			{#if currentImage === i}
-				<img
-					src={image}
-					alt="Gallery"
-					class="gallery__image"
-					transition:fade={{ duration: 300, delay: 200}}
-				/>
+			<div class='gallery__image'>
+				<picture>
+					<source srcset="/img/{image.big}" media="(min-width: 1000px)"/>
+					<source srcset="/img/{image.md}" media="(min-width: 500px) and (max-width: 1000px)"/>
+					<source srcset="/img/{image.sm}" media="(max-width: 500px)"/>
+					<img
+						src="/img/{image.def}"
+						alt="Gallery"
+						loading="lazy"
+						transition:fade={{ duration: 300, delay: 200}}
+					/>
+				</picture>
+			</div>
 			{/if}
 		{/each}
 	</div>
@@ -94,7 +101,7 @@
 	<div class='photo__content'>
 		{#each images as image, i}
 			<a class="photo__img-link" href='#' on:click={() => openGallery(i)}>
-				<img src={image} alt='Фото из альбома {data.name}' class='photo__img' >
+				<img src="/img/{image.sm}" alt='Фото из альбома {data.name}' class='photo__img' >
 			</a>
 		{/each}
 	</div>
@@ -144,11 +151,15 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		width: auto;
-		height: auto;
-		max-width: 100%;
+		width: 100%;
+		height: 100%;
 		max-height: 80vh;
 		transition: all .5s;
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
 	}
 	.gallery__controls {
 		position: absolute;
@@ -202,8 +213,7 @@
 			margin-top: 70px;
 		}
 		.gallery__image {
-			width: auto;
-			height: auto;
+			width: 90%;
 			max-width: 100%;
 			max-height: 100%;
 		}
