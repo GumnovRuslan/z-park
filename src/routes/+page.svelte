@@ -33,9 +33,11 @@
         <h2 class='title'>Z-park</h2>
         <div class='place__content'>
             <AboutInfo
-                image={{def: 'offer-default',
-                        md: 'offer-medium',
-                        sm: 'offer-small'}}
+                image={{
+                  def: 'offer-default',
+                  md: 'offer-medium',
+                  sm: 'offer-small'
+                  }}
                 alt=''
                 text='Добро пожаловать в уникальный мир веселья и приключений – детский парк развлечений, где каждый миг наполнен радостью и удивлением! У нас ты найдешь все, чтобы сделать свой день незабываемым: захватывающие аттракционы, яркие шоу, интересные мастер-классы и многое другое! Погрузись в атмосферу веселья вместе с нами!'/>
         </div>
@@ -115,21 +117,21 @@
     .place__content:after {
         bottom: 0;
     }
-    .place__img {
+    /* .place__img {
         width: 30%;
         height: 250px;
         object-fit: cover;
         border-radius: 10px;
-    }
-    .place__text {
+    } */
+    /* .place__text {
         font-weight: 500;
         font-size: clamp(16px, 4vw, 20px);
         line-height: 1.3;
         text-align: center;
-    }
-    .place__text:not(:last-child) {
+    } */
+    /* .place__text:not(:last-child) {
         margin-bottom: 10px;
-    }
+    } */
     .title {
         text-transform: uppercase;
         font-size: clamp(28px, 4vw, 36px);
@@ -149,8 +151,8 @@
         .wrapper {
             padding: 20px 10px;
         }
-        .place__img {
+        /* .place__img {
             display: none;
-        }
+        } */
     }
 </style>

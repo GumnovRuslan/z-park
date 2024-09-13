@@ -29,37 +29,44 @@
 </div>
 
 
-<style>
-    .footer-top__logo-link {
-        display: block;
-        width: 140px;
-        padding: 0 10px;
+<style lang="scss">
+  .footer {
+    &__container {
+      padding: 30px clamp(10px, 4vw, 100px);
+      background: #24b3ff;
     }
-    .footer__container {
-        padding: 30px clamp(10px, 4vw, 100px);
-        background: #24b3ff;
+  }
+
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    max-width: 85%;
+    margin: 0 auto 50px auto;
+
+    &__logo {
+      flex: 100%;
     }
-    .footer-top {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 10px;
-        max-width: 85%;
-        margin: 0 auto 50px auto;
+
+    &__logo-link {
+      display: block;
+      width: 140px;
+      padding: 0 10px;
     }
-    .footer-top__content {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
+
+    &__logo-img {
+      width: 100%;
+      height: 100%;
     }
-    .footer-top__logo {
-        flex: 100%;
+
+    &__content {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
     }
-    .footer-top__logo-img {
-        width: 100%;
-        height: 100%;
-    }
-    .footer-top__link {
+
+    &__link {
         min-width: 150px;
         padding: 5px 10px;
         text-decoration: none;
@@ -69,16 +76,18 @@
         color: #000;
         transition: all 0.2s;
     }
+  }
     .footer-bottom {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-top: 30px;
-        border-top: 1px solid #f5f5f5;
-    }
-    .footer-bottom__copy {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 30px;
+      border-top: 1px solid #f5f5f5;
+
+      &__copy {
         text-align: center;
         font-size: 14px;
         color: #1F1F1F
-        }
+      }
+    }
 </style>
