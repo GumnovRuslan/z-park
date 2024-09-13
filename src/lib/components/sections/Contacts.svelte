@@ -1,9 +1,10 @@
     <div class='section'>
         <div class='map-container'>
-            <picture>
+            <!-- <picture>
                 <source srcset="/img/map-medium.webp" media="(max-width: 900px)">
-                <img src='img/map-default.webp' alt='Карта проеза' class='map__img'>
-            </picture>
+                <img src='/img/map-default.webp' alt='Карта проеза' class='map__img'>
+            </picture> -->
+            <iframe class="map" title="Карта проеза" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2277.492641089302!2d30.2506870761861!3d55.192144005344325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46c577f44c596ec1%3A0x79a93b31af3970bb!2zWi3Qn9CQ0KDQmg!5e0!3m2!1sru!2sru!4v1726220603404!5m2!1sru!2sru" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class='contacts'>
                 <div class='contact'>
@@ -56,12 +57,15 @@
     </div>
 
 <style>
+
+    
     .section {
         display: flex;
         justify-content: center;
         gap: clamp(30px, 4vw, 50px);
     }
     .map-container {
+        position: relative;
         align-self: center;
         display: flex;
         justify-content: center;
@@ -70,11 +74,19 @@
         box-shadow: 2px 2px 10px #9d9d9d;
         border-radius: 10px;
     }
-    .map__img {
-        object-fit: cover;
+
+    .map {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
     }
+    /* .map__img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    } */
     .contacts {
         display: flex;
         flex-direction: column;
