@@ -2,8 +2,11 @@
     import { onMount } from "svelte";
     import { setMaskTel, setWheelNumber, setDate, } from "$lib/utils/inputMask.js";
     import { closePopup} from '$lib/utils/popup.js'
+    import { markIcon } from '../../icons'
 
     let form
+    let isSentForm = false
+    let formIsDisabled = false
 
     onMount(() => {
         form = document.querySelector('.form-booking')
@@ -14,6 +17,7 @@
 
     async function submitForm(event) {
         const elements = form.elements
+        formIsDisabled = true
 
         const formData = {
             name: elements[0].value,
@@ -53,11 +57,14 @@
 
             if (messageResponse.ok) {
                 console.log('Form submitted successfully to /send-message');
+                isSentForm = true
             } else {
                 console.error('Form submission failed for /send-message');
             }
         } catch (error) {
             console.error(error);
+        } finally {
+          formIsDisabled = false
         }
     }
 
@@ -89,11 +96,12 @@
             Оставьте заявку на проведение дня рождения и наши менеджеры свяжутся с вами и помогут с организацией.
         </p>
     </div>
-    <div class='popup__content'>
+      <div class='popup__content'>
         <div class='popup__image-container'>
             <img class="popup__image" src='/img/woman.webp' alt='manager'>
         </div>
-        <form class="form form-booking" method="post" enctype="application/json" on:submit={submitForm}>
+        {#if !isSentForm}
+          <form class="form form-booking" method="post" enctype="application/json" on:submit={submitForm} class:form--disabled={formIsDisabled}>
             <label class='form__label'>Ваше имя *
                 <input class="form__input" type="text" placeholder="Андрей" required>
             </label>
@@ -117,26 +125,81 @@
                 Даю согласие на обработку персональных данных, в том числе в маркетинговых целях.
             </label>
             <button class="form__btn-send" type='submit'>Отправить</button>
-            <button class="popup__btn-close" type="button" on:click={closePopup} aria-label="Закрыть форму заказа праздника">
-                <span class='popup__close-line'></span>
-            </button>
-        </form>
-    </div>
+          </form>
+        {:else}
+          <div class="sent-form">
+            <p class="sent-form__text">Спасибо, заявка принята</p>
+            <span class="sent-form__mark">
+              {@html markIcon}
+            </span>
+            <p class="sent-form__text">Скоро с вами свяжутся</p>
+          </div>
+        {/if}
+      </div>
+    <button class="popup__btn-close" type="button" on:click={closePopup} aria-label="Закрыть форму заказа праздника">
+      <span class='popup__close-line'></span>
+  </button>
 </dialog>
 
-<style>
-    dialog::backdrop {
-        background: #00000071;
-    }
-    .popup {
-        max-width: 900px;
-        border: 2px solid #3e40d0;
-        border-radius: 20px;
-        box-shadow: 0 0 20px 1px #5e3ed0;
+<style lang=scss>
+  @import '/static/css/mixins.scss';
 
+  .sent-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+
+    &__mark {
+      width: 90%;
+      max-width: 250px;
+      animation: scale 0.5s ease-in-out forwards;
     }
-    .popup__header {
+
+    @keyframes scale {
+      0% {
+        color: transparent;
+        transform: scale(50%);
+      }
+      50% {
+        transform:  scale(120%);
+      }
+      80% {
+        transform:  scale(90%);
+      }
+      100% {
+        color: green;
+        transform: scale(100%);
+      }
+    }
+
+    &__text {
+      max-width: 500px;
+      width: 100%;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: clamp(11px, 3vw, 14px);
+      text-align: center;
+      line-height: 1.4;
+      color: #4a4a4a;
+    }
+  }
+    .popup {
+      width: 100%;
+      max-width: 900px;
+      border: 2px solid #3e40d0;
+      border-radius: 20px;
+      box-shadow: 0 0 20px 1px #5e3ed0;
+
+      &::backdrop {
+        background: #00000071;
+      }
+
+      &__header {
         margin-bottom: 15px;
+      }
     }
      .popup__btn-close {
         position: absolute;
@@ -228,6 +291,11 @@
         display: flex;
         flex-direction: column;
         max-width: 450px;
+      
+      &--disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
     }
     .form__label {
         width: 100%;
