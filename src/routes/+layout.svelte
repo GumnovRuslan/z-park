@@ -5,6 +5,15 @@
   import BtnHoliday from "$lib/components/aside/BtnHoliday.svelte";
   import BookHoliday  from "$lib/components/popup/BookHoliday.svelte";
   import Subscribe from "$lib/components/sections/Subscribe.svelte";
+  import { openPopup } from '$lib/utils/popup.js'
+  import { onMount } from "svelte";
+  import { page } from "$app/stores";
+
+  const hasBooking = $page.url.searchParams.has("booking");
+
+  onMount(() => {
+    if (hasBooking) openPopup()
+  })
 </script>
 
 <div class='wrapper'>
@@ -14,11 +23,10 @@
   </div>
   <main class='main'>
     <slot />
-
   </main>
   <aside class="side-panel">
     <BtnUp visibilityHeight=100 size={45} />
-    <BtnHoliday size={45}/>
+    <BtnHoliday size={45} isOpen={hasBooking}/>
   </aside>
   <footer class="footer">
     <Subscribe />
