@@ -2,8 +2,7 @@
     import SectionTitle from '$lib/components/SectionTitle.svelte'
     import { onMount } from "svelte";
     import menuList from '$lib/db/menuList'
-    import MenuCard from "$lib/components/MenuCard.svelte";
-
+    import CafeList from '$lib/components/ui/CafeList.svelte';
 
     let anchors
     let cards
@@ -44,34 +43,27 @@
 
 
 <svelte:head>
-    <title>
-        Кафе в Z-park
-    </title>
+  <title>
+    Кафе в Z-park
+  </title>
 </svelte:head>
 
 <SectionTitle value='Кафе в Z-park'/>
 
 <div class="cafe-nav">
-    {#each menuList as menu}
-        <a class="cafe-nav__link" href='#{menu.id}'>{menu.title}</a>
-    {/each}
+  {#each menuList as menu}
+    <a class="cafe-nav__link" href='#{menu.id}'>{menu.title}</a>
+  {/each}
 </div>
 
 <div class='cafe-menu'>
-    {#each menuList as category}
-        <div class='cafe-menu__list' id={category.id ?? ''}>
-            <h2 class='cafe-menu__title'>{category.title}</h2>
-            <nav class='cafe-menu__cards'>
-                {#each category.dish as dish}
-                    <MenuCard {...dish}/>
-                {/each}
-            </nav>
-        </div>
-    {/each}
+  {#each menuList as category}
+    <CafeList title={category.title} {...category}/>
+  {/each}
 </div>
 
 
-<style>
+<style lang="scss">
     .cafe-nav {
         display: flex;
         justify-content: center;
@@ -80,8 +72,8 @@
         column-gap: 10px;
         row-gap: 5px;
         padding: 10px;
-    }
-    .cafe-nav__link {
+
+      &__link {
         padding: 5px 15px;
         text-transform: uppercase;
         text-decoration: none;
@@ -93,34 +85,18 @@
         border-radius: 50px;
         transition: all 0.3s;
         line-height: 1.3;
-    }
-    .cafe-nav__link:hover {
-        color: red;
-        border-color: red;
-    }
-    .cafe-menu {
-        display: flex;
-        flex-direction: column;
-        gap: clamp(20px, 5vw, 40px);
-        padding-left: clamp(10px, 3vw, 40px);
-        padding-right: clamp(10px, 3vw, 40px);
-        padding-bottom: 30px;
-    }
-    .cafe-menu__title {
-        text-transform: uppercase;
-        font-size: clamp(24px, 3.5vw, 30px);
-        line-height: 1.3;
-        margin: 0;
-        margin-bottom: clamp(10px, 3vw, 20px);
+
+        &:hover {
+          color: red;
+          border-color: red;
+        }
+      }
     }
 
-    .cafe-menu__cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 350px));
-        grid-template-rows: auto;
-        justify-items: center;
-        justify-content: center;
-        row-gap: 30px;
-        column-gap: 20px;
-    }
+  .cafe-menu {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(30px, 5vw, 50px);
+    padding: 0 clamp(10px, 3vw, 40px) 30px;
+  }
 </style>

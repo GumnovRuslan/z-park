@@ -100,9 +100,9 @@
 
 	<div class='photo__content'>
 		{#each images as image, i}
-			<a class="photo__img-link" href='#' on:click={() => openGallery(i)}>
+			<button type="button" class="photo__img-link" on:click={() => openGallery(i)}>
 				<img src="/img/{image.sm}" alt='Фото из альбома {data.name}' class='photo__img' >
-			</a>
+			</button>
 		{/each}
 	</div>
 
@@ -259,6 +259,7 @@
 	.photo__img-link {
 		width: 300px;
 		height: 200px;
+		padding: 0;
 		overflow: hidden;
 		border-radius: 5px;
 	}

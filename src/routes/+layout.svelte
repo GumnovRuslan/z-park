@@ -26,7 +26,7 @@
   </main>
   <aside class="side-panel">
     <BtnUp visibilityHeight=100 size={45} />
-    <BtnHoliday size={45} isOpen={hasBooking}/>
+    <BtnHoliday size={45}/>
   </aside>
   <footer class="footer">
     <Subscribe />
