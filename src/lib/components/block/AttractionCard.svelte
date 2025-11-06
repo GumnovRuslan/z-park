@@ -7,16 +7,17 @@
         md: '',
         sm: '',
     };
+  
 </script>
 
-<button class='card' type="button" on:click={(e) => {
+<div class='card' type="button" onclick={(e) => {
     let dialog = e.currentTarget.querySelector('dialog')
     dialog.showModal()
     }}>
     <dialog class="card__popup" aria-label="Описание аттракциона">
         <div class='card__popup-header'>
             <h3 class='card__popup-title'>{title}</h3>
-            <button class='card__popup-header-btn' on:click={(e) => {
+            <button type='button' class='card__popup-header-btn' onclick={(e) => {
                 e.stopPropagation()
                 e.currentTarget.closest('dialog').close()
                 }}>
@@ -49,7 +50,7 @@
         </span>
     </div>
 
-</button>
+</div>
 
 <style>
     .card {

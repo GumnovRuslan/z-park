@@ -1,20 +1,13 @@
 import adapter from '@sveltejs/adapter-netlify';
-import { vitePreprocess } from '@sveltejs/kit/vite';
+// import adapter from '@sveltejs/adapter-vercel';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
-export default {
-	preprocess: [vitePreprocess()],
-	kit: {
-		// default options are shown
-		adapter: adapter({
-			// if true, will create a Netlify Edge Function rather
-			// than using standard Node-based functions
-			edge: false,
-
-			// if true, will split your app into multiple functions
-			// instead of creating a single one for the entire app.
-			// if `edge` is true, this option cannot be used
-			split: false
-		})
-	}
+const config = {
+	// Consult https://svelte.dev/docs/kit/integrations
+	// for more information about preprocessors
+	preprocess: vitePreprocess(),
+	kit: { adapter: adapter() },
 };
+
+export default config;

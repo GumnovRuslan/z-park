@@ -142,7 +142,6 @@
 </dialog>
 
 <style lang=scss>
-  @import '/static/css/mixins.scss';
 
   .sent-form {
     display: flex;

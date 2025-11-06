@@ -1,14 +1,12 @@
-<script>
+<script lang="ts">
   import MenuCard from '$lib/components/ui/MenuCard.svelte';
 
-  export let id = '';
-  export let title = '';
-  export let dish = [];
+  let {id, title, dish} = $props()
 </script>
 
 
 <div class='list' id={id}>
-  <h2 class='list__title'>{title}</h2>
+  <h2 class='list__title text-blue-600'>{title}</h2>
   <nav class='list__cards'>
     {#each dish as item}
       <MenuCard {...item}/>
@@ -18,7 +16,7 @@
 
 
 <style lang="scss">
-  @import 'static/css/mixins.scss';
+  @import '/static/styles/template/_mixins.scss';
 
   .list {
     width: 100%;
