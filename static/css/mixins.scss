@@ -1,60 +1,40 @@
-$breakpoints-xs: 320px;
-$breakpoints-sm: 576px;
-$breakpoints-md: 768px;
-$breakpoints-lg: 1024px;
-$breakpoints-xl: 1440px;
-$breakpoints-xxl: 1620px;
-$breakpoints-xxxl: 1920px;
+@use 'sass:map';
 
 $breakpoints: (
-  xs: $breakpoints-xs,
-  sm: $breakpoints-sm,
-  md: $breakpoints-md,
-  lg: $breakpoints-lg,
-  xl: $breakpoints-xl,
-  xxl: $breakpoints-xxl,
-  xxxl: $breakpoints-xxxl,
+  xs: 375px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  xxxl: 1920px
 );
 
-@mixin media-breakpoint-up($name, $grid-breakpoints: $breakpoints) {
-  @if map-has-key($grid-breakpoints, $name) {
-    $min: map-get($grid-breakpoints, $name);
-
-    @media (min-width: $min) {
-      @content;
-    }
+@function get-breakpoint($name) {
+  @if map.has-key($breakpoints, $name) {
+    @return map.get($breakpoints, $name);
   } @else {
-    @warn 'Invalid breakpoint: #{$name}.';
+    @error "❌ Ошибка: брейкпоинт `#{$name}` не существует. Доступные: #{map.keys($breakpoints)}";
   }
 }
 
-@mixin media-breakpoint-down($name, $grid-breakpoints: $breakpoints) {
-  @if map-has-key($grid-breakpoints, $name) {
-    $max: map-get($grid-breakpoints, $name);
-
-    @media (max-width: ($max - 0.98)) {
-      @content;
-    }
-  } @else {
-    @warn 'Invalid breakpoint: #{$name}.';
+// 📌 Медиазапрос "от"
+@mixin media-up($name) {
+  @media (min-width: get-breakpoint($name)) {
+    @content;
   }
 }
 
-@mixin media-breakpoint-between($lower, $upper, $grid-breakpoints: $breakpoints) {
-  @if map-has-key($grid-breakpoints, $lower) and map-has-key($grid-breakpoints, $upper) {
-    $min: map-get($grid-breakpoints, $lower);
-    $max: map-get($grid-breakpoints, $upper);
+// 📌 Медиазапрос "до"
+@mixin media-down($name) {
+  @media (max-width: calc(get-breakpoint($name) - 1px)) {
+    @content;
+  }
+}
 
-    @media (min-width: $min) and (max-width: ($max - 0.98)) {
-      @content;
-    }
-  } @else {
-    @if (map-has-key($grid-breakpoints, $lower) == false) {
-      @warn 'Your lower breakpoint was invalid: #{$lower}.';
-    }
-
-    @if (map-has-key($grid-breakpoints, $upper) == false) {
-      @warn 'Your upper breakpoint was invalid: #{$upper}.';
-    }
+// 📌 Медиазапрос "между"
+@mixin media-between($from, $to) {
+  @media (min-width: get-breakpoint($from)) and (max-width: calc(get-breakpoint($to) - 1px)) {
+    @content;
   }
 }
