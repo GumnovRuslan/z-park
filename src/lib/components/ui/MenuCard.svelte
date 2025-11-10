@@ -13,7 +13,7 @@
     <div class='card__image'>
       <img 
         class={`card__image--${img ? 'picture' : 'default'}`} 
-        src={`/img/${ img ? `cafe/${img}` : 'favicon'}.webp`} 
+        src={img || '/img/favicon.webp'} 
         alt={name}
       >
     </div>
