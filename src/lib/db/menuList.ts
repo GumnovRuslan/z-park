@@ -22,7 +22,7 @@ const menuList: IMenuList[] = [
 				price: '22',
 				grams: '600 гр',
 				description: 'Кукуруза, помидоры, ветчина, курица, сыр, белый соус',
-				img: 'pizza-1'
+				img: '/img/cafe/pizza/super.webp'
 			},
 			{
 				name: 'Злодейская',
@@ -30,28 +30,27 @@ const menuList: IMenuList[] = [
 				grams: '620 гр',
 				description:
 					'Ветчина, охотничьи колбаски, пепперони, помидор, сладкий перец, сыр, томатный соус',
-				img: 'pizza-2'
+				img: '/img/cafe/pizza/злодейка.webp'
 			},
 			{
 				name: 'Чемпион',
 				price: '22',
 				grams: '590 гр',
 				description: 'Пепперони, курица, помидоры, лук, сыр, бургер-соус',
-				img: 'pizza-3'
+				img: '/img/cafe/pizza/чемпион.webp'
 			},
 			{
 				name: '4-героя',
 				price: '22',
 				grams: '550 гр',
 				description: 'Ветчина, охотничьи колбаски, соленый огурец, лук, сыр, сырный соус',
-				img: 'pizza-4'
+				img: '/img/cafe/pizza/4-героя.webp'
 			},
 			{
 				name: 'Марио',
 				price: '22',
 				grams: '600 гр',
 				description: 'Грибы, лук, болгарский перец, сыр, томатный соус',
-				// img: 'pizza-4'
 			},
 			{
 				name: 'Лило и стич',
@@ -74,19 +73,19 @@ const menuList: IMenuList[] = [
 			{
 				name: 'Сет №1',
 				price: '29',
-				img: 'set-1',
+				img: '/img/cafe/sets/set-1.webp',
 				description: 'Три бургера и картофель фри'
 			},
 			{
 				name: 'Сет №2',
 				price: '13',
-				img: 'set-2',
+				img: '/img/cafe/sets/set-2.webp',
 				description: 'Бургер и картофель фри'
 			},
 			{
 				name: 'Сет №3',
 				price: '40',
-				img: 'set-3',
+				img: '/img/cafe/sets/set-3.webp',
 				description: 'Три порции картофеля фри, три порции наггетсов, три охотничьи колбаски'
 			}
 		]
@@ -99,23 +98,29 @@ const menuList: IMenuList[] = [
 				name: 'Французский хот-дог',
 				price: '6',
 				grams: '135 гр',
-				description: 'Нежная булочка, колбаска, кетчуп, майонез'
+				description: 'Нежная булочка, колбаска, кетчуп, майонез',
+				img: '/img/cafe/snacks/французский-хот-дог.jpg'
 			},
 			{
 				name: 'Датский хот-дог',
 				price: '7',
 				grams: '150 гр',
-				description: 'Открытая булочка, колбаска, огурчики "Релиш", сыр, соус "Бургер"'
+				description: 'Открытая булочка, колбаска, огурчики "Релиш", сыр, соус "Бургер"',
+				img: '/img/cafe/snacks/датский-хот-дог.jpg'
 			},
 			{
 				name: 'Картофель фри',
 				price: '5,5',
-				grams: '100 гр'
+				grams: '100 гр',
+				description: 'Хрустящий картофель фри с солью',
+				img: '/img/cafe/snacks/картошка-фри.jpg'
 			},
 			{
 				name: 'Наггетсы',
 				price: '6,5',
-				grams: '100 гр'
+				grams: '100 гр',
+				description: 'Кусочки куриного филе в хрустящей панировке',
+				img: '/img/cafe/snacks/нагетсы.jpg'
 			},
 			{
 				name: 'Бургер',
@@ -171,7 +176,8 @@ const menuList: IMenuList[] = [
 			{
 				name: 'Капучино',
 				price: '7,5',
-				grams: '300 мл'
+				grams: '300 мл',
+				img: '/img/cafe/drinks/капучино-300.jpg'
 			},
 			{
 				name: 'Латте',
@@ -221,7 +227,8 @@ const menuList: IMenuList[] = [
 			{
 				name: '3 шарика',
 				price: '7',
-				grams: '150 г'
+				grams: '150 г',
+				img: '/img/cafe/ice-cream/3-шарика.jpg'
 			},
 			{
 				name: 'Рожок, топинг (шоколад, сироп, мармелад и др)',
