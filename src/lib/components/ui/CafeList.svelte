@@ -1,5 +1,5 @@
 <script lang="ts">
-  import MenuCard from '$lib/components/ui/MenuCard.svelte';
+  import MenuCard from './MenuCard.svelte';
 
   let {id, title, dish} = $props()
 </script>
@@ -16,7 +16,7 @@
 
 
 <style lang="scss">
-  @import '/static/styles/template/_mixins.scss';
+  @use '/static/styles/template/mixins' as *;
 
   .list {
     width: 100%;
