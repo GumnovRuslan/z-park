@@ -43,13 +43,15 @@
 </script>
 
 <div class='subscribe'>
-    <img src='/img/spider-man.webp' class="subscribe__img" alt='Картинка человека-паука'>
     <form class='subscribe__form' method="post">
         <div class='subscribe__content'>
             <div class='subscribe__action'>
                 <p class='subscribe__action-title'>Подпишитесь на новости</p>
-                <p class='subscribe__action-text'>Акции, бонусы, сюрпризы</p>
+                <p class='subscribe__action-text'>
+                    Получай первыми информацию об акциях, бонусах и важных новостях. Оставляя email, вы соглашаетесь на обработку персональных данных.
+                </p>
             </div>
+
             <div class='subscribe__input-wrapper'>
                 <input class="subscribe__form-email" type='email' placeholder="Ваш E-mail адрес" required>
                 <button class='subscribe__form-btn' type="submit" aria-label="Кнопка подписаться на новости">
@@ -60,10 +62,6 @@
                 </button>
             </div>
         </div>
-        <label class='subscribe__form-agreement'>
-            <input class="subscribe__form-checkbox" type='checkbox' required>
-            Выражаю свое согласие на обработку моих персональных данных
-        </label>
     </form>
 
 </div>
@@ -72,12 +70,8 @@
     .subscribe {
         display: flex;
         justify-content: center;
-        padding: 10px clamp(10px, 3vw, 50px);
-        background: #FFF93D;
-    }
-    .subscribe__img {
-        object-fit: cover;
-        height: 150px;
+        padding: 50px clamp(20px, 3vw, 50px);
+        background: #F5F5F5;
     }
     .subscribe__form {
         display: flex;
@@ -93,21 +87,19 @@
         gap: clamp(10px, 2vw, 40px);
     }
     .subscribe__action {
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
     }
     .subscribe__action-title {
         margin: 0;
-        text-shadow: 0 0 2px #5e3ed0;
-        font-size: clamp(22px, 5vw, 30px);
+        font-size: clamp(22px, 5vw, 24px);
         font-weight: 500;
-        line-height: 1.3;
-        color: #005FDB;
     }
     .subscribe__action-text {
-        color: #5e3ed0;
-        font-weight: 500;
-        font-size: clamp(18px, 4vw, 22px);
-        line-height: 1.3;
+        color: #606060;
+        font-size: clamp(12px, 4vw, 16px);
+        max-width: 425px;
     }
     .subscribe__input-wrapper {
         position: relative;
@@ -132,7 +124,7 @@
         padding: 0;
         border: none;
         border-radius: 50%;
-        background: #24b3ff;
+        background: #FFA600;
         transition: .3s;
     }
     .subscribe__form-btn:hover {
@@ -142,20 +134,5 @@
         width: 50%;
         height: 50%;
         fill: #f5f5f5;
-    }
-    .subscribe__form-agreement {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        line-height: 1.2;
-        font-size: clamp(12px, 2vw, 16px);
-    }
-    @media screen and (max-width: 500px) {
-        .subscribe__img {
-            display: none;
-        }
-        .subscribe__input-wrapper {
-            align-items: center;
-        }
     }
 </style>

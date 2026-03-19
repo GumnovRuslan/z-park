@@ -12,7 +12,7 @@
     })
 
     function openFullSection() {
-        let cards = cardsContainer.querySelectorAll('.attractions__card')
+        // let cards = cardsContainer.querySelectorAll('.attractions__card')
 
         let show = +btnMore.dataset.show
         let btnText = btnMore.querySelector('.btn__more-text')
@@ -57,11 +57,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        gap: 6px;
         margin: 0 auto;
-        width: 300px;
-        padding: 6px;
+        width: content;
+        padding: clamp(8px, 2vw, 12px) clamp(20px, 2.5vw, 30px);
         border : none;
+        border-radius: 50px;
         transition: 0.3s;
         background: #ffa600;
         color: #fff;
@@ -70,9 +71,8 @@
         color: #000;
     }
     .btn__more-text {
-        text-shadow: 0 0 1px #000;
         font-weight: 500;
-        font-size: 16px;
+        font-size: clamp(16px, 2.5vw, 20px); 
     }
     .btn__more-img {
         height: 25px;

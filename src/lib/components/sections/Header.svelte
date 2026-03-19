@@ -14,7 +14,7 @@
     })
 
     function closeMenu(links) {
-        links.forEach(link => link.addEventListener('click', (e) => {
+        links.forEach(link => link.addEventListener('click', () => {
             if(window.innerWidth < 800) {
                 isChecked = !isChecked
                 stopScroll()
@@ -38,7 +38,7 @@
             if (!checkbox.checked) {
                 line.style.transform = 'translateY(10px)';
                 setTimeout(() => {
-                    line.style.transform = 'translateY(10px) rotate(45deg)';
+                    line.style.transform = 'translateY(7px) rotate(45deg)';
                 }, time);
             } else {
                 line.style.transform = 'translateY(10px) rotate(0)';
@@ -58,7 +58,7 @@
             if (!checkbox.checked) {
                 line.style.transform = 'translateY(-10px)';
                 setTimeout(() => {
-                    line.style.transform = 'translateY(-10px) rotate(-45deg)';
+                    line.style.transform = 'translateY(-7px) rotate(-45deg)';
                 }, time);
             } else {
                 line.style.transform = 'translateY(-10px) rotate(0)';
@@ -115,14 +115,14 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		gap: 6px;
+		gap: 5px;
 		width: 50px;
 		height: 50px;
 		cursor: pointer;
 	}
 	.burger__line {
-		width: 30px;
-		height: 4px;
+		width: 20px;
+		height: 2px;
 		border-radius: 5px;
 		background: #000;
 	}
@@ -142,7 +142,7 @@
     .header {
         position: relative;
         box-shadow: 0 0 10px 1px #858585;
-        background: #24b3ff;
+        background: white;
     }
     .header__menu {
         overflow: auto;
@@ -159,8 +159,7 @@
         width: 100%;
         height: 100%;
         text-transform: uppercase;
-        font-family: Rubik, sans-serif;
-        font-weight: 700;
+        font-weight: 500;
         border: none;
         background: transparent;
         text-decoration: none;
@@ -201,7 +200,6 @@
             display: none;
         }
         .header__nav {
-            box-shadow: 0 0 10px #878787;
             background: #fff;
             /* height: clamp(55px, 6.5vw, 80px); */
         }

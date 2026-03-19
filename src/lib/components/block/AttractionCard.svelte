@@ -133,7 +133,7 @@
         margin-bottom: 15px;
         text-transform: uppercase;
         font-size: 22px;
-        font-weight: 700;
+        font-weight: 500;
         line-height: 1.3;
         letter-spacing: 1.5px;
     }

@@ -21,8 +21,7 @@
         max-width: 1200px;
         margin: 0 auto;
         margin-top: 15px;
-        outline: 2px solid #000;
-        box-shadow: 0 5px 10px #8c8c8c;
+        outline: 2px solid #DADADA;
         background: #fff;
         border-radius: 10px;
     }
@@ -35,11 +34,11 @@
         text-transform: uppercase;
         text-align: center;
         margin: 0;
-        font-size: clamp(14px, 3vw, 20px);
+        font-size: clamp(14px, 3vw, 24px);
+        font-weight: 600;
         line-height: 1.3;
         letter-spacing: 2px;
         border-radius: 10px;
-        border: 2px solid #000;
     }
     .prise-list__title::after {
         content: '';
@@ -67,14 +66,14 @@
 
     .prise-list__service-title,
     .prise-list__service-prise {
-        font-size: clamp(12px, 2.5vw, 18px);
+        font-size: clamp(15px, 2.5vw, 18px);
         text-transform: uppercase;
     }
     .prise-list__service-prise {
         text-wrap: nowrap;
     }
     .prise-list__service-description {
-        color: #505050;
+        color: #818181;
         font-size: clamp(12px, 2vw, 16px);
     }
     @media screen and (min-width: 650px) {
@@ -99,8 +98,7 @@
             padding-left: clamp(10px, 3vw, 30px);
         }
         .prise-list__title {
-            width: 95%;
-            padding: 0 5px;
+            padding: 0 12px;
             left: 50%;
             transform: translateY(-50%) translateX(-50%);
             background: #fff;

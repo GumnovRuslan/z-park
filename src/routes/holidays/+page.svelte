@@ -12,7 +12,6 @@
 <SectionTitle value='Праздники в Z-park'/>
 <div class='content'>
     <div class='left'>
-        <p class='title'>Немного информации</p>
         <div class='cards'>
             <div class='card'>
                 <p class='card__title'>Развлечения</p>
@@ -39,7 +38,6 @@
         </div>
     </div>
     <div class='right'>
-        <p class='title'>Можно заказать прямо сейчас!</p>
         <div class='list'>
             <ol class='info'>
                 <li class='info__item'>
@@ -55,7 +53,9 @@
                     <p class='info__text'>В нашем кафе самое необычное детское меню</p>
                 </li>
             </ol>
-            <CustomBtn text='Заказать'/>
+            <div class="info__button">
+                <CustomBtn class={'info__button'} text='Заказать'/>
+            </div>
         </div>
     </div>
 </div>
@@ -75,12 +75,6 @@
     .right {
         flex: 40%;
     }
-    .title {
-        font-weight: 700;
-        font-size: 30px;
-        margin-bottom: 15px;
-        line-height: 1.2;
-    }
     .cards {
         display: flex;
         flex-direction: column;
@@ -88,15 +82,15 @@
     }
     .card {
         padding: 20px;
-        border: 2px solid #bebebe;
+        border: 2px solid #DADADA;
         border-radius: 10px;
-        box-shadow: 2px 2px 5px #bebebe;
-        background: #f5f5f5;
+        background: white;
     }
     .card__title {
-        font-size: 26px;
-        font-weight: 700;
+        font-size: 24px;
+        font-weight: 600;
         margin-bottom: 10px;
+        text-transform: uppercase;
     }
     .card__text {
         font-size: 18px;
@@ -104,25 +98,31 @@
     }
     .list {
         padding: 20px;
-        outline: 4px dashed #d3d3d3;
+        outline: 2px  dashed #d3d3d3;
         border-radius: 10px;
-        background: #d3d3d3;
+        background: #F5F5F580;
+        width: 585;
     }
     .info {
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        margin: 0 0 20px 0;
+        gap: 24px;
+        margin: 0 0 36px 0;
     }
     .info__title {
-        margin-bottom: 10px;
+        margin-bottom: 4px;
         text-transform: uppercase;
-        font-weight: 700;
-        font-size: 22px;
+        font-weight: 600;
+        font-size: 24px;
         line-height: 1.3;
     }
     .info__text {
         font-size: 18px;
+    }
+    .info__button {
+        display: flex;
+        justify-content: end;
+        color: white;
     }
 
     @media screen and (max-width: 750px) {
@@ -131,9 +131,6 @@
         }
         .right {
             min-width: 270px;
-        }
-        .title {
-            font-size: 20px;
         }
         .card__title {
             font-size: 18px;

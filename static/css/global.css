@@ -18,5 +18,6 @@ button {
 	cursor: pointer;
 }
 * {
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Inter', 'Rubik', sans-serif;
+	box-sizing: border-box;
 }

@@ -13,16 +13,14 @@
 
 <div class='about'>
     {#each aboutInfo as data, i}
-        <div class='about__info-block'>
-            <AboutInfo {...data} position={i % 2 ? 'right' : 'left'}/>
-        </div>
+        <AboutInfo {...data} position={i % 2 ? 'right' : 'left'}/>
     {/each}
 </div>
 
 <div class='review'>
-    <h2 class='review__title'>
+    <h2 class='review__header'>
+        <span class="review__title-title">Посмотрите, что говорят о нас наши гости</span>
         <span class="review__title-text">Наш парк стал любимым местом для семейного отдыха!</span>
-        <span class="review__title-text">Посмотрите, что говорят о нас наши гости</span>
     </h2>
     <div class='review__content'>
         <div class='review__content-image'>
@@ -38,60 +36,58 @@
     </div>
 </div>
 
-<style>
+<style lang="scss">
     .review {
         padding: 0 10px;
-    }
-    .review__title {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 30px;
-    }
 
-    .review__title-text {
-        text-align: center;
-        max-width: 700px;
-        font-size: clamp(18px, 5vw, 26px);
-    }
+        &__header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 46.8px;
+        }
 
-    .review__content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
-    }
+        &__title-title {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: clamp(20px, 5vw, 36px);
+            line-height: 1.3;
+        }
 
-    .review__content-image  {
-        display: flex;
-        flex-direction: column;
-    }
+        &__title-text {
+            text-align: center;
+            font-weight: 400;
+            font-size: clamp(16px, 4vw, 18px);
+            line-height: 1;
+            color: #606060;
+        }
 
-    .review__content-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        &__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        &__content-image  {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__content-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
+    
     .about {
         padding: 0 10px;
         margin-bottom: 50px;
-    }
-
-    .about__info-block {
-        position: relative;
-        padding: 20px 0;
-    }
-
-    .about__info-block::after  {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 3px;
-        border-radius: 50%;
-        background: #ffa600;
     }
 
     @media (max-width: 780px) {
