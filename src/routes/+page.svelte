@@ -13,15 +13,11 @@
 <div class='preview'>
     <div class='preview__container'>
         <picture>
-            <source srcset="/img/super-hero-medium.webp" media="(min-width: 500px) and (max-width: 800px)">
-            <source srcset="/img/super-hero-mobil.webp" media="(max-width: 500px)">
-            <img class='preview__img' src='/img/super-hero.webp' alt='Задний фон с супер героями'>
+            <source srcset="/img/hero_bg.png" media="(min-width: 500px) and (max-width: 800px)">
+            <source srcset="/img/hero_bg.png" media="(max-width: 500px)">
+            <img class='preview__img' src='/img/hero_bg.png' alt='Задний фон с супер героями'>
         </picture>
         <div class='preview__bg'>
-            <picture>
-                <source srcset="/img/logo-removebg-cut.webp" />
-                <img class='preview__logo' src='/img/logo-removebg-cut.webp' alt='Логотип Z park'>
-            </picture>
             <p class='preview__text'>СОВРЕМЕННЫЙ РАЗВЛЕКАТЕЛЬНЫЙ ЦЕНТР</p>
             <CustomBtn text='Заказать праздник'/>
         </div>
@@ -69,22 +65,20 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
+        gap: 70px;
+        justify-content: center;
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: #0000009a;
-    }
-    .preview__logo {
-        width: clamp(160px, 35vw, 250px);
+        background: rgba(0, 0, 0, 0.5);
     }
     .preview__text {
         max-width: 600px;
         padding: 0 30px;
         color: #fff;
-        font-weight: 700;
+        font-weight: 600;
         font-size: clamp(20px, 5vw, 50px);
         line-height: 1.3;
         letter-spacing: 3px;
@@ -135,7 +129,7 @@
     .title {
         text-transform: uppercase;
         font-size: clamp(28px, 4vw, 36px);
-        font-weight: 700;
+        font-weight: 600;
         text-align: center;
         line-height: 1.3;
         margin: 0 0 20px 0;

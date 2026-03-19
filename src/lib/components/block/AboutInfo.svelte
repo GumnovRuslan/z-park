@@ -48,17 +48,29 @@
 </div>
 
 
-<style>
+<style lang="scss">
     .about-info {
+        position: relative;
         display: flex;
         align-items: center;
         gap: 20px;
         max-width: 1000px;
         margin: 0 auto;
+        padding: 20px 0;
+
+        &::after  {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            border-radius: 50px;
+            background: #F5F5F5;
+        }
     }
     .about-info__text {
         font-size: clamp(16px, 4vw, 20px);
-        font-weight: 500;
         text-align: center;
         line-height: 1.3;
     }

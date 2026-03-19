@@ -33,7 +33,7 @@
   .footer {
     &__container {
       padding: 30px clamp(10px, 4vw, 100px);
-      background: #24b3ff;
+      background: white;
     }
   }
 
@@ -41,7 +41,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 10px;
     max-width: 85%;
     margin: 0 auto 50px auto;
 
@@ -64,6 +63,11 @@
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
+      padding: clamp(0px, 1vw, 16px) 0; 
+
+      &:nth-child(2) {
+        justify-content: end;
+      }
     }
 
     &__link {

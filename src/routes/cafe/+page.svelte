@@ -75,20 +75,18 @@
 
       &__link {
         padding: 5px 15px;
-        text-transform: uppercase;
         text-decoration: none;
         text-align: center;
-        font-weight: 700;
-        font-size: 14px;
-        color: #000;
-        border: 2px solid #000;
+        font-size: 18px;
+        color: #606060;
+        border: 1.5px solid #606060;
         border-radius: 50px;
         transition: all 0.3s;
         line-height: 1.3;
+        opacity: 0.5;
 
         &:hover {
-          color: red;
-          border-color: red;
+          opacity: 1;
         }
       }
     }

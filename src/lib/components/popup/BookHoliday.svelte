@@ -78,7 +78,6 @@
             e.target.setCustomValidity('Введите правильную дату');
          else
             e.target.setCustomValidity('');
-
     }
 
     function validateTel(e) {
@@ -90,55 +89,65 @@
 </script>
 
 <dialog class="popup" id="popupBooking">
-    <div class='popup__header'>
-        <p class="popup__title">Заказать праздник</p>
-        <p class="popup__description">
-            Оставьте заявку на проведение дня рождения и наши менеджеры свяжутся с вами и помогут с организацией.
-        </p>
-    </div>
-      <div class='popup__content'>
-        <div class='popup__image-container'>
-            <img class="popup__image" src='/img/woman.webp' alt='manager'>
+    <div class="popup__inner">
+        <div class='popup__header'>
+            <button class="popup__btn-close" type="button" on:click={closePopup} aria-label="Закрыть форму заказа праздника">
+                <span class='popup__close-line'></span>
+            </button>
+            <div class="popup__header-inner">
+                <p class="popup__title">Заказать праздник</p>
+                <p class="popup__description">
+                    Оставьте заявку на проведение дня рождения и наши менеджеры свяжутся с вами и помогут с организацией.
+                </p>
+            </div>
         </div>
-        {#if !isSentForm}
-          <form class="form form-booking" method="post" enctype="application/json" on:submit={submitForm} class:form--disabled={formIsDisabled}>
-            <label class='form__label'>Ваше имя *
-                <input class="form__input" type="text" placeholder="Андрей" required>
-            </label>
-            <label class='form__label'>Дата проведения *
-                <input class="form__input"  type="date" data-mask-date required>
-            </label>
-            <label class='form__label'>Имя именинника
-                <input class="form__input"  type="text" placeholder="Полина">
-            </label>
-            <label class='form__label'>Сколько лет исполняется
-                <input class="form__input"  type="number" min='0' max='17'  placeholder="0" data-mask-num>
-            </label>
-            <label class='form__label'>Количество детей *
-                <input class="form__input"  type="number" min="1" max="100"  data-mask-num  placeholder="1" required>
-            </label>
-            <label class='form__label'>Телефон *
-                <input class="form__input" type='tel' on:input={validateTel} data-mask-tel required>
-            </label>
-            <label class='form__label-confirm'>
-                <input type='checkbox' class='form__input-confirm' required>
-                Даю согласие на обработку персональных данных, в том числе в маркетинговых целях.
-            </label>
-            <button class="form__btn-send" type='submit'>Отправить</button>
-          </form>
-        {:else}
-          <div class="sent-form">
-            <p class="sent-form__text">Спасибо, заявка принята</p>
-            <span class="sent-form__mark">
-              {@html markIcon}
-            </span>
-            <p class="sent-form__text">Скоро с вами свяжутся</p>
-          </div>
-        {/if}
+
+        <div class='popup__content'>
+            {#if !isSentForm}
+                <form class="form form-booking" method="post" enctype="application/json" on:submit={submitForm} class:form--disabled={formIsDisabled}>
+                    <label class='form__label'>
+                        <span class="form__label-name">Ваше имя *</span>
+                        <input class="form__input" type="text" placeholder="Андрей" required>
+                    </label>
+                    <label class='form__label'>
+                        <span class="form__label-name">Дата проведения *</span>
+                        <input class="form__input"  type="date" data-mask-date required>
+                    </label>
+                    <label class='form__label'>
+                        <span class="form__label-name">Имя именинника</span>
+                        <input class="form__input"  type="text" placeholder="Полина">
+                    </label>
+                    <label class='form__label'>
+                        <span class="form__label-name">Сколько лет исполняется</span>
+                        <input class="form__input"  type="number" min='0' max='17'  placeholder="0" data-mask-num>
+                    </label>
+                    <label class='form__label'>
+                        <span class="form__label-name">Количество детей *</span>
+                        <input class="form__input"  type="number" min="1" max="100"  data-mask-num  placeholder="1" required>
+                    </label>
+                    <label class='form__label'>
+                        <span class="form__label-name">Телефон *</span>
+                        <input class="form__input" type='tel' on:input={validateTel} data-mask-tel placeholder="+375 (XX) XXX-XX-XX" required>
+                    </label>
+                    <label class='form__label-confirm'>
+                        <input type='checkbox' class='form__input-confirm' required>
+                        Даю согласие на обработку персональных данных, в том числе в маркетинговых целях.
+                    </label>
+                    <button class="form__btn-send" type='submit'>Отправить</button>
+                </form>
+            {:else}
+                <div class="sent-form">
+                    <p class="sent-form__text">Спасибо, заявка принята</p>
+                    <span class="sent-form__mark">
+                        {@html markIcon}
+                    </span>
+                    <p class="sent-form__text">Скоро с вами свяжутся</p>
+                </div>
+            {/if}
       </div>
-    <button class="popup__btn-close" type="button" on:click={closePopup} aria-label="Закрыть форму заказа праздника">
-      <span class='popup__close-line'></span>
-  </button>
+    </div>
+    
+    
 </dialog>
 
 <style lang=scss>
@@ -187,35 +196,65 @@
     }
   }
     .popup {
-      width: 100%;
-      max-width: 900px;
-      border: 2px solid #3e40d0;
-      border-radius: 20px;
-      box-shadow: 0 0 20px 1px #5e3ed0;
+      border: none;
+      background: transparent;
+      padding: 0 10px;
+      max-width: 500px;
 
-      &::backdrop {
-        background: #00000071;
+      &__inner {
+        border: 1px solid #DADADA;
+        border-radius: 15px;
+        background: white;
       }
 
-      &__header {
-        margin-bottom: 15px;
-      }
+        &__header {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 8px;
+            padding: 10px 10px 0;
+        }
+
+        &__header-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        &__title {
+            padding: 0 40px;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: clamp(16px, 5vw, 24px);
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        &__description {
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 20px;
+            font-weight: 500;
+            font-size: clamp(11px, 3vw, 14px);
+            // text-align: center;
+            line-height: 1.4;
+            color: #00000080;
+        }
+
+        &__content {
+            padding: 12px;
+        }
     }
      .popup__btn-close {
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        width: 45px;
-        height: 45px;
+        align-self: flex-end;
+        width: 36px;
+        height: 36px;
         padding: 10px;
         border: none;
         border-radius: 50%;
         cursor: pointer;
         background: transparent;
-    }
-    .popup__btn-close:target {
-        background: #3e40d017;
-        outline: 2px solid #5e3ed0
     }
     .popup__close-line {
         position: relative;
@@ -231,7 +270,7 @@
         top: calc(50% - 1px);
         left: 0;
         width: 100%;
-        height: 3px;
+        height: 1px;
         border-radius: 5px;
         background: #000;
         transition: all .3s;
@@ -252,32 +291,6 @@
     .popup__btn-close:target .popup__close-line {
         transform: scale(120%);
     }
-    .popup__title {
-        margin-bottom: 5px;
-        padding: 0 40px;
-        text-transform: uppercase;
-        font-weight: 700;
-        font-size: clamp(16px, 5vw, 24px);
-        text-align: center;
-        line-height: 1.2;
-    }
-    .popup__description {
-        max-width: 500px;
-        margin: 0 auto;
-        width: 100%;
-        text-transform: uppercase;
-        font-weight: 500;
-        font-size: clamp(11px, 3vw, 14px);
-        text-align: center;
-        line-height: 1.4;
-        color: #4a4a4a;
-    }
-    .popup__content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-    }
     .popup__image-container {
         display: flex;
         align-items: center;
@@ -290,43 +303,42 @@
     .form {
         display: flex;
         flex-direction: column;
-        max-width: 450px;
+        padding: 7.5px 20px 20px;
       
       &--disabled {
         opacity: 0.5;
         pointer-events: none;
       }
-    }
-    .form__label {
-        width: 100%;
-        font-weight: 500;
-        font-size: clamp(14px, 4vw, 16px);
-        line-height: 1.5;
-        padding-left: 10px;
-    }
-    .form__input {
-        width: calc(100% + 10px);
-        margin-left: -10px;
-        padding: 5px 10px;
-        height: 45px;
-        outline: 1px solid #5e3ed0;
-        border: none;
-        border-radius: 5px;
-        font-family: Rubik, sans-serif;
-        font-size: clamp(16px, 4vw, 18px);
-        line-height: 1.3;
-        color: #505050;
-        transition: box-shadow 0.3s;
-    }
-    .form__input::placeholder {
-        color: #9a9a9a;
-    }
-    .form__input:hover, .form__input:focus  {
-        outline: 2px solid #5e3ed0;
-    }
-    .form__input:focus  {
-        box-shadow: 0 0 6px #3e40d0;
-        background: #3e40d017;
+
+        &__label {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 100%;
+            font-weight: 500;
+            font-size: clamp(14px, 4vw, 16px);
+        }
+
+        &__label-name {
+            padding-left: 8px;
+        }
+
+        &__input {
+            padding: 5px 10px;
+            height: 45px;
+            outline: 1px solid #60606071;
+            border: none;
+            border-radius: 5px;
+            font-size: clamp(16px, 4vw, 16px);
+            line-height: 1.3;
+            transition: all 0.3s;
+            background: white;
+            color: #00000080;
+
+            &:hover, &:focus  {
+                outline-color: #000;
+            }
+        }
     }
     .form__label-confirm {
         display: flex;
@@ -338,7 +350,7 @@
         line-height: 1.2;
         outline: 1px solid transparent;
         outline-offset: 2px;
-        color: #505050;
+        color: #00000080;
     }
     .form__input-confirm {
         min-width: 15px;
@@ -353,23 +365,14 @@
         padding: 5px 20px;
         font-size: clamp(14px, 4vw, 18px);
         font-weight: 700;
-        border: 2px solid #5e3ed0;
         border-radius: 5px;
         color: #f5f5f5;
-        background: #5e3ed0;
+        background: #FFA600;
         transition: all .3s;
-    }
-    .form__btn-send:hover, .form__btn-send:focus {
-        background: #f5f5f5;
-        color: #5e3ed0;
-        outline: none;
-    }
-    .form__btn-send:focus {
-        box-shadow: 0 0 8px #3e40d0;
     }
     @media screen and (min-width: 650px) {
         .popup {
-            padding: 20px;
+            padding: 0;
         }
         .form {
             gap: 10px;

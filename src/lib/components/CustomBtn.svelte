@@ -1,21 +1,23 @@
 <script>
     import { openPopup } from '$lib/utils/popup.js'
-    export let text
+    export let text, className
 </script>
 
-<button class="btn" type="button" on:click={openPopup}>{text}</button>
+<button class={`btn ${className}`} type="button" on:click={openPopup}>
+    {text}
+</button>
 
-<style>
+<style lang="scss">
     .btn {
         position: relative;
         min-width: 130px;
         text-decoration: none;
         text-transform: uppercase;
         font-size: 16px;
-        font-weight: 700;
+        font-weight: 500;
         letter-spacing: 0.5px;
-        border-radius: 2px;
-        color: #000000;
+        border-radius: 50px;
+        color: inherit;
         background: #ffa600;
         padding: 10px 20px;
         outline: none;

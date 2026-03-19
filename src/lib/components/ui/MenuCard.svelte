@@ -8,7 +8,9 @@
 
   <div class='card'>
     {#if description}
-        <div class='card__description'>{description}</div>
+        <div class='card__description'>
+          <p class="">{description}</p>
+        </div>
     {/if}
     <div class='card__image'>
       <img 
@@ -18,11 +20,7 @@
       >
     </div>
     <div class='card__inner'>
-      <p class='card__name'>{name}
-        {#if description}
-          <span class="card__description-sign">?</span>
-        {/if}
-      </p>
+      <p class='card__name'>{name}</p>
       <div class='card__info'>
         <span class='card__price'>{`${price} p`}</span>
         <span class='card__grams'>{grams}</span>
@@ -40,14 +38,12 @@
     padding: clamp(15px, 3vw, 20px);
     border: none;
     border-radius: 10px;
-    box-shadow: 1px 1px 5px #ababab;
+    border: 1px solid #DADADA;
     background: #fff;
 
     &:hover .card__description {
       visibility: visible;
-      height: inherit;
-      width: inherit;
-      padding: inherit;
+      opacity: 1;
     }
 
     &__description {
@@ -56,15 +52,21 @@
       z-index: 2;
       top: 0;
       left: 0;
-      width: 0;
-      height: 0;
+      width: 100%;
+      height: 100%;
+      padding: inherit;
       border-radius: inherit;
       line-height: 1.3;
       font-size: clamp(16px, 2vw, 20px);
       transition: all .3s;
       overflow: hidden;
-      background: #ff3131e0;
+      background: linear-gradient(180deg, rgba(96, 96, 96, 0.75) 0%, rgba(64, 64, 64, 0.75) 100%);
       color: #f5f5f5;
+      opacity: 0;
+
+      & > p {
+        width: 300px;
+      }
     }
 
     &__image {
@@ -75,7 +77,7 @@
       height: 200px;
       margin-bottom: 10px;
       overflow: hidden;
-      background: #fff;
+      background: #f5f5f5;
       border-radius: 10px;
 
       &--picture {
@@ -88,6 +90,7 @@
         width: 100px;
         height: 100px;
         object-fit: contain;
+        opacity: .5;
       }
     }
 

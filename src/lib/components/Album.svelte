@@ -10,7 +10,7 @@
     </div>
     <div class='album__bottom'>
         <p class='album__name'>{album.name}</p>
-        <p class='album__length'>{album.inner.length} фото</p>
+        <p class='album__length'>{album.inner.length} Фото</p>
     </div>
 </a>
 
@@ -21,28 +21,6 @@
     .album__border {
         position: relative;
         z-index: 5;
-    }
-    .album__border::before,
-    .album__border::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border: 1px solid #c6c6c6;
-        border-radius: 5px;
-        box-shadow: inset -2px -2px 5px 1px #ffffff;
-    }
-    .album__border::before {
-        z-index: -2;
-        top: 3px;
-        left: 3px;
-        background: #c1c1c1;
-    }
-    .album__border::after {
-        z-index: -3;
-        top: 7px;
-        left: 7px;
-        background: #b9b9b9;
     }
     .album__preview {
         position: relative;
@@ -67,16 +45,16 @@
         flex-direction: column;
     }
     .album__name {
-        text-transform: uppercase;
+        text-transform: capitalize;
         text-align: center;
-        font-weight: 700;
+        font-weight: 600;
         color: #000;
+        margin-bottom: 3px;
     }
     .album__length {
-        text-transform: uppercase;
         text-align: center;
         font-size: 14px;
-        font-weight: 700;
+        font-weight: 500;
         line-height: 1;
         color: #6d6d6d;
     }

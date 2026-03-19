@@ -55,7 +55,7 @@
         position: fixed;
         z-index: 10;
         bottom: 30px;
-        right: 10px;
+        right: 15px;
         display: flex;
         flex-direction: column;
         gap: 10px;

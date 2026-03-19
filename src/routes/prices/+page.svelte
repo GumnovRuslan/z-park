@@ -20,7 +20,7 @@
 
 <style>
   .content {
-    background: #eaeaea;
+    background: white;
     padding: clamp(20px, 4vw, 50px) clamp(10px, 3vw, 50px)
   }
 </style>
