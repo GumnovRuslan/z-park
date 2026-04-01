@@ -1,4 +1,5 @@
 <script>
+  import { tiktokIcon } from '../../icons.js';
 </script>
 
 <div class='footer__container'>
@@ -11,6 +12,22 @@
             <div class='footer-top__content'>
                 <a href='/rules' class='footer-top__link'>Правила посещения</a>
                 <a href='/privacy-policy' class='footer-top__link'>Политика конфиденциальности</a>
+                <div class="footer-top__networks">
+                  <a href="https://www.instagram.com/zpark_vitebsk/" target="_blank" class='footer__icon'>
+                      <img src='/svg/instagram.svg' alt='Картинка инстаграм' class='footer__img-network'>
+                  </a>
+                  <a href="https://www.tiktok.com/@zpark_vitebsk" target="_blank" class='footer__icon'>
+                      <!-- <span class="footer__icon"> -->
+                          {@html tiktokIcon}
+                      <!-- </span> -->
+                  </a>
+                  <a href="https://vk.com/z_park_vitebsk" target="_blank" class='footer__icon'>
+                      <img src='/svg/vk.svg' alt='Картинка вконтакте' class='footer__img-network'>
+                  </a>
+                  <a href="https://www.youtube.com/channel/UCRRIZbUwBzzHOlL6ezvpHrg" target="_blank" class='footer__icon'>
+                      <img src='/svg/youtube.svg' alt='Картинка ютуб' class='footer__img-network'>
+                  </a>
+                </div>
             </div>
             <div class='footer-top__content'>
                 <a href='/contacts' class='footer-top__link'>Контакты</a>
@@ -34,6 +51,25 @@
     &__container {
       padding: 30px clamp(10px, 4vw, 100px);
       background: white;
+    }
+
+    &-top__networks {
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    &__icon {
+      color: black;
+      width: 20px;
+      height: 20px;
+    }
+
+    &__img-network {
+      width: 20px;
+      height: 20px;
     }
   }
 
@@ -66,7 +102,7 @@
       padding: clamp(0px, 1vw, 16px) 0; 
 
       &:nth-child(2) {
-        justify-content: end;
+        // justify-content: end;
       }
     }
 
