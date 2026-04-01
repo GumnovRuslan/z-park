@@ -41,7 +41,7 @@
             </div>
         </div>
         <div class='footer-bottom'>
-            <p class='footer-bottom__copy'>Все права защищены © 2018-2024 ООО "Парки развлечений"</p>
+            <p class='footer-bottom__copy'>Все права защищены © 2018-{new Date().getFullYear()} ООО "Парки развлечений"</p>
         </div>
 </div>
 
