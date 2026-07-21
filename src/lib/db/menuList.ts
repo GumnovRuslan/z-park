@@ -9,7 +9,7 @@ interface IDish {
 interface IMenuList {
 	title: string;
 	id: string;
-	dish: IDish[]
+	dish: IDish[];
 }
 
 const menuList: IMenuList[] = [
@@ -18,55 +18,59 @@ const menuList: IMenuList[] = [
 		id: 'pizzas',
 		dish: [
 			{
-				name: 'Super',
-				price: '22',
-				grams: '600 гр',
-				description: 'Кукуруза, помидоры, ветчина, курица, сыр, белый соус',
+				name: 'Бэмби',
+				price: '28',
+				grams: '610 гр',
+				description: 'Соус "Белый", ветчина, сыр, помидор, курица, кукуруза',
 				img: '/img/cafe/pizza/super.webp'
 			},
 			{
-				name: 'Злодейская',
-				price: '22',
-				grams: '620 гр',
-				description:
-					'Ветчина, охотничьи колбаски, пепперони, помидор, сладкий перец, сыр, томатный соус',
-				img: '/img/cafe/pizza/злодейка.webp'
+				name: 'Феникс',
+				price: '28',
+				grams: '650 гр',
+				description: 'Соус "Томатный", сыр, курица, грибы, перец, лук жаренный'
 			},
 			{
-				name: 'Чемпион',
-				price: '22',
-				grams: '590 гр',
-				description: 'Пепперони, курица, помидоры, лук, сыр, бургер-соус',
+				name: 'Мститель',
+				price: '26',
+				grams: '600 гр',
+				description: 'Соус "Томатный", сыр, кукуруза, перец, лук, помидор'
+			},
+			{
+				name: 'Мафия',
+				price: '28',
+				grams: '640 гр',
+				description: 'Соус "Сырный", сыр, ветчина, колбаски, огурцы, лук'
+			},
+			{
+				name: 'Молния',
+				price: '28',
+				grams: '570 гр',
+				description: 'Соус "Бургер", сыр, пепперони, курица, помидор, лук',
 				img: '/img/cafe/pizza/чемпион.webp'
 			},
 			{
-				name: '4-героя',
-				price: '22',
-				grams: '550 гр',
-				description: 'Ветчина, охотничьи колбаски, соленый огурец, лук, сыр, сырный соус',
-				img: '/img/cafe/pizza/4-героя.webp'
+				name: 'Спайдер',
+				price: '28',
+				grams: '630 гр',
+				description: 'Соус "Томатный", сыр, ветчина, пепперони, колбаски, помидор, перец',
+				img: '/img/cafe/pizza/злодейка.webp'
 			},
 			{
-				name: 'Марио',
-				price: '22',
-				grams: '600 гр',
-				description: 'Грибы, лук, болгарский перец, сыр, томатный соус',
+				name: 'Моана',
+				price: '28',
+				grams: '650 гр',
+				description: 'Соус "Белый", сыр, ветчина, ананасы, курица, кукуруза'
 			},
 			{
-				name: 'Лило и стич',
-				price: '22',
-				grams: '600 гр',
-				description: 'Курица, ветчина, ананасы консервированные, сыр, томатный соус'
-			},
-			{
-				name: 'Сплинтер',
-				price: '22',
-				grams: '600 гр',
-				description: 'Сладкий перец, лук, помидоры, кукуруза, сыр, томатный соус)'
+				name: 'Пеперониум',
+				price: '26',
+				grams: '545 гр',
+				description: 'Соус "Томатный", сыр, пепперони'
 			}
 		]
 	},
-		{
+	{
 		title: 'Сеты',
 		id: 'sets',
 		dish: [
@@ -145,11 +149,12 @@ const menuList: IMenuList[] = [
 				name: 'Пончик',
 				price: '4,5',
 				grams: '60 гр',
-				description: 'Пончик с яркой глазурью. Вкусы: черника, малина, тутти-фрутти, клубника, банан'
+				description:
+					'Пончик с яркой глазурью. Вкусы: черника, малина, тутти-фрутти, клубника, банан'
 			}
 		]
 	},
-		{
+	{
 		title: 'Горячие напитки',
 		id: 'hot-drinks',
 		dish: [
@@ -240,7 +245,7 @@ const menuList: IMenuList[] = [
 				description: '1 шарик мороженого, молоко и сироп на выбор'
 			}
 		]
-	},
+	}
 ];
 
 export default menuList;
